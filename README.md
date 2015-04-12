@@ -1,6 +1,6 @@
 # About this fork
 
-This project is forked from [yuyuvn/KanColleViewer](https://github.com/yuyuvn/KanColleViewer), with only 1 changes: Added resources stat in homeport (fuel, ammunition, steel, bauxite, instant repair, development material)
+This project is forked from [yuyuvn/KanColleViewer](https://github.com/yuyuvn/KanColleViewer), with only 1 change: Added resources stat in homeport (fuel, ammunition, steel, bauxite, instant repair, development material)
 
 Basically the code is sync with yuyuvn's branch, but it is not guaranteed for future updates and keep syncing to the original branch.
 
