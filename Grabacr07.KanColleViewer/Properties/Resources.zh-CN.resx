@@ -1049,7 +1049,7 @@ GPU: 慢! 适用于平板设备.</value>
   <data name="Settings_CustomSound_Volume" xml:space="preserve">
     <value>音量</value>
   </data>
-   <data name="Ship_RepairDockToolTip" xml:space="preserve">
+  <data name="Ship_RepairDockToolTip" xml:space="preserve">
     <value>维修: {0}</value>
   </data>
   <data name="Ship_RepairFacilityToolTip" xml:space="preserve">
@@ -1288,5 +1288,17 @@ GPU: 慢! 适用于平板设备.</value>
   </data>
   <data name="ShipCatalog_CustomSort" xml:space="preserve">
     <value>游戏</value>
+  </data>
+  <data name="Homeport_Ammunition" xml:space="preserve">
+    <value>Ammunition</value>
+  </data>
+  <data name="Homeport_Bauxite" xml:space="preserve">
+    <value>Bauxite</value>
+  </data>
+  <data name="Homeport_Fuel" xml:space="preserve">
+    <value>Fuel</value>
+  </data>
+  <data name="Homeport_Steel" xml:space="preserve">
+    <value>Steel</value>
   </data>
 </root>

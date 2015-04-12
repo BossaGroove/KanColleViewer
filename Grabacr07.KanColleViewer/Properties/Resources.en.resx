@@ -1298,4 +1298,16 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="ShipCatalog_CustomSort" xml:space="preserve">
     <value>Game's sort</value>
   </data>
+  <data name="Homeport_Ammunition" xml:space="preserve">
+    <value>Ammunition</value>
+  </data>
+  <data name="Homeport_Bauxite" xml:space="preserve">
+    <value>Bauxite</value>
+  </data>
+  <data name="Homeport_Fuel" xml:space="preserve">
+    <value>Fuel</value>
+  </data>
+  <data name="Homeport_Steel" xml:space="preserve">
+    <value>Steel</value>
+  </data>
 </root>
