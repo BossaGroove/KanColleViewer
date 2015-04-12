@@ -732,4 +732,7 @@ Niedrig: Performance über Qualität. Sieht einfach beschissen aus.</value>
   <data name="Tools" xml:space="preserve">
     <value>Werkzeuge</value>
   </data>
+  <data name="Homeport_DevelopmentMaterials" xml:space="preserve">
+    <value>Development Materials</value>
+  </data>
 </root>

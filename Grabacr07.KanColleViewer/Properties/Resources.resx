@@ -1242,4 +1242,7 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Homeport_Steel" xml:space="preserve">
     <value>鋼材</value>
   </data>
+  <data name="Homeport_DevelopmentMaterials" xml:space="preserve">
+    <value>開発資材</value>
+  </data>
 </root>

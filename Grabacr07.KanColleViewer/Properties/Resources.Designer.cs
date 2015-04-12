@@ -583,6 +583,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 開発資材.
+        /// </summary>
+        public static string Homeport_DevelopmentMaterials {
+            get {
+                return ResourceManager.GetString("Homeport_DevelopmentMaterials", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 司令部.
         /// </summary>
         public static string Homeport_FleetHQ {

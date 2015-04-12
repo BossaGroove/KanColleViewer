@@ -1301,4 +1301,7 @@ GPU: 慢! 适用于平板设备.</value>
   <data name="Homeport_Steel" xml:space="preserve">
     <value>Steel</value>
   </data>
+  <data name="Homeport_DevelopmentMaterials" xml:space="preserve">
+    <value>Development Materials</value>
+  </data>
 </root>
