@@ -565,7 +565,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 弾薬.
+        ///   Looks up a localized string similar to 弾薬:.
         /// </summary>
         public static string Homeport_Ammunition {
             get {
@@ -574,7 +574,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ボーキサイト.
+        ///   Looks up a localized string similar to ボーキサイト:.
         /// </summary>
         public static string Homeport_Bauxite {
             get {
@@ -583,7 +583,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 開発資材.
+        ///   Looks up a localized string similar to 開発資材:.
         /// </summary>
         public static string Homeport_DevelopmentMaterials {
             get {
@@ -601,7 +601,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 燃料.
+        ///   Looks up a localized string similar to 燃料:.
         /// </summary>
         public static string Homeport_Fuel {
             get {
@@ -655,7 +655,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 鋼材.
+        ///   Looks up a localized string similar to 鋼材:.
         /// </summary>
         public static string Homeport_Steel {
             get {

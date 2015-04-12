@@ -1231,18 +1231,18 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>ゲーム内</value>
   </data>
   <data name="Homeport_Ammunition" xml:space="preserve">
-    <value>弾薬</value>
+    <value>弾薬:</value>
   </data>
   <data name="Homeport_Bauxite" xml:space="preserve">
-    <value>ボーキサイト</value>
+    <value>ボーキサイト:</value>
   </data>
   <data name="Homeport_Fuel" xml:space="preserve">
-    <value>燃料</value>
+    <value>燃料:</value>
   </data>
   <data name="Homeport_Steel" xml:space="preserve">
-    <value>鋼材</value>
+    <value>鋼材:</value>
   </data>
   <data name="Homeport_DevelopmentMaterials" xml:space="preserve">
-    <value>開発資材</value>
+    <value>開発資材:</value>
   </data>
 </root>

@@ -1290,18 +1290,18 @@ GPU: 慢! 适用于平板设备.</value>
     <value>游戏</value>
   </data>
   <data name="Homeport_Ammunition" xml:space="preserve">
-    <value>Ammunition</value>
+    <value>Ammunition:</value>
   </data>
   <data name="Homeport_Bauxite" xml:space="preserve">
-    <value>Bauxite</value>
+    <value>Bauxite:</value>
   </data>
   <data name="Homeport_Fuel" xml:space="preserve">
-    <value>Fuel</value>
+    <value>Fuel:</value>
   </data>
   <data name="Homeport_Steel" xml:space="preserve">
-    <value>Steel</value>
+    <value>Steel:</value>
   </data>
   <data name="Homeport_DevelopmentMaterials" xml:space="preserve">
-    <value>Development Materials</value>
+    <value>Development Materials:</value>
   </data>
 </root>

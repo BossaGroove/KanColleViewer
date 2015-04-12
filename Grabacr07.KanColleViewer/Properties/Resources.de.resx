@@ -733,6 +733,18 @@ Niedrig: Performance über Qualität. Sieht einfach beschissen aus.</value>
     <value>Werkzeuge</value>
   </data>
   <data name="Homeport_DevelopmentMaterials" xml:space="preserve">
-    <value>Development Materials</value>
+    <value>Development Materials:</value>
+  </data>
+  <data name="Homeport_Ammunition" xml:space="preserve">
+    <value>Ammunition:</value>
+  </data>
+  <data name="Homeport_Bauxite" xml:space="preserve">
+    <value>Bauxite:</value>
+  </data>
+  <data name="Homeport_Fuel" xml:space="preserve">
+    <value>Fuel:</value>
+  </data>
+  <data name="Homeport_Steel" xml:space="preserve">
+    <value>Steel:</value>
   </data>
 </root>
