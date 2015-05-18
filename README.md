@@ -2,6 +2,12 @@
 
 This version is forked from [yuyuvn/KanColleViewer](https://github.com/yuyuvn/KanColleViewer), with only 1 change: Added resources stat in homeport (fuel, ammunition, steel, bauxite, instant repair, development material)
 
+Before:
+![from](https://cloud.githubusercontent.com/assets/614068/7683528/4f7959e2-fdb2-11e4-933a-8d84c5cd0848.png)
+
+After:
+![to](https://cloud.githubusercontent.com/assets/614068/7683532/50bf2c78-fdb2-11e4-9677-d3d8b171d5dc.png)
+
 All credits go to it's original author [Grabacr07](https://github.com/Grabacr07) and branch maintainer [yuyuvn](https://github.com/yuyuvn).
 
 Basically the code is sync with yuyuvn's branch, but it is not guaranteed for future updates and keep syncing to the original branch.
