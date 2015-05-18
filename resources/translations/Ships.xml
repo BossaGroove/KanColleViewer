@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Ships Version="1.1.4">
+<Ships Version="1.1.5">
   <Ship>
     <JP-Name>長門</JP-Name>
     <TR-Name>Nagato</TR-Name>
@@ -922,6 +922,22 @@
   <Ship>
     <JP-Name>呂500</JP-Name>
     <TR-Name>Ro-500</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>秋津洲</JP-Name>
+    <TR-Name>Akitsushima</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>Littorio</JP-Name>
+    <TR-Name>Littorio</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>Italia</JP-Name>
+    <TR-Name>Italia</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>Roma</JP-Name>
+    <TR-Name>Roma</TR-Name>
   </Ship>
   <Ship mode="suffix">
 	<JP-Name>改</JP-Name>

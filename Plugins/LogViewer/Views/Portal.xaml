@@ -47,6 +47,7 @@
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <i:Interaction.Behaviors>
                     <behaviors:IgnoreMouseWheelBehavior />
+                    <behaviors:IsVisibleChangedBehaviour />
                 </i:Interaction.Behaviors>
                 <ListView.Resources>
                     <!--<Style TargetType="{x:Type TextBlock}"

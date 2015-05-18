@@ -313,6 +313,24 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 「提督業も忙しい！」 を終了します。 よろしいですか？.
+        /// </summary>
+        public static string ExitDialogConfirm {
+            get {
+                return ResourceManager.GetString("ExitDialogConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXIT KanColleViewer.
+        /// </summary>
+        public static string ExitDialogTitle {
+            get {
+                return ResourceManager.GetString("ExitDialogTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 遠征.
         /// </summary>
         public static string Expedition {
@@ -1312,6 +1330,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to オリエンテーションモードを変化する.
+        /// </summary>
+        public static string Settings_ChangeOrientationMode {
+            get {
+                return ResourceManager.GetString("Settings_ChangeOrientationMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 通知音を設定.
         /// </summary>
         public static string Settings_CustomSound {
@@ -1335,6 +1362,33 @@ namespace Grabacr07.KanColleViewer.Properties {
         public static string Settings_Display {
             get {
                 return ResourceManager.GetString("Settings_Display", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 終了確認.
+        /// </summary>
+        public static string Settings_ExitConfirm {
+            get {
+                return ResourceManager.GetString("Settings_ExitConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 出撃の時だけ.
+        /// </summary>
+        public static string Settings_ExitConfirmOnlyWhenInSortie {
+            get {
+                return ResourceManager.GetString("Settings_ExitConfirmOnlyWhenInSortie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 終了確認ダイアログを利用する.
+        /// </summary>
+        public static string Settings_ExitConfirmOption {
+            get {
+                return ResourceManager.GetString("Settings_ExitConfirmOption", resourceCulture);
             }
         }
         
@@ -2483,9 +2537,9 @@ namespace Grabacr07.KanColleViewer.Properties {
         /// <summary>
         ///   Looks up a localized string similar to 作戦出撃なし.
         /// </summary>
-        public static string ShipCatalog_Operation_NeitherALnorMI {
+        public static string ShipCatalog_Operation_NotLocked {
             get {
-                return ResourceManager.GetString("ShipCatalog_Operation_NeitherALnorMI", resourceCulture);
+                return ResourceManager.GetString("ShipCatalog_Operation_NotLocked", resourceCulture);
             }
         }
         
@@ -2657,24 +2711,6 @@ namespace Grabacr07.KanColleViewer.Properties {
         public static string ShipCatalog_SortieWaters {
             get {
                 return ResourceManager.GetString("ShipCatalog_SortieWaters", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to AL 作戦.
-        /// </summary>
-        public static string ShipCatalog_SortieWaters_AL {
-            get {
-                return ResourceManager.GetString("ShipCatalog_SortieWaters_AL", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to MI 作戦.
-        /// </summary>
-        public static string ShipCatalog_SortieWaters_MI {
-            get {
-                return ResourceManager.GetString("ShipCatalog_SortieWaters_MI", resourceCulture);
             }
         }
         

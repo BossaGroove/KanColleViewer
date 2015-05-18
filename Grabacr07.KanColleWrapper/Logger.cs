@@ -187,7 +187,7 @@ namespace Grabacr07.KanColleWrapper
 			if (source == null || source.Length != 7)
 				return;
 
-			Log(LogType.Materials,
+			this.Log(LogType.Materials,
 				source[0].api_value, source[1].api_value, source[2].api_value, source[3].api_value, source[6].api_value, source[5].api_value, source[4].api_value);
 		}
 
@@ -196,7 +196,7 @@ namespace Grabacr07.KanColleWrapper
 			if (source == null || source.Length != 4)
 				return;
 
-			Log(LogType.Materials,
+			this.Log(LogType.Materials,
 				source[0], source[1], source[2], source[3], 
 				KanColleClient.Current.Homeport.Materials.DevelopmentMaterials, 
 				KanColleClient.Current.Homeport.Materials.InstantRepairMaterials, 

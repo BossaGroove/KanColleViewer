@@ -96,15 +96,6 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		}
 		#endregion
 
-		#region IsUpdateAvailable 変更通知プロパティ
-
-		public bool IsUpdateAvailable
-		{
-			get { return KanColleClient.Current.Updater.IsOnlineVersionGreater(0, App.ProductInfo.Version.ToString()); }
-		}
-
-		#endregion
-
 		private StartContentViewModel() { }
 
 		public async void DeleteInternetCache()

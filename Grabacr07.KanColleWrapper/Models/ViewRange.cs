@@ -70,12 +70,12 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public override string Name
 		{
-			get { return "Simple"; }
+			get { return Properties.Resources.ViewRange_Type1_Name; }
 		}
 
 		public override string Description
 		{
-			get { return "Simple sum of ship and equipment LoS"; }
+			get { return Properties.Resources.ViewRange_Type1_Description; }
 		}
 
 		public override double Calc(Ship[] ships)
@@ -96,13 +96,12 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public override string Name
 		{
-			get { return "Formula 2-5 (old)"; }
+			get { return Properties.Resources.ViewRange_Type2_Name; }
 		}
 
 		public override string Description
 		{
-			get { return @"(Recon planes × 2) + (Radar) + √(Total LoS with equip LoS included - 
-Recon planes - Radar)"; }
+			get { return Properties.Resources.ViewRange_Type2_Description; }
 		}
 
 		public override double Calc(Ship[] ships)
@@ -140,17 +139,14 @@ Recon planes - Radar)"; }
 
 		public override string Name
 		{
-			get { return "Formula 2-5 (new)"; }
+			get { return Properties.Resources.ViewRange_Type3_Name; }
 		}
 
 		public override string Description
 		{
 			get
 			{
-				return @"Dive Bomber LoS x (1.04) + Torpedo Bomber LoS x (1.37) + 
-Carrier-based Recon Plane LoS x (1.66) + Recon Seaplane LoS x (2.00) + Seaplane Bomber LoS x (1.78) + 
-Small Radar LoS x (1.00) + Large Radar LoS x (0.99) + Searchlight LoS x (0.91) + √(base LoS of each ship) x 
-(1.69) + (HQ Lv. rounded up to the next multiple of 5) x (-0.61)";
+				return Properties.Resources.ViewRange_Type3_Description;
 			}
 		}
 

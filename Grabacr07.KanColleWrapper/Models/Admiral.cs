@@ -76,9 +76,10 @@ namespace Grabacr07.KanColleWrapper.Models
 	        get { return Models.Rank.GetName(this.RawData.api_rank); }
 	    }
 
-	    /// <summary>
+		/// <summary>
 		/// 提督のランクを取得します。
 		/// </summary>
+		// ReSharper disable once InconsistentNaming
 		public int RankID
 		{
 			get { return this.RawData.api_rank; }

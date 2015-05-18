@@ -148,7 +148,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 			get { return this._SelectedSea; }
 			set
 			{
-				if (_SelectedSea != value)
+				if (this._SelectedSea != value)
 				{
 					this._SelectedSea = value;
 					this.RaisePropertyChanged();
@@ -199,8 +199,9 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 
 		#endregion
 
+		// ReSharper disable InconsistentNaming
 		#region IsMVP 変更通知プロパティ
-
+		
 		private bool _IsMVP;
 
 		public bool IsMVP
@@ -218,6 +219,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 		}
 
 		#endregion
+		// ReSharper restore InconsistentNaming
 
 		#region IsReloading 変更通知プロパティ
 
@@ -343,7 +345,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 		public CalculatorViewModel()
 		{
 			this.SeaList = SeaExpTable.Keys.ToList();
-			this.ResultList = Results.ToList();
+			this.ResultList = this.Results.ToList();
 
 			this.SortWorker = new ShipCatalogSortWorker();
             this.SortWorker.SetFirst(ShipCatalogSortWorker.LevelColumn);
@@ -361,8 +363,8 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 				{ () => this.homeport.Organization.Ships, (sender, args) => this.Update() },
 			});
 
-			SelectedSea = SeaExpTable.Keys.FirstOrDefault();
-			SelectedResult = Results.FirstOrDefault();
+			this.SelectedSea = SeaExpTable.Keys.FirstOrDefault();
+			this.SelectedResult = this.Results.FirstOrDefault();
 
             this.Update();
 		}
@@ -391,9 +393,9 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 				return;
 
 			// Lawl at that this inline conditional.
-			double Multiplier = (this.IsFlagship ? 1.5 : 1) * (this.IsMVP ? 2 : 1) * (this.SelectedResult == "S" ? 1.2 : (this.SelectedResult == "C" ? 0.8 : (this.SelectedResult == "D" ? 0.7 : (this.SelectedResult == "E" ? 0.5 : 1))));
+			double multiplier = (this.IsFlagship ? 1.5 : 1) * (this.IsMVP ? 2 : 1) * (this.SelectedResult == "S" ? 1.2 : (this.SelectedResult == "C" ? 0.8 : (this.SelectedResult == "D" ? 0.7 : (this.SelectedResult == "E" ? 0.5 : 1))));
 
-			this.SortieExp = (int)Math.Round( SeaExpTable[this.SelectedSea] * Multiplier );
+			this.SortieExp = (int)Math.Round( SeaExpTable[this.SelectedSea] * multiplier );
 			this.RemainingExp = this.TargetExp - this.CurrentExp;
 			this.RunCount = (int)Math.Ceiling( this.RemainingExp / (double)this.SortieExp );
 		}

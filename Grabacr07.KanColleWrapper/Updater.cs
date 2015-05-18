@@ -267,7 +267,7 @@ namespace Grabacr07.KanColleWrapper
 		public bool IsOnlineVersionGreater(TranslationType Type, string LocalVersionString)
 		{
 			if (VersionXML == null)
-				return true;
+				return false;
 
 			IEnumerable<XElement> Versions = VersionXML.Root.Descendants("Item");
 			string ElementName = "Version";

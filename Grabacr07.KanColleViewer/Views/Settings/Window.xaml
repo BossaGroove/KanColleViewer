@@ -54,5 +54,20 @@
         <Rectangle Height="1"
 				   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
+		<TextBlock Text="{Binding Resources.Settings_ExitConfirm, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+				   Style="{DynamicResource SettingsHeaderTextStyleKey}" />
+
+		<CheckBox Content="{Binding Resources.Settings_ExitConfirmOption, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+				  IsChecked="{Binding CloseConfirm, Source={x:Static models:Settings.Current}, Mode=TwoWay}"
+				  Margin="20,0,0,10" />
+
+		<CheckBox Content="{Binding Resources.Settings_ExitConfirmOnlyWhenInSortie, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+				  IsChecked="{Binding CloseConfirmOnlyInSortie, Source={x:Static models:Settings.Current}, Mode=TwoWay}"
+				  IsEnabled="{Binding CloseConfirm, Source={x:Static models:Settings.Current}, Mode=OneWay}"
+				  Margin="20,0,0,10" />
+
+		<Rectangle Height="1"
+				   Style="{DynamicResource SeparatorRectangleStyleKey}" />
+
 	</StackPanel>
 </UserControl>

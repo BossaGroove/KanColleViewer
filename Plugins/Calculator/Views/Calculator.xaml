@@ -51,12 +51,26 @@
 							  HorizontalAlignment="Left"
 							  Prompt="Select a Ship Girl"
 							  ItemsSource="{Binding Ships}"
-							  DisplayMemberPath="Ship.NameLv"
 							  SelectedValuePath="Ship"
 							  SelectedValue="{Binding CurrentShip, Mode=TwoWay}"
 							  IsReadOnly="True"
-							  MinWidth="220"
-							  FontFamily="Consolas"/>
+							  MinWidth="220">
+			<metro:PromptComboBox.ItemTemplate>
+				<DataTemplate>
+					<Grid DataContext="{Binding Ship}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<TextBlock Style="{DynamicResource DefaultTextStyleKey}"
+								   Text="{Binding Info.Name, Mode=OneWay}" />
+						<TextBlock Grid.Column="1"
+								   Style="{DynamicResource DefaultTextStyleKey}"
+								   Text="{Binding Level, Mode=OneWay, StringFormat= [Lv.{0}]}" />
+					</Grid>
+				</DataTemplate>
+			</metro:PromptComboBox.ItemTemplate>
+		</metro:PromptComboBox>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>

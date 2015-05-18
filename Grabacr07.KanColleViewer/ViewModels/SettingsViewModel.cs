@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Net;
-using System.Xml.Linq;
 using Grabacr07.KanColleViewer.Composition;
 using Grabacr07.KanColleViewer.Models;
 using Grabacr07.KanColleViewer.Properties;
@@ -15,13 +11,12 @@ using Grabacr07.KanColleViewer.ViewModels.Composition;
 using Grabacr07.KanColleViewer.ViewModels.Messages;
 using Grabacr07.KanColleWrapper;
 using Grabacr07.KanColleWrapper.Models;
-using Livet;
 using Livet.EventListeners;
 using Livet.Messaging;
 using Livet.Messaging.IO;
 using MetroRadiance;
 using Settings = Grabacr07.KanColleViewer.Models.Settings;
-using System.Threading;
+using Livet;
 
 namespace Grabacr07.KanColleViewer.ViewModels
 {
@@ -369,6 +364,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
         #endregion
 
+		// ReSharper disable InconsistentNaming
 		#region AppOnlineVersion 変更通知プロパティ
 
 		private string _AppOnlineVersion;
@@ -376,14 +372,15 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		public string AppOnlineVersion
 		{
-			get { return _AppOnlineVersion; }
+			get { return this._AppOnlineVersion; }
 			set
 			{
-				if (_AppOnlineVersion != value)
+				if (this._AppOnlineVersion != value)
 				{
-					_AppOnlineVersion = value;
+					this._AppOnlineVersion = value;
 					this.RaisePropertyChanged();
 					this.RaisePropertyChanged("AppOnlineVersionURL");
+					this.RaisePropertyChanged("IsUpdateAvailable");
 				}
 			}
 		}
@@ -393,16 +390,17 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		#region EquipmentOnlineVersion 変更通知プロパティ
 
 		private string _EquipmentOnlineVersion;
+
 		public string EquipmentOnlineVersionURL { get; set; }
 
 		public string EquipmentOnlineVersion
 		{
-			get { return _EquipmentOnlineVersion; }
+			get { return this._EquipmentOnlineVersion; }
 			set
 			{
-				if (_EquipmentOnlineVersion != value)
+				if (this._EquipmentOnlineVersion != value)
 				{
-					_EquipmentOnlineVersion = value;
+					this._EquipmentOnlineVersion = value;
 					this.RaisePropertyChanged();
 					this.RaisePropertyChanged("EquipmentOnlineVersionURL");
 				}
@@ -414,16 +412,17 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		#region OperationsOnlineVersion 変更通知プロパティ
 
 		private string _OperationsOnlineVersion;
+
 		public string OperationsOnlineVersionURL { get; set; }
 
 		public string OperationsOnlineVersion
 		{
-			get { return _OperationsOnlineVersion; }
+			get { return this._OperationsOnlineVersion; }
 			set
 			{
-				if (_OperationsOnlineVersion != value)
+				if (this._OperationsOnlineVersion != value)
 				{
-					_OperationsOnlineVersion = value;
+					this._OperationsOnlineVersion = value;
 					this.RaisePropertyChanged();
 					this.RaisePropertyChanged("OperationsOnlineVersionURL");
 				}
@@ -435,16 +434,17 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		#region QuestsOnlineVersion 変更通知プロパティ
 
 		private string _QuestsOnlineVersion;
+
 		public string QuestsOnlineVersionURL { get; set; }
 
 		public string QuestsOnlineVersion
 		{
-			get { return _QuestsOnlineVersion; }
+			get { return this._QuestsOnlineVersion; }
 			set
 			{
-				if (_QuestsOnlineVersion != value)
+				if (this._QuestsOnlineVersion != value)
 				{
-					_QuestsOnlineVersion = value;
+					this._QuestsOnlineVersion = value;
 					this.RaisePropertyChanged();
 					this.RaisePropertyChanged("QuestsOnlineVersionURL");
 				}
@@ -452,7 +452,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		}
 
 		#endregion
-
+		
 		#region ShipsOnlineVersion 変更通知プロパティ
 
 		private string _ShipsOnlineVersion;
@@ -460,12 +460,12 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		public string ShipsOnlineVersion
 		{
-			get { return _ShipsOnlineVersion; }
+			get { return this._ShipsOnlineVersion; }
 			set
 			{
-				if (_ShipsOnlineVersion != value)
+				if (this._ShipsOnlineVersion != value)
 				{
-					_ShipsOnlineVersion = value;
+					this._ShipsOnlineVersion = value;
 					this.RaisePropertyChanged();
 					this.RaisePropertyChanged("ShipsOnlineVersionURL");
 				}
@@ -481,12 +481,12 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		public string ShipTypesOnlineVersion
 		{
-			get { return _ShipTypesOnlineVersion; }
+			get { return this._ShipTypesOnlineVersion; }
 			set
 			{
-				if (_ShipTypesOnlineVersion != value)
+				if (this._ShipTypesOnlineVersion != value)
 				{
-					_ShipTypesOnlineVersion = value;
+					this._ShipTypesOnlineVersion = value;
 					this.RaisePropertyChanged();
 					this.RaisePropertyChanged("ShipTypesOnlineVersionURL");
 				}
@@ -502,12 +502,12 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
         public string ExpeditionsOnlineVersion
         {
-            get { return _ExpeditionsOnlineVersion; }
+            get { return this._ExpeditionsOnlineVersion; }
             set
             {
-                if (_ExpeditionsOnlineVersion != value)
+                if (this._ExpeditionsOnlineVersion != value)
                 {
-                    _ExpeditionsOnlineVersion = value;
+	                this._ExpeditionsOnlineVersion = value;
                     this.RaisePropertyChanged();
                     this.RaisePropertyChanged("ExpeditionsOnlineVersionURL");
                 }
@@ -549,6 +549,8 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		}
 
 		#endregion
+		
+		// ReSharper restore InconsistentNaming
 
 		#region FlashQuality 変更通知プロパティ
 
@@ -692,15 +694,23 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		#endregion
 
+		#region IsUpdateAvailable 変更通知プロパティ
+
+		public bool IsUpdateAvailable
+		{
+			get { return KanColleClient.Current.Updater.IsOnlineVersionGreater(0, App.ProductInfo.Version.ToString()); }
+		}
+
+		#endregion
 
 		public SettingsViewModel()
 		{
 			if (Helper.IsInDesignMode) return;
 
-			this.FlashQualityList = FlashQualities.ToList();
-			this.FlashWindowList = FlashWindows.ToList();
-            this.BrowserVerticalPositionList = BrowserVerticalPositions.ToList();
-            this.BrowserHorizontalPositionList = BrowserHorizontalPositions.ToList();
+			this.FlashQualityList = this.FlashQualities.ToList();
+			this.FlashWindowList = this.FlashWindows.ToList();
+            this.BrowserVerticalPositionList = this.BrowserVerticalPositions.ToList();
+            this.BrowserHorizontalPositionList = this.BrowserHorizontalPositions.ToList();
 
 			this.Libraries = App.ProductInfo.Libraries.Aggregate(
 				new List<BindableTextViewModel>(),
@@ -748,19 +758,17 @@ namespace Grabacr07.KanColleViewer.ViewModels
 				(sender, args) => this.RaisePropertyChanged(args.PropertyName),
 			});
 
-
 			if (Settings.Current.EnableUpdateNotification)
 			{
 				this.CheckForUpdates();
 			}
-			
+
 			this.ViewRangeSettingsCollection = ViewRangeCalcLogic.Logics
 				.Select(x => new ViewRangeSettingsViewModel(x))
 				.ToList();
-				
+
 			this.ReloadPlugins();
 		}
-
 
 		public void OpenScreenshotFolderSelectionDialog()
 		{
@@ -809,31 +817,35 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		public void CheckForUpdates()
 		{
-			if (KanColleClient.Current.Updater.LoadVersion(Properties.Settings.Default.KCVUpdateUrl.AbsoluteUri, Properties.Settings.Default.KCVUpdateTransUrl.AbsoluteUri))
-			{
-				AppOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.App, true);
-				EquipmentOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Equipment, true);
-				OperationsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Operations, true);
-				QuestsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Quests, true);
-				ShipsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Ships, true);
-				ShipTypesOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.ShipTypes, true);
-                ExpeditionsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Expeditions, true);
+			Task.Factory.StartNew(
+				() =>
+				{
+					if (KanColleClient.Current.Updater.LoadVersion(Properties.Settings.Default.KCVUpdateUrl.AbsoluteUri, Properties.Settings.Default.KCVUpdateTransUrl.AbsoluteUri))
+					{
+						this.AppOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.App, true);
+						this.EquipmentOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Equipment, true);
+						this.OperationsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Operations, true);
+						this.QuestsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Quests, true);
+						this.ShipsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Ships, true);
+						this.ShipTypesOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.ShipTypes, true);
+						this.ExpeditionsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Expeditions, true);
 
-				AppOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.App);
-				EquipmentOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Equipment);
-				OperationsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Operations);
-				QuestsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Quests);
-				ShipsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Ships);
-				ShipTypesOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.ShipTypes);
-                ExpeditionsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Expeditions);
-			}
-			else
-			{
-				PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
-					Resources.Updater_Notification_Title,
-					Resources.Updater_Notification_CheckFailed,
-					() => App.ViewModelRoot.Activate());
-			}
+						this.AppOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.App);
+						this.EquipmentOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Equipment);
+						this.OperationsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Operations);
+						this.QuestsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Quests);
+						this.ShipsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Ships);
+						this.ShipTypesOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.ShipTypes);
+						this.ExpeditionsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Expeditions);
+					}
+					else
+					{
+						PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
+							Resources.Updater_Notification_Title,
+							Resources.Updater_Notification_CheckFailed,
+							() => App.ViewModelRoot.Activate());
+					}
+				});
 		}
 
 		public void UpdateTranslations()
@@ -842,30 +854,9 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			Task.Factory.StartNew(
 				() =>
 				{
-					int UpdateStatus = KanColleClient.Current.Updater.UpdateTranslations(KanColleClient.Current.Translations);
-
-					if (UpdateStatus > 0)
-					{
-						PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
-							Resources.Updater_Notification_Title,
-							Resources.Updater_Notification_TransUpdate_Success,
-							() => App.ViewModelRoot.Activate());
-					}
-					else if (UpdateStatus < 0)
-					{
-						PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
-							Resources.Updater_Notification_Title,
-							Resources.Updater_Notification_TransUpdate_Fail,
-							() => App.ViewModelRoot.Activate());
-					}
-					else
-					{
-						PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
-							Resources.Updater_Notification_Title,
-							Resources.Updater_Notification_TransUpdate_Same,
-							() => App.ViewModelRoot.Activate());
-					}
-				}).ContinueWith(t => KanColleClient.Current.Translations.ChangeCulture(Culture), ts);
+					int updateStatus = KanColleClient.Current.Updater.UpdateTranslations(KanColleClient.Current.Translations);
+					this.NotifyUpdate(updateStatus);
+				}).ContinueWith(t => KanColleClient.Current.Translations.ChangeCulture(this.Culture), ts);
 
 		}
 
@@ -875,39 +866,44 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			Task.Factory.StartNew(
 				() =>
 				{
-					int UpdateStatus = KanColleClient.Current.Updater.UpdateTranslations(KanColleClient.Current.Translations, false);
-
-					if (UpdateStatus > 0)
-					{
-						PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
-							Resources.Updater_Notification_Title,
-							Resources.Updater_Notification_TransUpdate_Success,
-							() => App.ViewModelRoot.Activate());
-					}
-					else if (UpdateStatus < 0)
-					{
-						PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
-							Resources.Updater_Notification_Title,
-							Resources.Updater_Notification_TransUpdate_Fail,
-							() => App.ViewModelRoot.Activate());
-					}
-					else
-					{
-						PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
-							Resources.Updater_Notification_Title,
-							Resources.Updater_Notification_TransUpdate_Same,
-							() => App.ViewModelRoot.Activate());
-					}
-				}).ContinueWith(t => KanColleClient.Current.Translations.ChangeCulture(Culture), ts);
+					int updateStatus = KanColleClient.Current.Updater.UpdateTranslations(KanColleClient.Current.Translations, false);
+					this.NotifyUpdate(updateStatus);
+				}).ContinueWith(t => KanColleClient.Current.Translations.ChangeCulture(this.Culture), ts);
 
 		}
 
+		private void NotifyUpdate(int updateStatus) 
+		{
+			if (updateStatus > 0)
+			{
+				PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
+					Resources.Updater_Notification_Title,
+					Resources.Updater_Notification_TransUpdate_Success,
+					() => App.ViewModelRoot.Activate());
+			}
+			else if (updateStatus < 0)
+			{
+				PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
+					Resources.Updater_Notification_Title,
+					Resources.Updater_Notification_TransUpdate_Fail,
+					() => App.ViewModelRoot.Activate());
+			}
+			else
+			{
+				PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
+					Resources.Updater_Notification_Title,
+					Resources.Updater_Notification_TransUpdate_Same,
+					() => App.ViewModelRoot.Activate());
+			}
+		}
+
+		// ReSharper disable once InconsistentNaming
 		public void OpenKCVLink()
 		{
 			try
 			{
-				if (!AppOnlineVersionURL.IsEmpty())
-					Process.Start(AppOnlineVersionURL);
+				if (!this.AppOnlineVersionURL.IsEmpty())
+					Process.Start(this.AppOnlineVersionURL);
 			}
 			catch (Exception ex)
 			{
@@ -922,7 +918,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		}
 
 
-		public class ViewRangeSettingsViewModel
+		public class ViewRangeSettingsViewModel : ViewModel
 		{
 			private bool selected;
 
@@ -945,6 +941,14 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			{
 				this.Logic = logic;
 				this.selected = Settings.Current.KanColleClientSettings.ViewRangeCalcType == logic.Id;
+
+				this.CompositeDisposable.Add(new PropertyChangedEventListener(ResourceServiceWrapper.Current)
+				{
+					(sender, args) =>
+					{
+						this.RaisePropertyChanged("Logic");
+					},
+				});
 			}
 		}
 	}

@@ -7,7 +7,6 @@ using Grabacr07.KanColleWrapper.Internal;
 using Grabacr07.KanColleWrapper.Models;
 using Grabacr07.KanColleWrapper.Models.Raw;
 using Livet;
-using System.Diagnostics;
 
 namespace Grabacr07.KanColleWrapper
 {
@@ -151,6 +150,7 @@ namespace Grabacr07.KanColleWrapper
 
 			proxy.api_get_member_deck.TryParse<kcsapi_deck[]>().Subscribe(x => this.Update(x.Data));
 			proxy.api_get_member_deck_port.TryParse<kcsapi_deck[]>().Subscribe(x => this.Update(x.Data));
+			proxy.api_get_member_ship_deck.TryParse<kcsapi_ship_deck>().Subscribe(x => this.Update(x.Data));
 
 			proxy.api_req_hensei_change.TryParse().Subscribe(this.Change);
 			proxy.api_req_hokyu_charge.TryParse<kcsapi_charge>().Subscribe(x => this.Charge(x.Data));
@@ -438,7 +438,7 @@ namespace Grabacr07.KanColleWrapper
 						this.towShipIds.Add(towOfferedShipIds[0]);
 					}
 				});
-			proxy.api_get_member_ship2
+			proxy.api_get_member_ship_deck
 				.Subscribe(_ =>
 				{
 					evacuationOfferedShipIds = null;
@@ -486,6 +486,27 @@ namespace Grabacr07.KanColleWrapper
 			foreach (var target in this.Fleets.Values)
 			{
 				target.Homing();
+			}
+		}
+
+		private void Update(kcsapi_ship_deck source)
+		{
+			if (source.api_deck_data != null)
+			{
+				foreach (var deck in source.api_deck_data)
+				{
+					var target = this.Fleets[deck.api_id];
+					target.Update(deck);
+				}
+			}
+
+			if (source.api_ship_data != null)
+			{
+				foreach (var ship in source.api_ship_data)
+				{
+					var target = this.Ships[ship.api_id];
+					target.Update(ship);
+				}
 			}
 		}
 

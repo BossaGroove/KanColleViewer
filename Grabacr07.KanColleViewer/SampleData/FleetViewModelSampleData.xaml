@@ -411,6 +411,9 @@
 												   Max="12"
 												   Upgraded="55" />
 					</Models:Ship.Torpedo>
+					<Models:Ship.Situation>
+						Repair
+					</Models:Ship.Situation>
 				</Models:Ship>
 			</contents:ShipViewModel.Ship>
 		</contents:ShipViewModel>
@@ -485,6 +488,9 @@
 												   Max="12"
 												   Upgraded="55" />
 					</Models:Ship.Torpedo>
+					<Models:Ship.Situation>
+						Tow
+					</Models:Ship.Situation>
 				</Models:Ship>
 			</contents:ShipViewModel.Ship>
 		</contents:ShipViewModel>
@@ -559,6 +565,9 @@
 												   Max="12"
 												   Upgraded="55" />
 					</Models:Ship.Torpedo>
+					<Models:Ship.Situation>
+						Evacuation
+					</Models:Ship.Situation>
 				</Models:Ship>
 			</contents:ShipViewModel.Ship>
 		</contents:ShipViewModel>

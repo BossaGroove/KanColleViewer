@@ -11,6 +11,8 @@ using Livet;
 using Livet.EventListeners;
 using Livet.Messaging.Windows;
 using MetroRadiance;
+using Livet.Messaging;
+using Setting = Grabacr07.KanColleViewer.Models.Settings;
 
 namespace Grabacr07.KanColleViewer.ViewModels
 {
@@ -143,6 +145,24 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		#endregion
 
+		#region CanClose 変更通知プロパティ
+
+		private bool _CanClose;
+
+		public bool CanClose
+		{
+			get { return this._CanClose; }
+			set
+			{
+				if (this._CanClose != value)
+				{
+					this._CanClose = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
 
 		public MainWindowViewModel()
 		{
@@ -158,6 +178,13 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			{
 				{ () => KanColleClient.Current.IsStarted, (sender, args) => this.UpdateMode() },
 				{ () => KanColleClient.Current.IsInSortie, (sender, args) => this.UpdateMode() },
+			});
+
+			this.UpdateCloseConfirm();
+			this.CompositeDisposable.Add(new PropertyChangedEventListener(Setting.Current)
+			{
+				{ "CloseConfirm", (sender, args) => UpdateCloseConfirm() },
+				{ "CloseConfirmOnlyInSortie", (sender, args) => UpdateCloseConfirm() },
 			});
 
 
@@ -195,6 +222,32 @@ namespace Grabacr07.KanColleViewer.ViewModels
 					? Mode.InSortie
 					: Mode.Started
 				: Mode.NotStarted;
+			UpdateCloseConfirm();
+		}
+
+		private void UpdateCloseConfirm()
+		{
+			this.CanClose = !Setting.Current.CloseConfirm;
+			if (Setting.Current.CloseConfirmOnlyInSortie)
+			{
+				if (this.Mode != Mode.InSortie) this.CanClose = true;
+			}
+		}
+
+		public void Closing()
+		{
+			if (!this.CanClose)
+			{
+				var message = new TransitionMessage(this, "Show/ExitDialog");
+				this.Messenger.Raise(message);
+			}
+		}
+
+		public void Close()
+		{
+			this.CanClose = true;
+			var message = new TransitionMessage(this, "Close");
+			this.Messenger.Raise(message);
 		}
 	}
 }

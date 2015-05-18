@@ -7,6 +7,7 @@ using Grabacr07.KanColleWrapper;
 using Grabacr07.KanColleWrapper.Models;
 using Livet;
 using Settings = Grabacr07.KanColleViewer.Models.Settings;
+using Livet.EventListeners;
 
 namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 {
@@ -430,7 +431,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 	{
 		#region None 変更通知プロパティ
 
-		private bool _None = true;
+		private bool _None;
 
 		public bool None
 		{
@@ -448,58 +449,67 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		#endregion
 
-		#region Aleutian 変更通知プロパティ
+		public IReadOnlyCollection<SallyAreaViewModel> Areas { get; private set; }
 
-		private bool _Aleutian = true;
 
-		public bool Aleutian
+		public ShipSallyAreaFilter(Action updateAction) : base(updateAction)
 		{
-			get { return this._Aleutian; }
-			set
-			{
-				if (this._Aleutian != value)
-				{
-					this._Aleutian = value;
-					this.RaisePropertyChanged();
-					this.Update();
-				}
-			}
+			this.None = true;
+			// event only
+			//this.Areas = SallyArea.Areas.Select(x => new SallyAreaViewModel(x, updateAction)).ToList();
+
+			this.Areas = null;
 		}
-
-		#endregion
-
-		#region Midway 変更通知プロパティ
-
-		private bool _Midway = true;
-
-		public bool Midway
-		{
-			get { return this._Midway; }
-			set
-			{
-				if (this._Midway != value)
-				{
-					this._Midway = value;
-					this.RaisePropertyChanged();
-					this.Update();
-				}
-			}
-		}
-
-		#endregion
-
-
-		public ShipSallyAreaFilter(Action updateAction) : base(updateAction) { }
 
 		public override bool Predicate(Ship ship)
 		{
+			// event only
 			//if (this.None && ship.SallyArea == 0) return true;
-			//if (this.Aleutian && ship.SallyArea == 1) return true;
-			//if (this.Midway && ship.SallyArea == 2) return true;
-
-			//return false;
+			//return this.Areas.Any(x => x.IsSelected && x.Area.Id == ship.SallyArea);
 
 			return true;
+		}
+	}
+
+	public class SallyAreaViewModel : ViewModel
+	{
+		public ISallyArea Area { get; set; }
+
+		private Action action;
+
+		#region Selected 変更通知プロパティ
+
+		private bool _IsSelected;
+
+		public bool IsSelected
+		{
+			get { return this._IsSelected; }
+			set
+			{
+				if (this._IsSelected != value)
+				{
+					this._IsSelected = value;
+					if (this.action != null) this.action();
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
+		public SallyAreaViewModel(ISallyArea area, Action updateAction)
+		{
+			this.Area = area;
+			this.IsSelected = true;
+			this.action = updateAction;
+
+			this.CompositeDisposable.Add(new PropertyChangedEventListener(ResourceServiceWrapper.Current)
+			{
+				(sender, args) =>
+				{
+					this.RaisePropertyChanged("Area");
+				},
+			});
 		}
 	}
 }

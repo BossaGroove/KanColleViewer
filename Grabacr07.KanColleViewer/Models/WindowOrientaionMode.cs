@@ -30,7 +30,7 @@ namespace Grabacr07.KanColleViewer.Models
 			{
                 if (this._Current != value)
 				{
-					ChangeWindowSize(value);
+					this.ChangeWindowSize(value);
                     this._Current = value;
                     this.RaisePropertyChanged();
                     this.RaisePropertyChanged("CurrentModeString");
@@ -55,13 +55,13 @@ namespace Grabacr07.KanColleViewer.Models
                     if (value.Equals(OrientationType.Auto))
                     {
 						if (!EventSetted)
-							System.Windows.SystemParameters.StaticPropertyChanged += SystemParameters_StaticPropertyChanged;
+							System.Windows.SystemParameters.StaticPropertyChanged += this.SystemParameters_StaticPropertyChanged;
 						EventSetted = true;
-						updateOrientationMode();
+	                    this.UpdateOrientationMode();
                     }
                     else
                     {
-                        System.Windows.SystemParameters.StaticPropertyChanged -= SystemParameters_StaticPropertyChanged;
+                        System.Windows.SystemParameters.StaticPropertyChanged -= this.SystemParameters_StaticPropertyChanged;
 						EventSetted = false;
                         this.Current = value;
                     }
@@ -73,7 +73,7 @@ namespace Grabacr07.KanColleViewer.Models
 
         #endregion
 		
-		public void updateOrientationMode()
+		public void UpdateOrientationMode()
         {
             if (!this.CurrentMode.Equals(OrientationType.Auto)) return;
 
@@ -91,7 +91,7 @@ namespace Grabacr07.KanColleViewer.Models
         {
             if (e.PropertyName.Equals("FullPrimaryScreenHeight") || e.PropertyName.Equals("FullPrimaryScreenWidth"))
             {
-                updateOrientationMode();
+                this.UpdateOrientationMode();
             }
         }
 
@@ -111,13 +111,9 @@ namespace Grabacr07.KanColleViewer.Models
             }
         }
 
-		public WindowOrientaionMode()
+	    public void Dispose()
 		{
-		}
-
-		public void Dispose()
-		{
-			System.Windows.SystemParameters.StaticPropertyChanged -= SystemParameters_StaticPropertyChanged;
+			System.Windows.SystemParameters.StaticPropertyChanged -= this.SystemParameters_StaticPropertyChanged;
 		}
 
 		private void ChangeWindowSize(OrientationType type, System.Windows.Window window)
@@ -154,10 +150,11 @@ namespace Grabacr07.KanColleViewer.Models
 		{
 			try
 			{
-				ChangeWindowSize(type, System.Windows.Application.Current.MainWindow);
+				this.ChangeWindowSize(type, System.Windows.Application.Current.MainWindow);
 			}
-			catch 
+			catch
 			{
+				// ignored
 			}
 		}
 	}

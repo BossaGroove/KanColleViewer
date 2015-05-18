@@ -2,6 +2,25 @@
 	KCV Change Log
 ========================
 
+v3.8.0 r551 - 5/18/2015
+	* Fix for 2015/05/18 update
+
+v3.7.0 r550 - 5/18/2015
+	* Change FleetWindow's layout
+	* Add Large-sized Flying Boat icon
+	* Check version in another thread
+	* Update EventMapHpViewer plugin
+	* Add setting to enable exit dialog
+	* Remove korean and deutsch localization
+	* Remove ships lock filter
+	* Fix flash quality setting
+	* Some other fixs
+
+v3.7.0β r544 - 4/29/2015
+	* Fix bug: Evacuation Indicator not show correctly
+	* Plugin MapHP viewer
+	* Ships lock filter
+
 v3.7.0β r543 - 3/29/2015
 	* LogViewer plugin
 	* Show fleet state in overview panel

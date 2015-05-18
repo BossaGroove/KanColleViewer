@@ -783,19 +783,13 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="ShipCatalog_SortieWaters" xml:space="preserve">
     <value>出撃海域</value>
   </data>
-  <data name="ShipCatalog_SortieWaters_AL" xml:space="preserve">
-    <value>AL 作戦</value>
-  </data>
-  <data name="ShipCatalog_SortieWaters_MI" xml:space="preserve">
-    <value>MI 作戦</value>
-  </data>
   <data name="ShipCatalog_Operation_AL" xml:space="preserve">
     <value>AL 作戦参加済み</value>
   </data>
   <data name="ShipCatalog_Operation_MI" xml:space="preserve">
     <value>MI 作戦参加済み</value>
   </data>
-  <data name="ShipCatalog_Operation_NeitherALnorMI" xml:space="preserve">
+  <data name="ShipCatalog_Operation_NotLocked" xml:space="preserve">
     <value>作戦出撃なし</value>
   </data>
   <data name="Settings_Operation_LoSCalculation" xml:space="preserve">
@@ -1244,5 +1238,23 @@ Low: Performance over quality. Ugliest setting.</value>
   </data>
   <data name="Homeport_DevelopmentMaterials" xml:space="preserve">
     <value>開発資材:</value>
+  </data>
+  <data name="ExitDialogConfirm" xml:space="preserve">
+    <value>「提督業も忙しい！」 を終了します。 よろしいですか？</value>
+  </data>
+  <data name="ExitDialogTitle" xml:space="preserve">
+    <value>EXIT KanColleViewer</value>
+  </data>
+  <data name="Settings_ExitConfirm" xml:space="preserve">
+    <value>終了確認</value>
+  </data>
+  <data name="Settings_ExitConfirmOnlyWhenInSortie" xml:space="preserve">
+    <value>出撃の時だけ</value>
+  </data>
+  <data name="Settings_ExitConfirmOption" xml:space="preserve">
+    <value>終了確認ダイアログを利用する</value>
+  </data>
+  <data name="Settings_ChangeOrientationMode" xml:space="preserve">
+    <value>オリエンテーションモードを変化する</value>
   </data>
 </root>

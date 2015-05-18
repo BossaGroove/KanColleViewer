@@ -23,5 +23,7 @@ namespace Grabacr07.KanColleWrapper.Models
         対潜哨戒機 = 26,
 
 		探照灯 = 29,
+
+		大型飛行艇 = 41,
 	}
 }

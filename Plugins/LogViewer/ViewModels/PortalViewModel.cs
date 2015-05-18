@@ -146,7 +146,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
                 {
                     this.currentLogType = value;
 
-                    _watcher.Filter = Logger.LogParameters[value].FileName;
+	                this._watcher.Filter = Logger.LogParameters[value].FileName;
 
                     this.Update();
                 }
@@ -209,8 +209,10 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 
                     IEnumerable<string> lines = File.ReadLines(file);
 
+	                // ReSharper disable once PossibleMultipleEnumeration
                     lines.Take(1).First().Split(',').ToList().ForEach((col => items.Columns.Add(col)));
 
+	                // ReSharper disable once PossibleMultipleEnumeration
                     lines.Skip(1).Reverse().Take(200).ToList().ForEach(line =>
                     {
                         string[] elements = line.Split(',');

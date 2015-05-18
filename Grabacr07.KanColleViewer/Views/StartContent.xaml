@@ -164,7 +164,7 @@
 								  VerticalAlignment="Bottom"
 								  Margin="0,0,30,-4"
 								  Opacity="0.25" />
-                            <StackPanel>
+							<StackPanel DataContext="{Binding Source={x:Static root:App.ViewModelRoot}, Path=Settings}">
                                 <TextBlock>
 								<Run Text="{Binding Source={x:Static root:App.ProductInfo}, Path=Title, Mode=OneWay}"
 									 FontFamily="Segoe UI Light"
