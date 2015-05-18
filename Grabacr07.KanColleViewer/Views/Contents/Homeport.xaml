@@ -61,7 +61,65 @@
 
 		<StackPanel Grid.Column="1"
 					Orientation="Horizontal">
-			<Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="1">
+                    <Run Text="{Binding Resources.Homeport_Fuel, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+                    <Run Text="{Binding Materials.Model.Fuel, Mode=OneWay}"
+                         Style="{DynamicResource EmphaticTextElementStyleKey}" />
+                    <LineBreak />
+                    <Run Text="{Binding Resources.Homeport_Ammunition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+                    <Run Text="{Binding Materials.Model.Ammunition, Mode=OneWay}"
+                         Style="{DynamicResource EmphaticTextElementStyleKey}" />
+                </TextBlock>
+            </Grid>
+
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="1">
+                    <Run Text="{Binding Resources.Homeport_Steel, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+                    <Run Text="{Binding Materials.Model.Steel, Mode=OneWay}"
+                         Style="{DynamicResource EmphaticTextElementStyleKey}" />
+                    <LineBreak />
+                    <Run Text="{Binding Resources.Homeport_Bauxite, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+                    <Run Text="{Binding Materials.Model.Bauxite, Mode=OneWay}"
+                         Style="{DynamicResource EmphaticTextElementStyleKey}" />
+                </TextBlock>
+            </Grid>
+
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="1">
+                    <Run Text="{Binding Resources.Homeport_DevelopmentMaterials, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+                    <Run Text="{Binding Materials.Model.DevelopmentMaterials, Mode=OneWay}"
+                         Style="{DynamicResource EmphaticTextElementStyleKey}" />
+                    <LineBreak />
+                    <Run Text="{Binding Resources.Homeport_InstantRepair, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+                    <Run Text="{Binding Materials.Model.InstantRepairMaterials, Mode=OneWay}"
+                         Style="{DynamicResource EmphaticTextElementStyleKey}" />
+
+
+                </TextBlock>
+            </Grid>
+
+
+
+            <Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*" />
 					<ColumnDefinition Width="Auto" />

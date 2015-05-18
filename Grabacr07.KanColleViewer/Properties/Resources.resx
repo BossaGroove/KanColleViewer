@@ -1242,4 +1242,21 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Settings_ChangeOrientationMode" xml:space="preserve">
     <value>オリエンテーションモードを変化する</value>
   </data>
+  
+  <data name="Homeport_Ammunition" xml:space="preserve">
+    <value>弾薬:</value>
+  </data>
+  <data name="Homeport_Bauxite" xml:space="preserve">
+    <value>ボーキサイト:</value>
+  </data>
+  <data name="Homeport_Fuel" xml:space="preserve">
+    <value>燃料:</value>
+  </data>
+  <data name="Homeport_Steel" xml:space="preserve">
+    <value>鋼材:</value>
+  </data>
+  <data name="Homeport_DevelopmentMaterials" xml:space="preserve">
+    <value>開発資材:</value>
+  </data>
+
 </root>

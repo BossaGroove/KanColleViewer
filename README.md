@@ -1,4 +1,15 @@
-﻿KanColleViewer! (提督業も忙しい！)
+﻿# About this fork
+
+This version is forked from [yuyuvn/KanColleViewer](https://github.com/yuyuvn/KanColleViewer), with only 1 change: Added resources stat in homeport (fuel, ammunition, steel, bauxite, instant repair, development material)
+
+All credits go to it's original author [Grabacr07](https://github.com/Grabacr07) and branch maintainer [yuyuvn](https://github.com/yuyuvn).
+
+Basically the code is sync with yuyuvn's branch, but it is not guaranteed for future updates and keep syncing to the original branch.
+
+Synced with https://github.com/yuyuvn/KanColleViewer 3.8.0r551
+
+KanColleViewer! (提督業も忙しい！)
+
 --
 
 KCV is a browser utility that makes it easy to play Kantai Collection.
