@@ -8,7 +8,10 @@ Basically the code is sync with yuyuvn's branch, but it is not guaranteed for fu
 
 Synced with https://github.com/yuyuvn/KanColleViewer 3.8.0r551
 
-KanColleViewer! (提督業も忙しい！)
+
+--
+
+# KanColleViewer! (提督業も忙しい！)
 
 --
 
