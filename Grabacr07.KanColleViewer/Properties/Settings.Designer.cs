@@ -34,15 +34,6 @@ namespace Grabacr07.KanColleViewer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://www.dmm.com/netgame/social/application/-/detail/=/app_id=854854/")]
-        public global::System.Uri KanColleUrl {
-            get {
-                return ((global::System.Uri)(this["KanColleUrl"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"body {
     margin:0;
     overflow:hidden;
@@ -167,6 +158,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         public global::System.Uri KCVUpdateTransUrl {
             get {
                 return ((global::System.Uri)(this["KCVUpdateTransUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.dmm.com/netgame_s/kancolle/")]
+        public global::System.Uri KanColleUrl {
+            get {
+                return ((global::System.Uri)(this["KanColleUrl"]));
             }
         }
     }

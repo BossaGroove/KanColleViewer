@@ -1302,7 +1302,6 @@ Low: 最好性能(画质惨不忍睹)</value>
   <data name="Ship_HeavilyDamaged_Retreated" xml:space="preserve">
     <value>大破·已撤退</value>
   </data>
-<<<<<<< HEAD
   <data name="Homeport_Ammunition" xml:space="preserve">
     <value>Ammunition:</value>
   </data>
@@ -1319,6 +1318,3 @@ Low: 最好性能(画质惨不忍睹)</value>
     <value>Development Materials:</value>
   </data>
 </root>
-=======
-</root>
->>>>>>> 73cd9c4263299340a00a022c56909449bd90e940
