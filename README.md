@@ -12,7 +12,7 @@ All credits go to it's original author [Grabacr07](https://github.com/Grabacr07)
 
 Basically the code is sync with yuyuvn's branch, but it is not guaranteed for future updates and keep syncing to the original branch.
 
-Synced with https://github.com/yuyuvn/KanColleViewer 3.8.0r552
+Synced with https://github.com/yuyuvn/KanColleViewer 3.8.1r552
 
 
 
