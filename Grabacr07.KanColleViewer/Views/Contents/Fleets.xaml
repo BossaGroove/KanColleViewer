@@ -14,7 +14,7 @@
 			 xmlns:fleets="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents.Fleets"
 			 xmlns:contents="clr-namespace:Grabacr07.KanColleViewer.Views.Contents"
 			 xmlns:converters="clr-namespace:Grabacr07.KanColleViewer.Views.Converters"
-             xmlns:models="clr-namespace:Grabacr07.KanColleViewer.Models"
+			 xmlns:models="clr-namespace:Grabacr07.KanColleViewer.Models"
 			 mc:Ignorable="d"
 			 d:DesignWidth="800"
 			 d:DesignHeight="400"

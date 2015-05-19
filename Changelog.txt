@@ -2,6 +2,10 @@
 	KCV Change Log
 ========================
 
+v3.8.1 r552 - 5/19/2015
+	* Fix fleet state doesn't update when sortie
+	* Add pagination for log viewer
+
 v3.8.0 r551 - 5/18/2015
 	* Fix for 2015/05/18 update
 

@@ -30,15 +30,42 @@
     </UserControl.Resources>
 
     <DockPanel Margin="3,0,3,3">
-        <Grid DockPanel.Dock="Top"  DataContext="{Binding .}" Margin="3,0,3,0">
-            <WrapPanel>
+        <Grid DockPanel.Dock="Top" Margin="3,0,3,0">
+			<WrapPanel>
 				<RadioButton Content="Drop log" IsChecked="{Binding SelectorShipDrop, Mode=TwoWay}" Margin="5,5,5,0"/>
 				<RadioButton Content="Ship build log" IsChecked="{Binding SelectorBuildShip, Mode=TwoWay}" Margin="5,5,5,0"/>
 				<RadioButton Content="Item build log" IsChecked="{Binding SelectorBuildItem, Mode=TwoWay}" Margin="5,5,5,0"/>
 				<RadioButton Content="Materials log" IsChecked="{Binding SelectorMaterials, Mode=TwoWay}" Margin="5,5,5,0"/>
             </WrapPanel>
         </Grid>
-        <Border BorderBrush="{DynamicResource BorderBrushKey}"
+		
+		<Grid DockPanel.Dock="Bottom" Margin="3,0,3,0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<metro2:CallMethodButton MethodName="ToPreviousPage"
+								 Padding="10,4"
+								 Visibility="{Binding HasPreviousPage, Converter={StaticResource BooleanToVisibilityConverter}}"
+								 HorizontalAlignment="Left">
+				<TextBlock Text="Previous Page"
+						   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type metro2:CallMethodButton}}, Path=Foreground}"
+						   FontSize="13"
+						   HorizontalAlignment="Center" />
+			</metro2:CallMethodButton>
+			<metro2:CallMethodButton MethodName="ToNextPage"
+								 Grid.Column="2"
+								 Padding="10,4"
+								 Visibility="{Binding HasNextPage, Converter={StaticResource BooleanToVisibilityConverter}}"
+								 HorizontalAlignment="Left">
+				<TextBlock Text="Next Page"
+						   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type metro2:CallMethodButton}}, Path=Foreground}"
+						   FontSize="13"
+						   HorizontalAlignment="Center" />
+			</metro2:CallMethodButton>
+		</Grid>
+		<Border BorderBrush="{DynamicResource BorderBrushKey}"
 					BorderThickness="1"
 					Margin="0,8,0,8">
             <ListView controls:LogListView.LogSource="{Binding LogCollection}"

@@ -148,19 +148,83 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 
 	                this._watcher.Filter = Logger.LogParameters[value].FileName;
 
+					this.CurrentPage = 1;
                     this.Update();
                 }
             }
         }
 
-        #endregion
+		#endregion
+
+		#region HasPreviousPage 変更通知プロパティ
+
+		public bool HasPreviousPage
+		{
+			get { return this.TotalPage > 1 && this.CurrentPage > 1; }
+		}
+
+		#endregion
+
+		#region HasNextPage 変更通知プロパティ
+
+		public bool HasNextPage
+		{
+			get { return this.TotalPage > 1 && this.CurrentPage < this.TotalPage; }
+		}
+
+		#endregion
+
+		#region CurrentPage 変更通知プロパティ
+
+		private int _CurrentPage;
+
+		public int CurrentPage
+		{
+			get { return this._CurrentPage; }
+			set
+			{
+				if (this._CurrentPage != value)
+				{
+					this._CurrentPage = value;
+					this.RaisePropertyChanged("HasPreviousPage");
+					this.RaisePropertyChanged("HasNextPage");
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
+		#region TotalPage 変更通知プロパティ
+
+		private int _TotalPage;
+
+		public int TotalPage
+		{
+			get { return this._TotalPage; }
+			set
+			{
+				if (this._TotalPage != value)
+				{
+					this._TotalPage = value;
+					this.RaisePropertyChanged("HasPreviousPage");
+					this.RaisePropertyChanged("HasNextPage");
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
 
         private FileSystemWatcher _watcher;
+
+	    private int logPerPage = 10;
 
         public PortalViewModel()
         {
             this.SelectorShipDrop = true;
             this.currentLogType = Logger.LogType.ShipDrop;
+			this.CurrentPage = 1;
 
             this.Update();
 
@@ -209,11 +273,13 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 
                     IEnumerable<string> lines = File.ReadLines(file);
 
+	                this.TotalPage = (lines.Count() - 1)/20 + 1;
+
 	                // ReSharper disable once PossibleMultipleEnumeration
                     lines.Take(1).First().Split(',').ToList().ForEach((col => items.Columns.Add(col)));
 
 	                // ReSharper disable once PossibleMultipleEnumeration
-                    lines.Skip(1).Reverse().Take(200).ToList().ForEach(line =>
+					lines.Skip(1).Reverse().Skip((this.CurrentPage - 1) * this.logPerPage).Take(this.logPerPage).ToList().ForEach(line =>
                     {
                         string[] elements = line.Split(',');
 
@@ -233,5 +299,17 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
                 }
             });
         }
+
+	    public void ToPreviousPage()
+	    {
+		    --this.CurrentPage;
+		    this.Update();
+	    }
+
+		public void ToNextPage()
+		{
+			++this.CurrentPage;
+			this.Update();
+		}
     }
 }
