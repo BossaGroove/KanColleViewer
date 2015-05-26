@@ -791,7 +791,7 @@
 																</MultiDataTrigger.Conditions>
 																<Setter Property="Text">
 																	<Setter.Value>
-																		<MultiBinding StringFormat="{}{0}: {1} - {2}">
+																		<MultiBinding StringFormat="{}{0} {1} - {2}">
 																			<Binding Path="Resources.StateDetail_OnExpeditionDetail" Source="{x:Static models:ResourceService.Current}" Mode="OneWay" />
 																			<Binding Path="Expedition.Mission.Title" />
 																			<Binding Path="Expedition.Remaining" />

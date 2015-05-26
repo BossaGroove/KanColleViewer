@@ -419,8 +419,7 @@ namespace Grabacr07.KanColleViewer.Models
 		}
 
 		#endregion
-
-
+		
 		#region EnableTranslations 変更通知プロパティ
 
 		private bool _EnableTranslations;
@@ -532,6 +531,8 @@ namespace Grabacr07.KanColleViewer.Models
 		}
 
 		#endregion
+
+		// ReSharper disable InconsistentNaming
 
 		#region ShipCatalog_SaveFilters 変更通知プロパティ
 
@@ -875,6 +876,8 @@ namespace Grabacr07.KanColleViewer.Models
 
 		#endregion
 
+		// ReSharper restore InconsistentNaming
+
 		#region FlashQuality 変更通知プロパティ
 
 		private string _FlashQuality;
@@ -948,23 +951,23 @@ namespace Grabacr07.KanColleViewer.Models
 		#endregion
 
 		#region Orientation 変更通知プロパティ
+
 		[XmlIgnore]
-        private OrientationType _Orientation;
+		private IOrientationMode _Orientation;
 
-        [XmlIgnore]
-        public OrientationType Orientation
+		[XmlIgnore]
+		public IOrientationMode Orientation
 		{
-            get { return this._Orientation & OrientationType.Horizontal; }
-            set
-            {
-                if (this._Orientation != value)
-                {
-                    this._Orientation = value;
-                    this.RaisePropertyChanged();
-                }
-            }
+			get { return this._Orientation; }
+			set
+			{
+				if (this._Orientation != value)
+				{
+					this._Orientation = value;
+					this.RaisePropertyChanged();
+				}
+			}
 		}
-
 
         private OrientationType _OrientationMode;
 
@@ -980,6 +983,7 @@ namespace Grabacr07.KanColleViewer.Models
                 }
             }
         }
+
 		#endregion
 
 		#region MenuIcon 変更通知プロパティ

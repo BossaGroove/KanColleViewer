@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Grabacr07.KanColleViewer.Models
 {
-    public interface IOrientationMode
+	public interface IOrientationMode
 	{
-        OrientationType Current { get; }
-        OrientationType[] SupportedModes { get; }
+		Orientation Mode { get; }
 
-        OrientationType CurrentMode { get; set; }
+		OrientationType[] SupportedModes { get; }
 
-        string CurrentModeString { get; }
+		OrientationType CurrentMode { get; set; }
 	}
 }

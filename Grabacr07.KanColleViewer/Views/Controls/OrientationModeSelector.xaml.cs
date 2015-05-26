@@ -39,6 +39,8 @@ namespace Grabacr07.KanColleViewer.Views.Controls
             this.Popup.CustomPopupPlacementCallback = this.PopupPlacementCallback;
             this.Popup.Opened += (sender, args) => this.ChangeBackground();
             this.Popup.Closed += (sender, args) => this.ChangeBackground();
+
+
 		}
 
         protected override void OnMouseEnter(MouseEventArgs e)
@@ -127,18 +129,18 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 
         #region OrientationMode 依存関係プロパティ
 
-        public IOrientationMode OrientationMode
+		public IOrientationMode OrientationMode
         {
-            get { return (IOrientationMode)this.GetValue(OrientationModeProperty); }
+			get { return (IOrientationMode)this.GetValue(OrientationModeProperty); }
             set { this.SetValue(OrientationModeProperty, value); }
         }
         public static readonly DependencyProperty OrientationModeProperty =
-            DependencyProperty.Register("OrientationMode", typeof(IOrientationMode), typeof(OrientationModeSelector), new UIPropertyMetadata(null, OrientationModePropertyChangedCallback));
+			DependencyProperty.Register("OrientationMode", typeof(WindowOrientaionMode), typeof(OrientationModeSelector), new UIPropertyMetadata(null, OrientationModePropertyChangedCallback));
 
         private static void OrientationModePropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var source = (OrientationModeSelector)d;
-            var newValue = (IOrientationMode)e.NewValue;
+			var newValue = (IOrientationMode)e.NewValue;
 
             if (source.orientationModeNotifyListener != null)
             {
@@ -147,7 +149,6 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 
             if (newValue != null)
             {
-                var dpi = source.systemDpi ?? (source.systemDpi = source.GetSystemDpi()) ?? Dpi.Default;
                 source.items = newValue.SupportedModes
                     .Select(x => new OrientationModeSelectorItem
                     {

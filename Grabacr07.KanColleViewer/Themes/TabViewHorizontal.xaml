@@ -18,7 +18,7 @@
 								<Style TargetType="{x:Type StackPanel}">
 									<Setter Property="Orientation" Value="Vertical"/>
 									<Style.Triggers>
-										<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
+										<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Horizontal">
 											<Setter Property="Orientation" Value="Horizontal"/>
 										</DataTrigger>
 									</Style.Triggers>

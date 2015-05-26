@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using Grabacr07.KanColleViewer.Composition;
 using Grabacr07.KanColleViewer.Models;
 using Grabacr07.KanColleViewer.ViewModels;
@@ -12,6 +13,7 @@ using Grabacr07.KanColleViewer.ViewModels.Messages;
 using Grabacr07.KanColleViewer.Views;
 using Grabacr07.KanColleWrapper;
 using Livet;
+using mshtml;
 using MetroRadiance;
 using AppSettings = Grabacr07.KanColleViewer.Properties.Settings;
 using Settings = Grabacr07.KanColleViewer.Models.Settings;
@@ -38,6 +40,7 @@ namespace Grabacr07.KanColleViewer
 			ProductInfo = new ProductInfo();
 
 			Settings.Load();
+
 			PluginHost.Instance.Initialize();
 			NotifierHost.Instance.Initialize(KanColleClient.Current);
 			Helper.SetRegistryFeatureBrowserEmulation();
@@ -73,7 +76,7 @@ namespace Grabacr07.KanColleViewer
 								PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
 									KanColleViewer.Properties.Resources.Updater_Notification_Title,
 									KanColleViewer.Properties.Resources.Updater_Notification_TransUpdate_Success,
-									() => App.ViewModelRoot.Activate());
+									() => ViewModelRoot.Activate());
 								KanColleClient.Current.Translations.ChangeCulture(Settings.Current.Culture);
 							}
 						}
@@ -87,7 +90,7 @@ namespace Grabacr07.KanColleViewer
 			this.MainWindow = new MainWindow { DataContext = ViewModelRoot };
 			this.MainWindow.Show();
 
-            RestoreWindowSize();
+			this.RestoreWindowSize();
 		}
 
 		protected override void OnExit(ExitEventArgs e)
@@ -130,7 +133,7 @@ ERROR, date = {0}, sender = {1},
 			var window = System.Windows.Application.Current.MainWindow;
 			if (window != null)
 			{
-				if (Settings.Current.Orientation == OrientationType.Horizontal)
+				if (Settings.Current.Orientation.Mode == Orientation.Horizontal)
 				{
 					window.Width = Settings.Current.HorizontalSize.X;
 					window.Height = Settings.Current.HorizontalSize.Y;

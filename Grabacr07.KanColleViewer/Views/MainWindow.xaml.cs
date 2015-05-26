@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Input;
 using Grabacr07.KanColleViewer.Models;
@@ -35,13 +36,13 @@ namespace Grabacr07.KanColleViewer.Views
 			//var dialog = new ExitDialog { Owner = this, };
 			//dialog.Show();
 
-			SaveWindowSize();
+			this.SaveWindowSize();
 			base.OnClosing(e);
 		}
 
 		protected override void OnStateChanged(EventArgs e)
 		{
-			SaveWindowSize();
+			this.SaveWindowSize();
 			base.OnStateChanged(e);
 		}
 
@@ -67,13 +68,13 @@ namespace Grabacr07.KanColleViewer.Views
 
 		private void SaveWindowSize()
 		{
-			if (Settings2.Current.Orientation == OrientationType.Horizontal)
+			if (Settings2.Current.Orientation.Mode == Orientation.Horizontal)
 			{
-				Settings2.Current.HorizontalSize = new System.Windows.Point(ActualWidth, ActualHeight);
+				Settings2.Current.HorizontalSize = new System.Windows.Point(this.ActualWidth, this.ActualHeight);
 			}
 			else
 			{
-				Settings2.Current.VerticalSize = new System.Windows.Point(ActualWidth, ActualHeight);
+				Settings2.Current.VerticalSize = new System.Windows.Point(this.ActualWidth, this.ActualHeight);
 			}
 		}
 	}

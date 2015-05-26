@@ -515,76 +515,8 @@ namespace Grabacr07.KanColleViewer.ViewModels
         }
 
         #endregion
-
-		#region EnableUpdateNotification 変更通知プロパティ
-
-		public bool EnableUpdateNotification
-		{
-			get { return Settings.Current.EnableUpdateNotification; }
-			set
-			{
-				if (Settings.Current.EnableUpdateNotification != value)
-				{
-					Settings.Current.EnableUpdateNotification = value;
-					this.RaisePropertyChanged();
-				}
-			}
-		}
-
-		#endregion
-
-		#region EnableUpdateTransOnStart 変更通知プロパティ
-
-		public bool EnableUpdateTransOnStart
-		{
-			get { return Settings.Current.EnableUpdateTransOnStart; }
-			set
-			{
-				if (Settings.Current.EnableUpdateTransOnStart != value)
-				{
-					Settings.Current.EnableUpdateTransOnStart = value;
-					this.RaisePropertyChanged();
-				}
-			}
-		}
-
-		#endregion
 		
 		// ReSharper restore InconsistentNaming
-
-		#region FlashQuality 変更通知プロパティ
-
-		public string FlashQuality
-		{
-			get { return Settings.Current.FlashQuality; }
-			set
-			{
-				if (Settings.Current.FlashQuality != value)
-				{
-					Settings.Current.FlashQuality = value;
-					this.RaisePropertyChanged();
-				}
-			}
-		}
-
-		#endregion
-
-		#region FlashWindow 変更通知プロパティ
-
-		public string FlashWindow
-		{
-			get { return Settings.Current.FlashWindow; }
-			set
-			{
-				if (Settings.Current.FlashWindow != value)
-				{
-					Settings.Current.FlashWindow = value;
-					this.RaisePropertyChanged();
-				}
-			}
-		}
-
-		#endregion
 
 		#region NotifierPlugins 変更通知プロパティ
 
@@ -622,57 +554,6 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			}
 		}
 
-		#endregion
-
-        #region CustomSoundVolume 変更通知プロパティ
-
-        public int CustomSoundVolume
-        {
-            get { return Settings.Current.CustomSoundVolume; }
-            set
-            {
-                if (Settings.Current.CustomSoundVolume != value)
-                {
-                    Settings.Current.CustomSoundVolume = value;
-                    this.RaisePropertyChanged();
-                }
-            }
-        }
-
-        #endregion
-
-        #region Orientation
-
-        private WindowOrientaionMode _Orientation;
-
-        public WindowOrientaionMode Orientation
-        {
-            get { return this._Orientation; }
-            private set
-            {
-                if (this._Orientation != value)
-                {
-                    this._Orientation = value;
-                    this.RaisePropertyChanged();
-                }
-            }
-        }
-        #endregion
-
-		#region MenuIcon
-
-		public bool MenuIcon
-		{
-			get { return Settings.Current.MenuIcon; }
-			set
-			{
-				if (Settings.Current.MenuIcon != value)
-				{
-					Settings.Current.MenuIcon = value;
-					this.RaisePropertyChanged();
-				}
-			}
-		}
 		#endregion
 
 		#region ViewRangeSettingsCollection 変更通知プロパティ
@@ -743,15 +624,14 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			});
 			this.BrowserZoomFactor = zoomFactor;
 
-            var orientationMode = new WindowOrientaionMode { CurrentMode = Settings.Current.OrientationMode };
+			var orientationMode = new WindowOrientaionMode { CurrentMode = Settings.Current.OrientationMode };
+			orientationMode.Refresh();
 			this.CompositeDisposable.Add(orientationMode);
-            this.CompositeDisposable.Add(new PropertyChangedEventListener(orientationMode)
+			this.CompositeDisposable.Add(new PropertyChangedEventListener(orientationMode)
 			{
-				{ "Current", (sender, args) => Settings.Current.Orientation = orientationMode.Current },
                 { "CurrentMode", (sender, args) => Settings.Current.OrientationMode = orientationMode.CurrentMode },
 			});
-            Settings.Current.Orientation = orientationMode.Current;
-            this.Orientation = orientationMode;
+			Settings.Current.Orientation = orientationMode;
 
 			this.CompositeDisposable.Add(new PropertyChangedEventListener(KanColleClient.Current.Translations)
 			{

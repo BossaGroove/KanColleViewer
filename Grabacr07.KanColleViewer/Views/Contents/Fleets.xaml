@@ -451,7 +451,7 @@
 																		   Margin="0,0" />
                                                     </Border>
 													<DataTemplate.Triggers>
-														<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
+													<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Vertical">
 															<Setter TargetName="SlotItem"
 																Property="Margin"
 																Value="3,0" />
@@ -503,7 +503,7 @@
 											Property="Visibility"
 											Value="Visible" />
 								</DataTrigger>
-                                <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
+                                <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Vertical">
                                     <Setter TargetName="ShipNameText"
 											                Property="Margin"
 											                Value="4,0,10,0" />

@@ -115,7 +115,7 @@
 								  ItemsSource="{Binding Source={StaticResource EnumerableRange}}"
 								  HorizontalAlignment="Left"
 								  Prompt=""
-								  SelectedValue="{Binding CustomSoundVolume, Mode=TwoWay}"
+								  SelectedValue="{Binding Source={x:Static models:Settings.Current}, Path=CustomSoundVolume}"
 								  IsReadOnly="True"
 								  MinWidth="50"
 								  Grid.Column="1"/>
@@ -124,8 +124,12 @@
         <Rectangle Height="1"
 				   Margin="0,5"
 				   Style="{DynamicResource SeparatorRectangleStyleKey}" />
-        <TextBlock Text="{Binding Resources.Settings_UI, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" Style="{DynamicResource SettingsHeaderTextStyleKey}"/>
-        <CheckBox Content="{Binding Resources.Settings_UI_Icon, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" IsChecked="{Binding MenuIcon}" Height="17" Margin="15,0,0,10"/>
+        <TextBlock Text="{Binding Resources.Settings_UI, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+				   Style="{DynamicResource SettingsHeaderTextStyleKey}"/>
+        <CheckBox Content="{Binding Resources.Settings_UI_Icon, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+				  IsChecked="{Binding Source={x:Static models:Settings.Current}, Path=MenuIcon}"
+				  Height="17"
+				  Margin="15,0,0,10"/>
 
         <!--<Rectangle Height="1"
 				   Margin="0,16,0,0"

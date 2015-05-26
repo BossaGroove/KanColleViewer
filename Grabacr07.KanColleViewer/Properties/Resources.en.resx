@@ -825,7 +825,7 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>Morale will be restored in</value>
   </data>
   <data name="StateDetail_OnExpedition" xml:space="preserve">
-    <value>On expedition</value>
+    <value>On</value>
   </data>
   <data name="StateDetail_OnSortie" xml:space="preserve">
     <value>On sortie!</value>
@@ -1245,7 +1245,7 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>There aren't ship in fleet that is repairing</value>
   </data>
   <data name="StateDetail_OnExpeditionDetail" xml:space="preserve">
-    <value>Fleet is on expedition</value>
+    <value>Fleet is on</value>
   </data>
   <data name="StateDetail_OnShortSupply" xml:space="preserve">
     <value>There are ships in fleet that need resupplying</value>
@@ -1309,9 +1309,8 @@ Low: Performance over quality. Ugliest setting.</value>
   </data>
   <data name="Settings_ChangeOrientationMode" xml:space="preserve">
     <value>Change Orientation Mode</value>
-  </data>
-  
-    <data name="Homeport_Ammunition" xml:space="preserve">
+  </data> 
+  <data name="Homeport_Ammunition" xml:space="preserve">
     <value>Ammunition:</value>
   </data>
   <data name="Homeport_Bauxite" xml:space="preserve">
@@ -1322,11 +1321,11 @@ Low: Performance over quality. Ugliest setting.</value>
   </data>
   <data name="Homeport_Steel" xml:space="preserve">
     <value>Steel:</value>
-  </data>
-
-  
-    <data name="Homeport_DevelopmentMaterials" xml:space="preserve">
+  </data>  
+  <data name="Homeport_DevelopmentMaterials" xml:space="preserve">
     <value>Development Materials:</value>
   </data>
-
+  <data name="Settings_Flash_Enable" xml:space="preserve">
+    <value>Change flash settings</value>
+  </data>
 </root>

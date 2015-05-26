@@ -106,21 +106,21 @@ namespace Grabacr07.KanColleWrapper
 
 		#endregion
 
-		#region DroppedShip 変更通知プロパティ
+		#region DroppedShips 変更通知プロパティ
 
-		private DroppedShip _DroppedShip;
+		private List<DroppedShip> _DroppedShips;
 
 		/// <summary>
-		/// New dropped ship
+		/// どロプされた艦娘のコレクションを取得します。
 		/// </summary>
-		public DroppedShip DroppedShip
+		public List<DroppedShip> DroppedShips
 		{
-			get { return this._DroppedShip; }
-			set
+			get { return this._DroppedShips; }
+			private set
 			{
-				if (this._DroppedShip != value)
+				if (this._DroppedShips != value)
 				{
-					this._DroppedShip = value;
+					this._DroppedShips = value;
 					this.RaisePropertyChanged();
 				}
 			}
@@ -135,6 +135,7 @@ namespace Grabacr07.KanColleWrapper
 
 			this.Ships = new MemberTable<Ship>();
 			this.Fleets = new MemberTable<Fleet>();
+			this.DroppedShips = new List<DroppedShip>();
 
 			proxy.api_get_member_ship.TryParse<kcsapi_ship2[]>().Subscribe(x => this.Update(x.Data));
 			proxy.api_get_member_ship2.TryParse<kcsapi_ship2[]>().Subscribe(x =>
@@ -444,12 +445,11 @@ namespace Grabacr07.KanColleWrapper
 					evacuationOfferedShipIds = null;
 					towOfferedShipIds = null;
 				});
-
-            proxy.api_req_sortie_battleresult.TryParse<kcsapi_battleresult>().Subscribe(x => this.DropShip(x.Data));
-            proxy.api_req_combined_battle_battleresult.TryParse<kcsapi_combined_battle_battleresult>().Subscribe(x =>
-            {
-                this.DropShip(x.Data);
-            });
+			proxy.api_req_sortie_battleresult.TryParse<kcsapi_battleresult>().Subscribe(x => this.DropShip(x.Data));
+			proxy.api_req_combined_battle_battleresult.TryParse<kcsapi_combined_battle_battleresult>().Subscribe(x =>
+			{
+				this.DropShip(x.Data);
+			});
 
 		}
 
@@ -476,6 +476,8 @@ namespace Grabacr07.KanColleWrapper
 		{
 			this.evacuatedShipsIds.Clear();
 			this.towShipIds.Clear();
+			this.DroppedShips.Clear();
+			this.RaisePropertyChanged("DroppedShips");
 
 			foreach (var ship in this.Ships.Values)
 			{
@@ -514,16 +516,17 @@ namespace Grabacr07.KanColleWrapper
 		{
 			if (source.api_get_ship == null) return;
 
-			this.DroppedShip = new DroppedShip(source.api_get_ship);
+			this.DroppedShips.Add(new DroppedShip(source.api_get_ship));
+			this.RaisePropertyChanged("DroppedShips");
 		}
 
 		private void DropShip(kcsapi_combined_battle_battleresult source)
 		{
 			if (source.api_get_ship == null) return;
 
-			this.DroppedShip = new DroppedShip(source.api_get_ship);
+			this.DroppedShips.Add(new DroppedShip(source.api_get_ship));
+			this.RaisePropertyChanged("DroppedShips");
 		}
-        
 		#endregion
 	}
 }

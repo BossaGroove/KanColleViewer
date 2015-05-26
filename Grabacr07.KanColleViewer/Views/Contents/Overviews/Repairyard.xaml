@@ -29,7 +29,7 @@
                 <Setter Property="Margin"
 						Value="5,0,5,5" />
                 <Style.Triggers>
-                    <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
+                    <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Vertical">
                         <Setter Property="Margin" Value="5,0,5,10"/>
                         <Setter Property="Padding" Value="8"/>
                     </DataTrigger>
@@ -50,7 +50,7 @@
                 <Setter Property="Margin"
 						Value="5,0,5,5" />
                 <Style.Triggers>
-                    <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
+                    <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Vertical">
                         <Setter Property="Margin" Value="5,0,5,10"/>
                         <Setter Property="Padding" Value="8"/>
                     </DataTrigger>

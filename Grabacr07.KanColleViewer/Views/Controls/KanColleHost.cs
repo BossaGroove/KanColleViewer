@@ -130,12 +130,22 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 				this.WebBrowser.Width = (kanColleSize.Width * (zoomFactor / dpi.ScaleX)) / dpi.ScaleX;
 				this.WebBrowser.Height = (kanColleSize.Height * (zoomFactor / dpi.ScaleY)) / dpi.ScaleY;
 				this.MinWidth = this.WebBrowser.Width;
+				this.MinHeight = this.WebBrowser.Height;
 			}
 			else
 			{
-				this.WebBrowser.Width = double.NaN;
-				this.WebBrowser.Height = (browserSize.Height * (zoomFactor / dpi.ScaleY)) / dpi.ScaleY;
+				if (KCVSettings.Current.Orientation.Mode == Orientation.Vertical)
+				{
+					this.WebBrowser.Width = double.NaN;
+					this.WebBrowser.Height = (browserSize.Height * (zoomFactor / dpi.ScaleY)) / dpi.ScaleY;
+				}
+				else
+				{
+					this.WebBrowser.Width = (browserSize.Width * (zoomFactor / dpi.ScaleX)) / dpi.ScaleX;
+					this.WebBrowser.Height = double.NaN;
+				}
 				this.MinWidth = (browserSize.Width * (zoomFactor / dpi.ScaleX)) / dpi.ScaleX;
+				this.MinHeight = (browserSize.Height * (zoomFactor / dpi.ScaleX)) / dpi.ScaleX;
 			}
 		}
 
@@ -174,11 +184,11 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 
 			this.Update();
 
-            //var window = Window.GetWindow(this.WebBrowser);
-            //if (window != null)
-            //{
-            //    window.Width = this.WebBrowser.Width;
-            //}
+			//var window = Window.GetWindow(this.WebBrowser);
+			//if (window != null)
+			//{
+			//    window.Width = this.WebBrowser.Width;
+			//}
 		}
 
 		private void ApplyStyleSheet()

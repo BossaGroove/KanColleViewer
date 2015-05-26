@@ -2,6 +2,13 @@
 	KCV Change Log
 ========================
 
+v3.8.1 r555 - 5/24/2015
+	* Fix orientation startup
+
+v3.8.1 r554 - 5/24/2015
+	* Fix loading forever when startup
+	* Update ship number realtime
+
 v3.8.1 r552 - 5/19/2015
 	* Fix fleet state doesn't update when sortie
 	* Add pagination for log viewer

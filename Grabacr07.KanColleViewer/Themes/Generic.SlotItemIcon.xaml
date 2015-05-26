@@ -20,7 +20,7 @@
 			</Setter.Value>
 		</Setter>
 		<Style.Triggers>
-            <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
+            <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Horizontal">
                 <Setter Property="Width" Value="22"/>
                 <Setter Property="Height" Value="22"/>
             </DataTrigger>

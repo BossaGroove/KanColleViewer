@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Ships Version="1.1.5">
+<Ships Version="1.1.6">
   <Ship>
     <JP-Name>長門</JP-Name>
     <TR-Name>Nagato</TR-Name>
@@ -594,7 +594,7 @@
   </Ship>
   <Ship>
     <JP-Name>大淀</JP-Name>
-    <TR-Name>Oyodo</TR-Name>
+    <TR-Name>Ooyodo</TR-Name>
   </Ship>
   <Ship>
     <JP-Name>香取</JP-Name>
@@ -630,7 +630,7 @@
   </Ship>
   <Ship>
     <JP-Name>夕月</JP-Name>
-    <TR-Name>Yūzuki</TR-Name>
+    <TR-Name>Yuuzuki</TR-Name>
   </Ship>
   <Ship>
     <JP-Name>東雲</JP-Name>

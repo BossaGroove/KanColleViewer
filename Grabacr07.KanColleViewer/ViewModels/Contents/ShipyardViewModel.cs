@@ -113,7 +113,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 			this.DroppedShip = new DroppedShipViewModel();
 			this.CompositeDisposable.Add(new PropertyChangedEventListener(KanColleClient.Current.Homeport.Organization)
 			{
-				{ "DroppedShip", (sender, args) => this.UpdateDroppedShip() },
+				{ "DroppedShips", (sender, args) => this.UpdateDroppedShip() },
 			});
 
 			this.CompositeDisposable.Add(new PropertyChangedEventListener(KanColleClient.Current.Homeport.Repairyard)
@@ -152,8 +152,16 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 
 		private void UpdateDroppedShip()
 		{
-			this.DroppedShip.Update(KanColleClient.Current.Homeport.Organization.DroppedShip);
-			this.NewItem = this.DroppedShip;
+			var droppedShip = KanColleClient.Current.Homeport.Organization.DroppedShips.LastOrDefault();
+			if (droppedShip != null)
+			{
+				this.DroppedShip.Update(droppedShip);
+				this.NewItem = this.DroppedShip;
+			}
+			else
+			{
+				this.NewItem = new DroppedShipViewModel();
+			}
 		}
 	}
 }

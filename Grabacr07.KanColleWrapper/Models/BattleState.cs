@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grabacr07.KanColleViewer.Models
+namespace Grabacr07.KanColleWrapper.Models
 {
-	[Flags]
-	public enum OrientationType
+	public enum BattleState
 	{
-		Vertical,
-		Horizontal,
-        Auto,
-    }
+		Start,
+		NightBattle,
+		BattleResult,
+		End
+	}
 }

@@ -7,7 +7,7 @@
     <Style x:Key="BroswerDockOrientation">
 		<Setter Property="DockPanel.Dock" Value="{Binding Source={x:Static models:Settings.Current}, Path=BrowserVerticalPosition}"/>
         <Style.Triggers>
-            <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
+			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Horizontal">
                 <Setter Property="DockPanel.Dock" Value="{Binding Source={x:Static models:Settings.Current}, Path=BrowserHorizontalPosition}"/>
             </DataTrigger>
         </Style.Triggers>
@@ -15,7 +15,7 @@
     <Style x:Key="DockOrientation">
 		<Setter Property="DockPanel.Dock" Value="Top"/>
         <Style.Triggers>
-            <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
+			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Horizontal">
                 <Setter Property="DockPanel.Dock" Value="Left"/>
             </DataTrigger>
         </Style.Triggers>
@@ -23,7 +23,7 @@
     <Style x:Key="DockOrientationFlip">
 		<Setter Property="DockPanel.Dock" Value="Left"/>
         <Style.Triggers>
-            <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
+			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Horizontal">
                 <Setter Property="DockPanel.Dock" Value="Top"/>
             </DataTrigger>
         </Style.Triggers>
@@ -32,7 +32,7 @@
 		   TargetType="{x:Type FrameworkElement}">
 		<Setter Property="Visibility" Value="Visible"/>
 		<Style.Triggers>
-			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
+			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Horizontal">
 				<Setter Property="Visibility" Value="Collapsed"/>
 			</DataTrigger>
 		</Style.Triggers>
@@ -41,7 +41,7 @@
 		   TargetType="{x:Type FrameworkElement}">
 		<Setter Property="Visibility" Value="Visible"/>
 		<Style.Triggers>
-			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
+			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Vertical">
 				<Setter Property="Visibility" Value="Collapsed"/>
 			</DataTrigger>
 		</Style.Triggers>

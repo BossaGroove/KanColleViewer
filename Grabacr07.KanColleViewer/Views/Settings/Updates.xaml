@@ -226,11 +226,11 @@
 		<TextBlock Text="{Binding Resources.Settings_Updates_Option, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" Style="{DynamicResource SettingsHeaderTextStyleKey}" />
 
 		<CheckBox Content="{Binding Resources.Settings_Updates_UpdateOnStartup, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" 
-				  IsChecked="{Binding EnableUpdateNotification}" 
+				  IsChecked="{Binding Source={x:Static models:Settings.Current}, Path=EnableUpdateNotification}" 
 				  Height="17" 
 				  Margin="15,0,0,10"/>
 		<CheckBox Content="{Binding Resources.Settings_Updates_AutoUpdateTrans, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" 
-				  IsChecked="{Binding EnableUpdateTransOnStart}" 
+				  IsChecked="{Binding Source={x:Static models:Settings.Current}, Path=EnableUpdateTransOnStart}" 
 				  Height="17" 
 				  Margin="15,0,0,10"/>
 	</StackPanel>

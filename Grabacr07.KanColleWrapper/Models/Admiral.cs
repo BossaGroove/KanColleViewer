@@ -130,6 +130,14 @@ namespace Grabacr07.KanColleWrapper.Models
 	        get { return this.RawData.api_max_slotitem; }
 	    }
 
+		/// <summary>
+		/// Number of medals
+		/// </summary>
+		public int Medals
+		{
+			get { return this.RawData.api_medals; }
+		}
+
 		public void Update()
 		{
 			this.RaisePropertyChanged("RankID");

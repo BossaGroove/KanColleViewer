@@ -100,6 +100,8 @@
     <Compile Include="Counter.cs" />
     <Compile Include="DisposableNotifier.cs" />
     <Compile Include="Dockyard.cs" />
+    <Compile Include="Models\BattleState.cs" />
+    <Compile Include="Models\Raw\kcsapi_midnight_battle.cs" />
     <Compile Include="Models\DroppedShip.cs" />
     <Compile Include="Models\CombinedFleet.cs" />
     <Compile Include="Models\FleetDock.cs" />
