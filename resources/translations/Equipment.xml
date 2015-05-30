@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Equipment Version="1.0.20">
+<Equipment Version="1.0.21">
   <Item>
     <JP-Name>12cm単装砲</JP-Name>
     <TR-Name>12cm Single Cannon</TR-Name>
@@ -547,5 +547,9 @@
   <Item>
     <JP-Name>プリエーゼ式水中防御隔壁</JP-Name>
     <TR-Name>Pugliese Underwater Protection Bulkhead</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>96式150cm探照灯</JP-Name>
+    <TR-Name>Type 96 150cm Searchlight</TR-Name>
   </Item>
 </Equipment>

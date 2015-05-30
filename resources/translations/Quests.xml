@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Quests Version="1.1.18">
+<Quests Version="1.1.20">
   <Quest>
     <ID>101</ID>
     <JP-Name>はじめての「編成」！</JP-Name>
@@ -1181,7 +1181,7 @@
     <JP-Name>「第六駆逐隊」対潜哨戒なのです！</JP-Name>
     <TR-Name>Destroyer Division 6 Anti-submarine Patrol nanodesu!</TR-Name>
     <JP-Detail>「第六駆逐隊」を含む艦隊で鎮守府正面へ展開、対潜哨戒を実施せよ！</JP-Detail>
-    <TR-Detail>Deploy a fleet with ONLY Akatsuki, Hibiki, Inazuma, and Ikazuchi. Deploy to world 1-5 and obtain an C rank or better at the boss.</TR-Detail>
+    <TR-Detail>Deploy a fleet with ONLY Akatsuki, Hibiki, Inazuma, and Ikazuchi to world 1-5 and obtain an C rank or better at the boss.</TR-Detail>
   </Quest>
   <Quest>
     <ID>307</ID>
@@ -1195,14 +1195,14 @@
     <JP-Name>新編「三川艦隊」ソロモン方面へ！</JP-Name>
     <TR-Name>Mikawa Fleet to the Solomon Seas!</TR-Name>
     <JP-Detail>第一艦隊に編成した「三川艦隊」を南方海域に進出させ、同方面の敵艦隊を撃滅せよ！</JP-Detail>
-    <TR-Detail>Deploy a fleet with Choukai Kai2 as the flagship, and Aoba, Kinugasa, Kako, Furutaka, Tenryuu. Deploy to world 5-1 and obtain an S victory at the boss.</TR-Detail>
+    <TR-Detail>Deploy a fleet with Choukai Kai2 as the flagship, and 5 out of Aoba, Kinugasa, Kako, Furutaka, Yuubari and Tenryuu to world 5-1 and obtain an S victory at the boss.</TR-Detail>
   </Quest>
   <Quest>
     <ID>275</ID>
     <JP-Name>抜錨！「第十八戦隊」</JP-Name>
     <TR-Name>Sortie! Cruiser Division 18</TR-Name>
     <JP-Detail>「天龍」「龍田」を基幹戦力とした「第十八戦隊」で出撃し、オリョール海の敵主力を撃滅せよ！</JP-Detail>
-    <TR-Detail>Deploy a fleet with Tenryuu, Tatsuta, and 2 or more other ships. Deploy to world 2-3 and obtain an S victory at the boss.</TR-Detail>
+    <TR-Detail>Deploy a fleet with Tenryuu, Tatsuta, and 2 or more other ships to world 2-3 and obtain an S victory at the boss.</TR-Detail>
   </Quest>
   <Quest>
     <ID>153</ID>
@@ -1231,5 +1231,33 @@
     <TR-Name>Strengthen the practice battles, increase the fleet's experience!</TR-Name>
     <JP-Detail>艦隊のさらなる練度向上を図る！本日中に「演習」で4回以上「勝利」をおさめよう！</JP-Detail>
     <TR-Detail>Get 4 victories in practice mode within the same day.</TR-Detail>
+  </Quest>
+  <Quest>
+    <ID>154</ID>
+    <JP-Name>海上突入部隊を編成せよ！</JP-Name>
+    <TR-Name>Form the surface attack fleet!</TR-Name>
+    <JP-Detail>戦艦「比叡」「霧島」軽巡「長良」駆逐艦「暁」「雷」「電」による海上突入部隊を編成せよ！</JP-Detail>
+    <TR-Detail>Have Hiei, Kirishima, Nagara, Akatsuki, Ikazuchi, Inazuma in the fleet.</TR-Detail>
+  </Quest>
+  <Quest>
+    <ID>155</ID>
+    <JP-Name>新編「第六駆逐隊」を編成せよ！</JP-Name>
+    <TR-Name>Form the new Destroyer Division 6!</TR-Name>
+    <JP-Detail>「暁改二」を旗艦とした「響」「雷」「電」4隻による第六駆逐隊を編成せよ！</JP-Detail>
+    <TR-Detail>Have ONLY Akatsuki kai2 as flagship, and Hibiki, Ikazuchi, Inazuma in the fleet.</TR-Detail>
+  </Quest>
+  <Quest>
+    <ID>277</ID>
+    <JP-Name>「第六駆逐隊」対潜哨戒を徹底なのです！</JP-Name>
+    <TR-Name>Complete Destroyer Division 6 Anti-Submarine Mission!</TR-Name>
+    <JP-Detail>「第六駆逐隊」を含む艦隊で鎮守府正面で対潜哨戒を実施、敵潜水艦部隊を痛打せよ！</JP-Detail>
+    <TR-Detail>Deploy a fleet with Akatsuki kai2 as flagship, and Hibiki, Ikazuchi, Inazuma to world 1-5 and obtain an A victory or better at the boss.</TR-Detail>
+  </Quest>
+  <Quest>
+    <ID>276</ID>
+    <JP-Name>海上突入部隊、進発せよ！</JP-Name>
+    <TR-Name>Sortie the surface attack fleet!</TR-Name>
+    <JP-Detail>「比叡」「霧島」「長良」「暁」「雷」「電」の艦隊で、南方海域進出作戦を実施、敵を撃滅せ</JP-Detail>
+    <TR-Detail>Deploy a fleet with Hiei, Kirishima, Nagara, Akatsuki, Ikazuchi, Inazuma to world 5-1 and obtain an S victory at the boss.</TR-Detail>
   </Quest>
 </Quests>

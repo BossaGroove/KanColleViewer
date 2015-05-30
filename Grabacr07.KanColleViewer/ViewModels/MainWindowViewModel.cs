@@ -29,7 +29,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		private ICommand _RefreshNavigator;
 		public ICommand  RefreshNavigator
 		{
-			get { return _RefreshNavigator; }
+			get { return this._RefreshNavigator; }
 		}
 
 		#endregion
@@ -55,7 +55,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 						StatusService.Current.Set(Properties.Resources.StatusBar_Ready);
 						ThemeService.Current.ChangeAccent(Accent.Blue);
 						if (KanColleClient.Current.Homeport != null)
-							KanColleClient.Current.Homeport.Logger.EnableLogging = Settings.EnableLogging;
+							KanColleClient.Current.Homeport.Logger.EnableLogging = this.Settings.EnableLogging;
 						break;
 					case Mode.InSortie:
 						ThemeService.Current.ChangeAccent(Accent.Orange);
@@ -183,12 +183,12 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			this.UpdateCloseConfirm();
 			this.CompositeDisposable.Add(new PropertyChangedEventListener(Setting.Current)
 			{
-				{ "CloseConfirm", (sender, args) => UpdateCloseConfirm() },
-				{ "CloseConfirmOnlyInSortie", (sender, args) => UpdateCloseConfirm() },
+				{ "CloseConfirm", (sender, args) => this.UpdateCloseConfirm() },
+				{ "CloseConfirmOnlyInSortie", (sender, args) => this.UpdateCloseConfirm() },
 			});
 
 
-			_RefreshNavigator = new RelayCommand(Navigator.ReNavigate);
+			this._RefreshNavigator = new RelayCommand(this.Navigator.ReNavigate);
 			this.UpdateMode();
 		}
 
@@ -222,7 +222,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 					? Mode.InSortie
 					: Mode.Started
 				: Mode.NotStarted;
-			UpdateCloseConfirm();
+			this.UpdateCloseConfirm();
 		}
 
 		private void UpdateCloseConfirm()
@@ -234,20 +234,15 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			}
 		}
 
-		public void Closing()
-		{
-			if (!this.CanClose)
-			{
-				var message = new TransitionMessage(this, "Show/ExitDialog");
-				this.Messenger.Raise(message);
-			}
-		}
-
 		public void Close()
 		{
+			this.Messenger.Raise(new TransitionMessage(this, "Show/ExitDialog"));
+		}
+
+		public void ForceClose()
+		{
 			this.CanClose = true;
-			var message = new TransitionMessage(this, "Close");
-			this.Messenger.Raise(message);
+			this.Messenger.Raise(new WindowActionMessage(WindowAction.Close, "Window/Close"));
 		}
 	}
 }

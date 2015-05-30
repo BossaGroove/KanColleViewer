@@ -2,6 +2,11 @@
 	KCV Change Log
 ========================
 
+v3.8.2 r556 - 5/29/2015
+	* Fix ship count don't update when drop same ship type
+	* Web browser size auto stretch when not in game
+	* Some back-end changes
+
 v3.8.1 r555 - 5/24/2015
 	* Fix orientation startup
 
