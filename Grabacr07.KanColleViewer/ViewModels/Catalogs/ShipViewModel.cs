@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Grabacr07.KanColleWrapper.Models;
+using Grabacr07.KanColleWrapper.Globalization;
 using Livet;
 using Livet.EventListeners;
 
@@ -13,7 +14,6 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 	{
 		public int Index { get; private set; }
 		public Ship Ship { get; private set; }
-        public List<SlotItemViewModel> SlotItems { get; private set; }
 
 		#region Area 変更通知プロパティ
 
@@ -38,16 +38,16 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		{
 			this.Index = index;
 			this.Ship = ship;
-            this.SlotItems = ship.EquippedSlots.Select(i => new SlotItemViewModel(i)).ToList();
 
 			this.Update(ship);
 			this.CompositeDisposable.Add(new PropertyChangedEventListener(ship)
 			{
 				"SallyArea", (sender, args) => this.Update(ship),
 			});
-			this.CompositeDisposable.Add(new PropertyChangedEventListener(ResourceServiceWrapper.Current)
+			this.CompositeDisposable.Add(new PropertyChangedEventListener(ResourceService.Current)
 			{
 				(sender, args) => this.RaisePropertyChanged("Area"),
+				(sender, args) => this.RaisePropertyChanged("Ship"),
 			});
 		}
 

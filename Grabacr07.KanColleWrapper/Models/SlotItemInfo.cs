@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Grabacr07.KanColleWrapper.Globalization;
 using Grabacr07.KanColleWrapper.Internal;
 using Grabacr07.KanColleWrapper.Models.Raw;
 
@@ -25,8 +26,8 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public string Name
 		{
-            get { return KanColleClient.Current.Translations.GetTranslation(this.RawData.api_name, TranslationType.Equipment, this.RawData); }
-        }
+			get { return KanColleClient.Current.Translations.GetTranslation(this.RawData.api_name, TranslationType.Equipment, this.RawData); }
+		}
 
 		public string UntranslatedName
 		{
@@ -130,6 +131,30 @@ namespace Grabacr07.KanColleWrapper.Models
 			get { return this.RawData.api_leng; }
 		}
 
+		public string AllStats
+		{
+			get
+			{
+				List<string> details = new List<string>();
+
+				if (this.Firepower != 0) details.Add(this.StatFormat(this.Firepower, Resources.Stats_Firepower));
+				if (this.AA != 0) details.Add(this.StatFormat(this.AA, Resources.Stats_AntiAir));
+				if (this.Torpedo != 0) details.Add(this.StatFormat(this.Torpedo, Resources.Stats_Torpedo));
+				if (this.AntiSub != 0) details.Add(this.StatFormat(this.AntiSub, Resources.Stats_AntiSub));
+				if (this.SightRange != 0) details.Add(this.StatFormat(this.SightRange, Resources.Stats_SightRange));
+				if (this.Speed != 0) details.Add(this.StatFormat(this.Speed, Resources.Stats_Speed));
+				if (this.Armor != 0) details.Add(this.StatFormat(this.Armor, Resources.Stats_Armor));
+				if (this.Health != 0) details.Add(this.StatFormat(this.Health, Resources.Stats_Health));
+				if (this.Luck != 0) details.Add(this.StatFormat(this.Luck, Resources.Stats_Luck));
+				if (this.Evasion != 0) details.Add(this.StatFormat(this.Evasion, Resources.Stats_Evasion));
+				if (this.Accuracy != 0) details.Add(this.StatFormat(this.Accuracy, Resources.Stats_Accuracy));
+				if (this.DiveBomb != 0) details.Add(this.StatFormat(this.DiveBomb, Resources.Stats_DiveBomb));
+				if (this.AttackRange > 0) details.Add(string.Format(" {1}({0})", this.AttackRange, Resources.Stats_AttackRange));
+
+				return String.Join("\n", details);
+			}
+		}
+
 		public bool IsNumerable
 		{
 			get
@@ -151,6 +176,11 @@ namespace Grabacr07.KanColleWrapper.Models
 		public override string ToString()
 		{
 			return string.Format("ID = {0}, Name = \"{1}\", Type = {{{2}}}", this.Id, this.Name, this.RawData.api_type.ToString(", "));
+		}
+
+		private string StatFormat(int stat, string name)
+		{
+			return String.Format(" {0:+#;-#} {1}", stat, name);
 		}
 
 		#region static members

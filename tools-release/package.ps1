@@ -10,7 +10,6 @@
  
         $targetKeywords = '*.exe','*.dll','*.exe.config','*.txt'
         $ignoreKeywords = '*.vshost.*','Microsoft.*.resources.dll','ExPlugin.*.dll'
-        $languages = 'en','de','ko-KR','zh-CN'
  
         $exeSource  = 'KanColleViewer.exe'
  
@@ -38,12 +37,10 @@
 			Get-ChildItem -Path $target -Filter '*.dll' | % {
 				move-item $_.FullName -Destination $(Join-Path $(Join-Path $target 'lib') $_) -Force
 			}
-			Foreach ($language in $languages)
-			{
-				#move language lib to lib folder
-				Get-ChildItem -Path $target -Filter $language | % {
-					move-item $_.FullName -Destination $(Join-Path $(Join-Path $target 'lib') $_) -Force
-				}
+			
+			# move language lib to lib folder
+			Get-ChildItem -Path $target | ? {$_.Name -match '^[a-z]{2}(-[a-z]{2}|)$'} | % {
+				move-item $_.FullName -Destination $(Join-Path $(Join-Path $target 'lib') $_) -Force
 			}
 			
             # valid path check

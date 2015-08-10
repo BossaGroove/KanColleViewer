@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -327,12 +327,6 @@
   <data name="Reparyard_Unused" xml:space="preserve">
     <value>Empty</value>
   </data>
-  <data name="ReSortie_NotificationMessage" xml:space="preserve">
-    <value>All ships in 「{0}」 have fully recovered from fatigue.</value>
-  </data>
-  <data name="ReSortie_NotificationMessage_Title" xml:space="preserve">
-    <value>Fatigue Recovery Completed</value>
-  </data>
   <data name="Screenshot_Failed" xml:space="preserve">
     <value>Screenshot save failed: </value>
   </data>
@@ -435,11 +429,23 @@
   <data name="StartContent_Welcom" xml:space="preserve">
     <value>Welcome</value>
   </data>
+  <data name="Fleets_AirSuperiorityPotential" xml:space="preserve">
+    <value>Air Superiority</value>
+  </data>
+  <data name="Fleets_Average" xml:space="preserve">
+    <value>Average</value>
+  </data>
   <data name="StatusBar_NotStarted" xml:space="preserve">
     <value>Waiting for KanColle to start</value>
   </data>
   <data name="StatusBar_Ready" xml:space="preserve">
     <value>Ready</value>
+  </data>
+  <data name="Fleets_Speed_Fast" xml:space="preserve">
+    <value>Fast Fleet</value>
+  </data>
+  <data name="Fleets_Speed_Slow" xml:space="preserve">
+    <value>Slow Fleet</value>
   </data>
   <data name="ZoomAction_OutOfRange" xml:space="preserve">
     <value>{0}% zoom is not supported.</value>
@@ -447,17 +453,26 @@
   <data name="ZoomAction_ZoomFailed" xml:space="preserve">
     <value>Zoom Failed: {0}</value>
   </data>
-  <data name="Rankings" xml:space="preserve">
-    <value>Rankings</value>
+  <data name="Fleets_Level" xml:space="preserve">
+    <value>Level</value>
   </data>
-  <data name="Rankings_RankingsList" xml:space="preserve">
-    <value>Current Rankings</value>
+  <data name="Fleets_Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="ZoomFactorSelector" xml:space="preserve">
+    <value>Game screen size</value>
+  </data>
+  <data name="ZoomFactorSelector_Tooltip" xml:space="preserve">
+    <value>Adjust the display size of the game screen.</value>
   </data>
   <data name="Settings_Logging" xml:space="preserve">
     <value>Logging</value>
   </data>
   <data name="Settings_Logging_Enable" xml:space="preserve">
     <value>Log drops and crafting results to file</value>
+  </data>
+  <data name="Fleets_ViewRange" xml:space="preserve">
+    <value>Total LoS</value>
   </data>
   <data name="StartContent_SetRegionCookieButton" xml:space="preserve">
     <value>Set Region Cookie</value>
@@ -522,11 +537,11 @@
   <data name="Notifications_CriticalCondition_Title" xml:space="preserve">
     <value>Critical Ship Warning</value>
   </data>
-  <data name="Settings_Accent_CriticalCondition" xml:space="preserve">
-    <value>Change window color when a ship is in critical condition</value>
-  </data>
   <data name="Settings_Notifications_CriticalCondition" xml:space="preserve">
     <value>Give a notification for ships in critical condition</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Tools</value>
   </data>
   <data name="Settings_Updates" xml:space="preserve">
     <value>Updates</value>
@@ -555,68 +570,11 @@
   <data name="Settings_Updates_UpdateTransBtn_ToolTip" xml:space="preserve">
     <value>Downloads new translations</value>
   </data>
-  <data name="Tools_Calculator" xml:space="preserve">
-    <value>Calculator</value>
-  </data>
-  <data name="Tools_Calculator_CurrentLevel" xml:space="preserve">
-    <value>Current Level</value>
-  </data>
-  <data name="Tools_Calculator_Flagship" xml:space="preserve">
-    <value>Flagship</value>
-  </data>
-  <data name="Tools_Calculator_ListPrompt" xml:space="preserve">
-    <value>Select a Ship Girl</value>
-  </data>
-  <data name="Tools_Calculator_Map" xml:space="preserve">
-    <value>Map</value>
-  </data>
-  <data name="Tools_Calculator_MVP" xml:space="preserve">
-    <value>MVP</value>
-  </data>
-  <data name="Tools_Calculator_RemainingExp" xml:space="preserve">
-    <value>Remaining</value>
-  </data>
-  <data name="Tools_Calculator_Result" xml:space="preserve">
-    <value>Result</value>
-  </data>
-  <data name="Tools_Calculator_SortieExp" xml:space="preserve">
-    <value>Sortie Exp</value>
-  </data>
-  <data name="Tools_Calculator_TargetLevel" xml:space="preserve">
-    <value>Target Level</value>
-  </data>
-  <data name="Tools_Rankings" xml:space="preserve">
-    <value>Rankings</value>
-  </data>
-  <data name="Tools_Rankings_Comment" xml:space="preserve">
-    <value>Comment</value>
-  </data>
-  <data name="Tools_Rankings_Experience" xml:space="preserve">
-    <value>Experience</value>
-  </data>
-  <data name="Tools_Rankings_Level" xml:space="preserve">
-    <value>Level</value>
-  </data>
-  <data name="Tools_Rankings_Page" xml:space="preserve">
-    <value>Page:</value>
-  </data>
-  <data name="Tools_Rankings_Rank" xml:space="preserve">
-    <value>Rank</value>
-  </data>
-  <data name="Tools_Rankings_RankingsList" xml:space="preserve">
-    <value>Current Rankings</value>
-  </data>
-  <data name="Tools_Rankings_Rate" xml:space="preserve">
-    <value>Rate</value>
-  </data>
-  <data name="Tools_Rankings_TotalRanked" xml:space="preserve">
-    <value>Total Ranked:</value>
-  </data>
-  <data name="Tools_Rankings_User" xml:space="preserve">
-    <value>User</value>
-  </data>
   <data name="Updater_Notification_CheckFailed" xml:space="preserve">
     <value>KCV was unable to check for updates.</value>
+  </data>
+  <data name="Updater_Notification_TransUpdate_Success" xml:space="preserve">
+    <value>Translation files have been updated.</value>
   </data>
   <data name="Updater_Notification_NewAppVersion" xml:space="preserve">
     <value>New Version of KCV is available: v{0}!
@@ -630,33 +588,6 @@ Click here to get it.</value>
   </data>
   <data name="Updater_Notification_TransUpdate_Same" xml:space="preserve">
     <value>Translations are already up-to-date.</value>
-  </data>
-  <data name="Updater_Notification_TransUpdate_Success" xml:space="preserve">
-    <value>Translation files have been updated.</value>
-  </data>
-  <data name="Fleets_AirSuperiorityPotential" xml:space="preserve">
-    <value>Air Superiority</value>
-  </data>
-  <data name="Fleets_Average" xml:space="preserve">
-    <value>Average</value>
-  </data>
-  <data name="Fleets_Level" xml:space="preserve">
-    <value>Level</value>
-  </data>
-  <data name="Fleets_Speed_Fast" xml:space="preserve">
-    <value>Fast Fleet</value>
-  </data>
-  <data name="Fleets_Speed_Slow" xml:space="preserve">
-    <value>Slow Fleet</value>
-  </data>
-  <data name="Fleets_Total" xml:space="preserve">
-    <value>Total</value>
-  </data>
-  <data name="ZoomFactorSelector" xml:space="preserve">
-    <value>Game screen size</value>
-  </data>
-  <data name="ZoomFactorSelector_Tooltip" xml:space="preserve">
-    <value>Adjust the display size of the game screen.</value>
   </data>
   <data name="Settings_Flash" xml:space="preserve">
     <value>Adobe® Flash® Settings</value>
@@ -680,17 +611,32 @@ Medium: Average Performance
 AutoLow: Will emphasize speed when needed
 Low: Performance over quality. Ugliest setting.</value>
   </data>
-  <data name="Fleets_ViewRange" xml:space="preserve">
-    <value>Total LoS</value>
-  </data>
   <data name="Settings_Updates_GetKCVBtn" xml:space="preserve">
     <value>Get Latest KCV</value>
   </data>
   <data name="Settings_Updates_GetKCVBtn_ToolTip" xml:space="preserve">
     <value>Opens a link to the latest version of KCV found here.</value>
   </data>
+  <data name="Settings_CustomSound" xml:space="preserve">
+    <value>Custom Sound Notifications</value>
+  </data>
+  <data name="Settings_CustomSound_Volume" xml:space="preserve">
+    <value>Volume</value>
+  </data>
   <data name="Settings_Flash_Message" xml:space="preserve">
     <value>Affects DMM.com, OSAPI and API links. You must reload the game for the changes to take effect.</value>
+  </data>
+  <data name="Ship_RepairDockToolTip" xml:space="preserve">
+    <value>Dock: {0}</value>
+  </data>
+  <data name="Ship_RepairFacilityToolTip" xml:space="preserve">
+    <value>Facility: {0}</value>
+  </data>
+  <data name="Settings_UI" xml:space="preserve">
+    <value>UI Setting</value>
+  </data>
+  <data name="Settings_UI_Icon" xml:space="preserve">
+    <value>Use menu icon</value>
   </data>
   <data name="Rank_Admiral" xml:space="preserve">
     <value>Admiral</value>
@@ -721,9 +667,6 @@ Low: Performance over quality. Ugliest setting.</value>
   </data>
   <data name="Rank_Vice_Admiral" xml:space="preserve">
     <value>Vice-Admiral</value>
-  </data>
-  <data name="Tools" xml:space="preserve">
-    <value>Tools</value>
   </data>
   <data name="Settings_Notifications" xml:space="preserve">
     <value>Notifications</value>
@@ -887,11 +830,8 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Settings_Operation_LoS_Title" xml:space="preserve">
     <value>Use the following formula to calculate fleet LoS:</value>
   </data>
-  <data name="Settings_UI" xml:space="preserve">
-    <value>UI Setting</value>
-  </data>
-  <data name="Settings_UI_Icon" xml:space="preserve">
-    <value>Use menu icon</value>
+  <data name="Settings_Updates_CheckUpdatesBtn_ToolTip" xml:space="preserve">
+    <value>Check lastest translations version</value>
   </data>
   <data name="StateDetail_Repairing" xml:space="preserve">
     <value>There are ships currently docked for repairs.</value>
@@ -958,6 +898,9 @@ Low: Performance over quality. Ugliest setting.</value>
   </data>
   <data name="ShipCatalog_Level" xml:space="preserve">
     <value>Level</value>
+  </data>
+  <data name="ShipCatalog_Level1" xml:space="preserve">
+    <value>Lv.1</value>
   </data>
   <data name="ShipCatalog_Level2Up" xml:space="preserve">
     <value>Lv.2 and up</value>
@@ -1037,44 +980,32 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="SlotItemCatalog_Stats" xml:space="preserve">
     <value>Stats</value>
   </data>
-  <data name="Settings_CustomSound" xml:space="preserve">
-    <value>Custom Sound Notifications</value>
-  </data>
-  <data name="Settings_CustomSound_Volume" xml:space="preserve">
-    <value>Volume</value>
-  </data>
-  <data name="Ship_RepairDockToolTip" xml:space="preserve">
-    <value>Dock: {0}</value>
-  </data>
-  <data name="Ship_RepairFacilityToolTip" xml:space="preserve">
-    <value>Facility: {0}</value>
-  </data>
   <data name="Shipyard_Drop" xml:space="preserve">
     <value>Drop</value>
   </data>
   <data name="Homeport_ImprovementMaterial" xml:space="preserve">
-    <value>Remodel Kits:</value>
+    <value>Screws</value>
   </data>
   <data name="Information" xml:space="preserve">
     <value>Information</value>
-  </data>
-  <data name="Settings_Browser_ResetZoomDescription" xml:space="preserve">
-    <value>(when zoomed incorrectly)</value>
-  </data>
-  <data name="Settings_Browser_ResetZoom_Pre" xml:space="preserve">
-    <value>Return game to </value>
-  </data>
-  <data name="Settings_Browser_ResetZoom_Suf" xml:space="preserve">
-    <value>% scale</value>
-  </data>
-  <data name="Settings_Browser_ZoomDescription" xml:space="preserve">
-    <value>You can change the display size of the game (IE) with the zoom button at the top of the window. Screenshots are not affected by this setting and will always be taken at 100% scale.</value>
   </data>
   <data name="Settings_Updates_ForceUpdateTransBtn" xml:space="preserve">
     <value>Force download</value>
   </data>
   <data name="Settings_Updates_ForceUpdateTransBtn_ToolTip" xml:space="preserve">
     <value>Download all translatations without check version!</value>
+  </data>
+  <data name="Settings_Browser_ResetZoom_Pre" xml:space="preserve">
+    <value>Return game to </value>
+  </data>
+  <data name="Settings_Browser_ResetZoomDescription" xml:space="preserve">
+    <value>(when zoomed incorrectly)</value>
+  </data>
+  <data name="Settings_Browser_ZoomDescription" xml:space="preserve">
+    <value>You can change the display size of the game (IE) with the zoom button at the top of the window. Screenshots are not affected by this setting and will always be taken at 100% scale.</value>
+  </data>
+  <data name="Settings_Browser_ResetZoom_Suf" xml:space="preserve">
+    <value>% scale</value>
   </data>
   <data name="Browser_GoBack" xml:space="preserve">
     <value>Back</value>
@@ -1100,6 +1031,15 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Overview_RepairDock" xml:space="preserve">
     <value>Repairs</value>
   </data>
+  <data name="StartContent_Introduction2" xml:space="preserve">
+    <value>This program uses Internet Explorer (IE) and does not change the communication to the servers, extract from Flash, nor use macro cheats.</value>
+  </data>
+  <data name="StartContent_Introduction3" xml:space="preserve">
+    <value>If you keep getting in game errors, please delete IE's cache. If this does not improve, check whether Flash works on IE.</value>
+  </data>
+  <data name="StartContent_Introduction4" xml:space="preserve">
+    <value>This program is updated often. Please check below for updates.</value>
+  </data>
   <data name="ShipCatalog_ShipType_AircraftCarriers" xml:space="preserve">
     <value>Aircraft Carriers</value>
   </data>
@@ -1124,41 +1064,8 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="ShipCatalog_ShipType_Submarines" xml:space="preserve">
     <value>Submarines</value>
   </data>
-  <data name="StartContent_Introduction2" xml:space="preserve">
-    <value>This program uses Internet Explorer (IE) and does not change the communication to the servers, extract from Flash, nor use macro cheats.</value>
-  </data>
-  <data name="StartContent_Introduction3" xml:space="preserve">
-    <value>If you keep getting in game errors, please delete IE's cache. If this does not improve, check whether Flash works on IE.</value>
-  </data>
-  <data name="StartContent_Introduction4" xml:space="preserve">
-    <value>This program is updated often. Please check below for updates.</value>
-  </data>
   <data name="Ship_Retreat" xml:space="preserve">
     <value>Retreat</value>
-  </data>
-  <data name="FleetDetail_AirSuperiorityPotential" xml:space="preserve">
-    <value>Air Superiority</value>
-  </data>
-  <data name="FleetDetail_AverageLevel" xml:space="preserve">
-    <value>Average Level</value>
-  </data>
-  <data name="FleetDetail_LoSValue" xml:space="preserve">
-    <value>LOS</value>
-  </data>
-  <data name="FleetDetail_Status" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="FleetDetail_Title" xml:space="preserve">
-    <value>Fleet Details</value>
-  </data>
-  <data name="FleetDetail_TotalLevel" xml:space="preserve">
-    <value>Total Level</value>
-  </data>
-  <data name="Fleets_Details" xml:space="preserve">
-    <value>Details</value>
-  </data>
-  <data name="Fleets_Speed_Mixed" xml:space="preserve">
-    <value>Mixed Speed Fleet</value>
   </data>
   <data name="ShipCatalog_Clear" xml:space="preserve">
     <value>Clear</value>
@@ -1193,6 +1100,36 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="ShipCatalog_SortSettings_SortCriteria" xml:space="preserve">
     <value>Sort criteria</value>
   </data>
+  <data name="SlotItemCatalog_Improvement" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="SlotItemCatalog_Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="FleetDetail_AirSuperiorityPotential" xml:space="preserve">
+    <value>Air Superiority</value>
+  </data>
+  <data name="FleetDetail_AverageLevel" xml:space="preserve">
+    <value>Average Level</value>
+  </data>
+  <data name="FleetDetail_LoSValue" xml:space="preserve">
+    <value>LOS</value>
+  </data>
+  <data name="FleetDetail_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="FleetDetail_Title" xml:space="preserve">
+    <value>Fleet Details</value>
+  </data>
+  <data name="FleetDetail_TotalLevel" xml:space="preserve">
+    <value>Total Level</value>
+  </data>
+  <data name="Fleets_Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Fleets_Speed_Mixed" xml:space="preserve">
+    <value>Mixed Speed Fleet</value>
+  </data>
   <data name="Ship_Healthy" xml:space="preserve">
     <value>Healthy</value>
   </data>
@@ -1210,12 +1147,6 @@ Low: Performance over quality. Ugliest setting.</value>
   </data>
   <data name="Ship_Retreated" xml:space="preserve">
     <value>Retreated (Escort)</value>
-  </data>
-  <data name="SlotItemCatalog_Improvement" xml:space="preserve">
-    <value>Level</value>
-  </data>
-  <data name="SlotItemCatalog_Total" xml:space="preserve">
-    <value>Total</value>
   </data>
   <data name="StateDetail_Fatigued" xml:space="preserve">
     <value>Morale will be restored in</value>
@@ -1292,11 +1223,11 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="ShipCatalog_CustomSort" xml:space="preserve">
     <value>Game's sort</value>
   </data>
-  <data name="Settings_Updates_CheckUpdatesBtn_ToolTip" xml:space="preserve">
-    <value>Check lastest translations version</value>
-  </data>
   <data name="ExitDialogConfirm" xml:space="preserve">
     <value>「KanColleViewer!」 will close. Are you sure?</value>
+  </data>
+  <data name="ExitDialogTitle" xml:space="preserve">
+    <value>EXIT KanColleViewer</value>
   </data>
   <data name="Settings_ExitConfirm" xml:space="preserve">
     <value>Exit Confirm Dialog</value>
@@ -1309,7 +1240,10 @@ Low: Performance over quality. Ugliest setting.</value>
   </data>
   <data name="Settings_ChangeOrientationMode" xml:space="preserve">
     <value>Change Orientation Mode</value>
-  </data> 
+  </data>
+  <data name="Settings_Flash_Enable" xml:space="preserve">
+    <value>Change flash settings</value>
+  </data>
   <data name="Homeport_Ammunition" xml:space="preserve">
     <value>Ammunition:</value>
   </data>
@@ -1324,8 +1258,5 @@ Low: Performance over quality. Ugliest setting.</value>
   </data>  
   <data name="Homeport_DevelopmentMaterials" xml:space="preserve">
     <value>Development Materials:</value>
-  </data>
-  <data name="Settings_Flash_Enable" xml:space="preserve">
-    <value>Change flash settings</value>
   </data>
 </root>

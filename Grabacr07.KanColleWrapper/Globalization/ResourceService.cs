@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
-using Grabacr07.KanColleWrapper.Properties;
 using Livet;
 
-namespace Grabacr07.KanColleWrapper.Models
+namespace Grabacr07.KanColleWrapper.Globalization
 {
-	public class ResourceServiceWrapper : NotificationObject
+	public class ResourceService : NotificationObject
 	{
 		#region static members
 
-		private static readonly ResourceServiceWrapper current = new ResourceServiceWrapper();
+		private static readonly ResourceService current = new ResourceService();
 
-		public static ResourceServiceWrapper Current
+		public static ResourceService Current
 		{
 			get { return current; }
 		}
@@ -29,6 +28,7 @@ namespace Grabacr07.KanColleWrapper.Models
 			"ja", // Resources.resx
 			"en",
 			"zh-CN",
+			"zh-TW",
 		};
 
 		/// <summary>
@@ -44,7 +44,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		/// <summary>
 		/// サポートされているカルチャを取得します。
 		/// </summary>
-		private ResourceServiceWrapper()
+		private ResourceService()
 		{
 			this.Resources = new Resources();
 			this.SupportedCultures = this.supportedCultureNames

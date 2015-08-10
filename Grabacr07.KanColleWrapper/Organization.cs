@@ -7,6 +7,7 @@ using Grabacr07.KanColleWrapper.Internal;
 using Grabacr07.KanColleWrapper.Models;
 using Grabacr07.KanColleWrapper.Models.Raw;
 using Livet;
+using System.Collections.ObjectModel;
 
 namespace Grabacr07.KanColleWrapper
 {
@@ -19,6 +20,7 @@ namespace Grabacr07.KanColleWrapper
 
 		private readonly List<int> evacuatedShipsIds = new List<int>();
 		private readonly List<int> towShipIds = new List<int>();
+		public ObservableCollection<DroppedShip> DroppedShips { get; private set; }
 
 		#region Ships 変更通知プロパティ
 
@@ -106,28 +108,6 @@ namespace Grabacr07.KanColleWrapper
 
 		#endregion
 
-		#region DroppedShips 変更通知プロパティ
-
-		private List<DroppedShip> _DroppedShips;
-
-		/// <summary>
-		/// どロプされた艦娘のコレクションを取得します。
-		/// </summary>
-		public List<DroppedShip> DroppedShips
-		{
-			get { return this._DroppedShips; }
-			private set
-			{
-				if (this._DroppedShips != value)
-				{
-					this._DroppedShips = value;
-					this.RaisePropertyChanged();
-				}
-			}
-		}
-
-		#endregion
-
 
 		public Organization(Homeport parent, KanColleProxy proxy)
 		{
@@ -135,7 +115,7 @@ namespace Grabacr07.KanColleWrapper
 
 			this.Ships = new MemberTable<Ship>();
 			this.Fleets = new MemberTable<Fleet>();
-			this.DroppedShips = new List<DroppedShip>();
+			this.DroppedShips = new ObservableCollection<DroppedShip>();
 
 			proxy.api_get_member_ship.TryParse<kcsapi_ship2[]>().Subscribe(x => this.Update(x.Data));
 			proxy.api_get_member_ship2.TryParse<kcsapi_ship2[]>().Subscribe(x =>
@@ -477,7 +457,6 @@ namespace Grabacr07.KanColleWrapper
 			this.evacuatedShipsIds.Clear();
 			this.towShipIds.Clear();
 			this.DroppedShips.Clear();
-			this.RaisePropertyChanged("DroppedShips");
 
 			foreach (var ship in this.Ships.Values)
 			{
@@ -517,7 +496,6 @@ namespace Grabacr07.KanColleWrapper
 			if (source.api_get_ship == null) return;
 
 			this.DroppedShips.Add(new DroppedShip(source.api_get_ship));
-			this.RaisePropertyChanged("DroppedShips");
 		}
 
 		private void DropShip(kcsapi_combined_battle_battleresult source)
@@ -525,7 +503,6 @@ namespace Grabacr07.KanColleWrapper
 			if (source.api_get_ship == null) return;
 
 			this.DroppedShips.Add(new DroppedShip(source.api_get_ship));
-			this.RaisePropertyChanged("DroppedShips");
 		}
 		#endregion
 	}

@@ -2,6 +2,11 @@
 	KCV Change Log
 ========================
 
+v3.8.2 r557 - 8/10/2015
+	* Fix cookie method not working
+	* Support chinese tw
+	* Some small fixs
+
 v3.8.2 r556 - 5/29/2015
 	* Fix ship count don't update when drop same ship type
 	* Web browser size auto stretch when not in game

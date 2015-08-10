@@ -8,6 +8,7 @@ using Grabacr07.KanColleWrapper.Models;
 using Livet;
 using Settings = Grabacr07.KanColleViewer.Models.Settings;
 using Livet.EventListeners;
+using Grabacr07.KanColleWrapper.Globalization;
 
 namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 {
@@ -503,7 +504,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 			this.IsSelected = true;
 			this.action = updateAction;
 
-			this.CompositeDisposable.Add(new PropertyChangedEventListener(ResourceServiceWrapper.Current)
+			this.CompositeDisposable.Add(new PropertyChangedEventListener(ResourceService.Current)
 			{
 				(sender, args) =>
 				{

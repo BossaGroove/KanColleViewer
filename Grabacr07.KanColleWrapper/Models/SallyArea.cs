@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Grabacr07.KanColleWrapper.Globalization;
 
 namespace Grabacr07.KanColleWrapper.Models
 {
@@ -24,7 +25,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public string Name
 		{
-			get { return Properties.Resources.SallyArea_Area1_Name; }
+			get { return Resources.SallyArea_Area1_Name; }
 		}
 
 		public string Color
@@ -42,7 +43,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public string Name
 		{
-			get { return Properties.Resources.SallyArea_Area2_Name; }
+			get { return Resources.SallyArea_Area2_Name; }
 		}
 
 		public string Color
@@ -60,7 +61,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public string Name
 		{
-			get { return Properties.Resources.SallyArea_Area3_Name; }
+			get { return Resources.SallyArea_Area3_Name; }
 		}
 
 		public string Color

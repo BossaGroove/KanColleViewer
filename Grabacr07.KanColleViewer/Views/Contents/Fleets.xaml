@@ -298,11 +298,19 @@
 											   Grid.RowSpan="2"
 											   Margin="4,0,5,0"
                                                x:Name="ShipNameText"
-											   ToolTip="{Binding StatsToolTip, Mode=OneWay}"
 											   ToolTipService.InitialShowDelay="600">
 										<Run Text="{Binding Ship.Info.Name, Mode=OneWay}"
 											 FontSize="22"
 											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+										<TextBlock.ToolTip>
+											<TextBlock Margin="0,-2,0,0">
+												<Run Text="{Binding Ship.Info.UntranslatedName, Mode=OneWay}"
+													 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+												<LineBreak />
+												<Run Text="{Binding Ship.AllStats, Mode=OneWay}"
+													 FontSize="11" />
+											</TextBlock>
+										</TextBlock.ToolTip>
                                     </TextBlock>
 
                                     <TextBlock Grid.Column="3"
@@ -330,7 +338,7 @@
 											   Grid.Row="0"
 											   Margin="5,0,5,10"
 											   Grid.RowSpan="2"
-											   ToolTip="{Binding RepairToolTip, Mode=OneWay}">
+											   ToolTip="{Binding Ship.RepairTime, Mode=OneWay}">
 										<Run Text="HP:" />
 										<Run Text="{Binding Ship.HP.Current, Mode=OneWay}"
 											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
@@ -344,7 +352,7 @@
 															 VerticalAlignment="Bottom"
 															 Margin="5,0,5,2"
 															 LimitedValue="{Binding Ship.HP, Mode=OneWay}" 
-															 ToolTip="{Binding RepairToolTip, Mode=OneWay}"/>
+															 ToolTip="{Binding Ship.RepairTime, Mode=OneWay}"/>
 
                                     <Grid x:Name="RepairIndicator"
 										  Grid.Column="4"
@@ -408,7 +416,7 @@
 												  Grid.Row="0"
 												  Grid.RowSpan="2"
 												  x:Name="ShipSlotItems"
-												  ItemsSource="{Binding SlotItems}"
+												  ItemsSource="{Binding Ship.EquippedSlots}"
 												  Margin="5,0">
                                         <ItemsControl.Template>
                                             <ControlTemplate TargetType="{x:Type ItemsControl}">
@@ -423,31 +431,30 @@
                                                     <Border.ToolTip>
                                                         <StackPanel Orientation="Vertical">
                                                             <TextBlock>
-                                                                <Run Text="{Binding Slot.Item.Info.Name, Mode=OneWay}" />
+                                                                <Run Text="{Binding Item.Info.Name, Mode=OneWay}" />
                                                                 <TextBlock Margin="5,0">
                                                                     <TextBlock.Style>
                                                                         <Style TargetType="{x:Type TextBlock}">
                                                                             <Setter Property="Text"
-                                                                                    Value="{Binding Slot.Item.LevelText, Mode=OneWay}" />
+                                                                                    Value="{Binding Item.LevelText, Mode=OneWay}" />
                                                                             <Setter Property="Foreground"
                                                                                     Value="#FF45A9A5" />
                                                                         </Style>
                                                                     </TextBlock.Style>
                                                                 </TextBlock>
-                                                                <TextBlock Visibility="{Binding Slot.Item.Info.IsNumerable, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                                <TextBlock Visibility="{Binding Item.Info.IsNumerable, Converter={StaticResource BooleanToVisibilityConverter}}">
                                                                     <Run Text="[" />
-                                                                    <Run Text="{Binding Slot.Current}" />
+                                                                    <Run Text="{Binding Current}" />
                                                                     <Run Text="/" />
-                                                                    <Run Text="{Binding Slot.Maximum}" />
+                                                                    <Run Text="{Binding Maximum}" />
                                                                     <Run Text="]" />
                                                                 </TextBlock>
                                                             </TextBlock>
-                                                            <TextBlock Text="{Binding Detail, Mode=OneWay}"
-                                                                       Visibility="{Binding IsHasDetail, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                                        </StackPanel>
+															<TextBlock Text="{Binding Item.Info.AllStats, Mode=OneWay}" />
+														</StackPanel>
                                                     </Border.ToolTip>
 													<controls:SlotItemIcon x:Name="SlotItem"
-																		   Type="{Binding Slot.Item.Info.IconType}"																		   
+																		   Type="{Binding Item.Info.IconType}"																		   
 																		   Margin="0,0" />
                                                     </Border>
 													<DataTemplate.Triggers>

@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Grabacr07.KanColleViewer.Properties;
-using Grabacr07.KanColleWrapper.Models;
+using ResourceServiceWrapper = Grabacr07.KanColleWrapper.Globalization.ResourceService;
 using Livet;
 
 namespace Grabacr07.KanColleViewer.Models
@@ -33,6 +33,7 @@ namespace Grabacr07.KanColleViewer.Models
 			"ja", // Resources.resx
 			"en",
 			"zh-CN",
+			"zh-TW",
 		};
 
 		/// <summary>

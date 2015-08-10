@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Grabacr07.KanColleWrapper.Internal;
+using Grabacr07.KanColleWrapper.Globalization;
 
 namespace Grabacr07.KanColleWrapper.Models
 {
@@ -70,12 +71,12 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public override string Name
 		{
-			get { return Properties.Resources.ViewRange_Type1_Name; }
+			get { return Resources.ViewRange_Type1_Name; }
 		}
 
 		public override string Description
 		{
-			get { return Properties.Resources.ViewRange_Type1_Description; }
+			get { return Resources.ViewRange_Type1_Description; }
 		}
 
 		public override double Calc(Ship[] ships)
@@ -96,12 +97,12 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public override string Name
 		{
-			get { return Properties.Resources.ViewRange_Type2_Name; }
+			get { return Resources.ViewRange_Type2_Name; }
 		}
 
 		public override string Description
 		{
-			get { return Properties.Resources.ViewRange_Type2_Description; }
+			get { return Resources.ViewRange_Type2_Description; }
 		}
 
 		public override double Calc(Ship[] ships)
@@ -139,14 +140,14 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public override string Name
 		{
-			get { return Properties.Resources.ViewRange_Type3_Name; }
+			get { return Resources.ViewRange_Type3_Name; }
 		}
 
 		public override string Description
 		{
 			get
 			{
-				return Properties.Resources.ViewRange_Type3_Description;
+				return Resources.ViewRange_Type3_Description;
 			}
 		}
 

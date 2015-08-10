@@ -153,10 +153,10 @@
                                     </TextBlock>
                                 </GridViewColumn.Header>
                                 <GridViewColumn.CellTemplate>
-                                    <DataTemplate DataType="{x:Type viewModels:SlotItemViewModel}">
+									<DataTemplate DataType="{x:Type viewModels:SlotItemCounter}">
                                         <TextBlock Margin="0,4"
 												   TextWrapping="Wrap">
-											<Run Text="{Binding SlotItem.Detail, Mode=OneWay}"
+											<Run Text="{Binding Target.AllStats, Mode=OneWay}"
 												 Foreground="{DynamicResource ActiveForegroundBrushKey}" />
                                         </TextBlock>
                                     </DataTemplate>

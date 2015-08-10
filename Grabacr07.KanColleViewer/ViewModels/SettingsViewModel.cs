@@ -822,7 +822,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 				this.Logic = logic;
 				this.selected = Settings.Current.KanColleClientSettings.ViewRangeCalcType == logic.Id;
 
-				this.CompositeDisposable.Add(new PropertyChangedEventListener(ResourceServiceWrapper.Current)
+				this.CompositeDisposable.Add(new PropertyChangedEventListener(ResourceService.Current)
 				{
 					(sender, args) =>
 					{
