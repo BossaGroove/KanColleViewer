@@ -249,6 +249,7 @@
     <Compile Include="Views\Contents\Tools.xaml.cs">
       <DependentUpon>Tools.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Converters\RangeToBooleanConverter.cs" />
     <Compile Include="Views\Controls\KanColleHost.cs" />
     <Compile Include="Views\Controls\WebBrowserHelper.cs" />
     <Compile Include="Views\Behaviors\ZoomAction.cs" />
