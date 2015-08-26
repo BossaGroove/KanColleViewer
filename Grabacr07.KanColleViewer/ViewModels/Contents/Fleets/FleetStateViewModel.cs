@@ -32,6 +32,16 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 		{
 			get { return this.Source.ViewRange.ToString("##0.##"); }
 		}
+		
+		public string MinAirSuperiorityPotential
+		{
+			get { return this.Source.MinAirSuperiorityPotential.ToString("##0"); }
+		}
+
+		public string MaxAirSuperiorityPotential
+		{
+			get { return this.Source.MaxAirSuperiorityPotential.ToString("##0"); }
+		}
 
 		public string Speed
 		{
