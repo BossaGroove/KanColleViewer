@@ -87,7 +87,7 @@
 						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_AirSuperiorityPotential, StringFormat='{}{0}: '}" />
 						<TextBlock MinWidth="120">
 							<TextBlock Text="{Binding State.AirSuperiorityPotential}" />
-							<Run Text="{Binding State.MinAirSuperiorityPotential, Mode=OneWay}"/><Run Text=" - "/><Run Text="{Binding State.MaxAirSuperiorityPotential, Mode=OneWay}"/>
+							<Run Text="("/><Run Text="{Binding State.MinAirSuperiorityPotential, Mode=OneWay}"/><Run Text=" - "/><Run Text="{Binding State.MaxAirSuperiorityPotential, Mode=OneWay}"/><Run Text=")"/>
 						</TextBlock>
 						<TextBlock Text="{Binding State.Speed}" MinWidth="60" />
 					</StackPanel>
