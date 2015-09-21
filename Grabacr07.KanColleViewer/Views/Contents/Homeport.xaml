@@ -12,6 +12,7 @@
 			 xmlns:viewModels="clr-namespace:Grabacr07.KanColleViewer.ViewModels"
 			 xmlns:controls="clr-namespace:Grabacr07.KanColleViewer.Views.Controls"
 			 xmlns:contents="clr-namespace:Grabacr07.KanColleViewer.Views.Contents"
+			 xmlns:contentsVm="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents"
 			 xmlns:models="clr-namespace:Grabacr07.KanColleViewer.Models"
              xmlns:converters="clr-namespace:Grabacr07.KanColleViewer.Views.Converters"
 			 mc:Ignorable="d"
@@ -135,6 +136,29 @@
 						 Style="{DynamicResource EmphaticTextElementStyleKey}" />
 				</TextBlock>
 			</Grid>
+
+            <UniformGrid Columns="1"
+						 MinWidth="150">
+                <Panel.Resources>
+                    <DataTemplate DataType="{x:Type contentsVm:MaterialsViewModel+MaterialViewModel}">
+                        <TextBlock>
+							<Run Text="{Binding Resources.Homeport_InstantRepair, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+							<Run Text="{Binding Display, Mode=OneWay}"
+								 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+							<LineBreak />
+							<Run Text="{Binding Resources.Homeport_InstantBuild, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+							<Run Text="{Binding Value, Mode=OneWay}"
+								 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+                        </TextBlock>
+                    </DataTemplate>
+                </Panel.Resources>
+
+                <controls:MetroComboBox ItemsSource="{Binding Materials.Values}"
+										SelectedItem="{Binding Materials.SelectedItem1, Mode=TwoWay}" />
+                <controls:MetroComboBox ItemsSource="{Binding Materials.Values}"
+										SelectedItem="{Binding Materials.SelectedItem2, Mode=TwoWay}" />
+            </UniformGrid>
+            	
 
 			<Grid>
 				<Grid.ColumnDefinitions>

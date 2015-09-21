@@ -231,6 +231,7 @@
     <Compile Include="Views\Behaviors\SetStyleSheetBehavior.cs" />
     <Compile Include="Views\Behaviors\SetWindowLocationAction.cs" />
     <Compile Include="Views\Behaviors\TimerBehavior.cs" />
+    <Compile Include="Views\Controls\MetroComboBox.cs" />
     <Compile Include="Views\Contents\Overviews\Repairyard.xaml.cs">
       <DependentUpon>Repairyard.xaml</DependentUpon>
     </Compile>
@@ -409,6 +410,11 @@
       <DependentUpon>Generic.xaml</DependentUpon>
     </Page>
     <Page Include="Themes\Generic.KanColleHost.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <DependentUpon>Generic.xaml</DependentUpon>
+    </Page>
+    <Page Include="Themes\Generic.MetroComboBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <DependentUpon>Generic.xaml</DependentUpon>

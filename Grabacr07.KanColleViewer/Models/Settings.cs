@@ -1108,7 +1108,42 @@ namespace Grabacr07.KanColleViewer.Models
 		}
 		#endregion
 
-		public void Save()
+
+        #region DisplayMaterial1 変更通知プロパティ
+        private string _DisplayMaterial1;
+  
+        public string DisplayMaterial1 {
+			get { return this._DisplayMaterial1; }
+			set
+			{
+				if (this._DisplayMaterial1 != value)
+				{
+					this._DisplayMaterial1 = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+        #endregion
+            
+        
+        
+        #region DisplayMaterial2 変更通知プロパティ
+        private string _DisplayMaterial2;
+  
+        public string DisplayMaterial2 {
+			get { return this._DisplayMaterial2; }
+			set
+			{
+				if (this._DisplayMaterial2 != value)
+				{
+					this._DisplayMaterial2 = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+        #endregion
+
+       	public void Save()
 		{
 			if (!this.ShipCatalog_SaveFilters)
 			{

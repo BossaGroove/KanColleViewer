@@ -69,7 +69,7 @@ namespace Grabacr07.KanColleWrapper
 			get { return this._Steel; }
 			private set
 			{
-				if (this._Steel != value)
+                if (this._Steel != value)
 				{
 					this._Steel = value;
 					this.RaisePropertyChanged();
@@ -180,9 +180,6 @@ namespace Grabacr07.KanColleWrapper
 
 		private int _ImprovementMaterials;
 
-		/// <summary>
-		/// 보유하고있는 개수자재의 개수
-		/// </summary>
 		public int ImprovementMaterials
 		{
 			get { return this._ImprovementMaterials; }
