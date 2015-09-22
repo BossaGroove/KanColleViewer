@@ -11,7 +11,7 @@ namespace Grabacr07.KanColleWrapper
 	/// <summary>
 	/// 資源および資材の保有状況を表します。
 	/// </summary>
-	public class Materials : NotificationObject
+    public class Materials : NotificationObject
 	{
 		#region Fuel 変更通知プロパティ
 

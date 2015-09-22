@@ -141,17 +141,26 @@
 						 MinWidth="150">
                 <Panel.Resources>
                     <DataTemplate DataType="{x:Type contentsVm:MaterialsViewModel+MaterialViewModel}">
-                        <TextBlock>
-							<Run Text="{Binding Resources.Homeport_InstantRepair, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-							<Run Text="{Binding Display, Mode=OneWay}"
-								 Style="{DynamicResource EmphaticTextElementStyleKey}" />
-							<LineBreak />
-							<Run Text="{Binding Resources.Homeport_InstantBuild, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-							<Run Text="{Binding Value, Mode=OneWay}"
-								 Style="{DynamicResource EmphaticTextElementStyleKey}" />
-                        </TextBlock>
+                        <Grid MinWidth="125"
+							  Margin="0,0,4,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                                                        
+                            <TextBlock Style="{DynamicResource DefaultTextStyleKey}"
+									   VerticalAlignment="Bottom">
+								<Run Text="{Binding Display, Mode=OneWay}" />
+								<Run Text=":" />
+                            </TextBlock>
+                            <TextBlock Grid.Column="1"
+									   Text="{Binding Value, Mode=OneWay}"
+									   Style="{DynamicResource EmphaticTextStyleKey}"
+									   HorizontalAlignment="Right"
+									   VerticalAlignment="Bottom"/>
+                        </Grid>
                     </DataTemplate>
-                </Panel.Resources>
+                </Panel.Resources>                
 
                 <controls:MetroComboBox ItemsSource="{Binding Materials.Values}"
 										SelectedItem="{Binding Materials.SelectedItem1, Mode=TwoWay}" />

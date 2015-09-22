@@ -12,7 +12,7 @@ namespace Grabacr07.KanColleWrapper
 	/// <summary>
 	/// 母港を表します。
 	/// </summary>
-	public class Homeport : NotificationObject
+    public class Homeport : NotificationObject
 	{
 		/// <summary>
 		/// 艦隊の編成状況にアクセスできるようにします。

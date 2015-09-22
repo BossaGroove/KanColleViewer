@@ -27,6 +27,11 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 				{
 					this._SelectedItem1 = value;
 					this.RaisePropertyChanged();
+                    if (value != null)
+                    {
+                        KanColleViewer.Models.Settings.Current.DisplayMaterial1 = value.Key;
+                    }
+                    
 				}
 			}
 		}
@@ -46,6 +51,10 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 				{
 					this._SelectedItem2 = value;
 					this.RaisePropertyChanged();
+                    if (value != null)
+                    {
+                        KanColleViewer.Models.Settings.Current.DisplayMaterial2 = value.Key;
+                    }
 				}
 			}
 		}
@@ -55,32 +64,17 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 		public MaterialsViewModel()
 		{
 			this.Model = KanColleClient.Current.Homeport.Materials;
-
-			var fuel = new MaterialViewModel("Fuel", "燃料");//.AddTo(this);
-            //this.Model.Subscribe(fuel.Key, () => fuel.Value = this.Model.Fuel).AddTo(this);
-
-			var ammunition = new MaterialViewModel("Ammunition", "弾薬");//.AddTo(this);
-			//this.Model.Subscribe(ammunition.Key, () => ammunition.Value = this.Model.Ammunition).AddTo(this);
-
-            var steel = new MaterialViewModel("Steel", "鋼鉄");//.AddTo(this);
-			//this.Model.Subscribe(steel.Key, () => steel.Value = this.Model.Steel).AddTo(this);
-
-			var bauxite = new MaterialViewModel("Bauxite", "ボーキサイト");//.AddTo(this);
-			//this.Model.Subscribe(bauxite.Key, () => bauxite.Value = this.Model.Bauxite).AddTo(this);
-
-			var develop = new MaterialViewModel("DevelopmentMaterials", "開発資材");//.AddTo(this);
-			//this.Model.Subscribe(develop.Key, () => develop.Value = this.Model.DevelopmentMaterials).AddTo(this);
-
-            var repair = new MaterialViewModel("InstantRepairMaterials", "高速修復材");//.AddTo(this);
-			//this.Model.Subscribe(repair.Key, () => repair.Value = this.Model.InstantRepairMaterials).AddTo(this);
-
-			var build = new MaterialViewModel("InstantBuildMaterials", "高速建造材");//.AddTo(this);
-			//this.Model.Subscribe(build.Key, () => build.Value = this.Model.InstantBuildMaterials).AddTo(this);
             
-			var improvement = new MaterialViewModel("ImprovementMaterials", "改修資材");//.AddTo(this);
-			//this.Model.Subscribe(improvement.Key, () => improvement.Value = this.Model.ImprovementMaterials).AddTo(this);
-
-			this.Values = new List<MaterialViewModel>
+			var fuel = new MaterialViewModel("fuel", "燃料");
+			var ammunition = new MaterialViewModel("ammunition", "弾薬");
+            var steel = new MaterialViewModel("steel", "鋼鉄");
+			var bauxite = new MaterialViewModel("bauxite", "ボーキサイト");
+            var develop = new MaterialViewModel("develop", "開発資材");
+            var repair = new MaterialViewModel("repair", "高速修復材");
+            var build = new MaterialViewModel("build", "高速建造材");
+            var improvement = new MaterialViewModel("improvement", "改修資材");
+			
+            this.Values = new List<MaterialViewModel>
 			{
 				fuel,
 				ammunition,
@@ -94,13 +88,38 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 
             this._SelectedItem1 = this.Values.FirstOrDefault(x => x.Key == KanColleViewer.Models.Settings.Current.DisplayMaterial1) ?? repair;
             this._SelectedItem2 = this.Values.FirstOrDefault(x => x.Key == KanColleViewer.Models.Settings.Current.DisplayMaterial2) ?? build;
+
+            this.Model.PropertyChanged += (sender, args) =>
+            {
+                //args.PropertyName <--- Fuel, Ammunition, etc
+                fuel.Value = this.Model.Fuel;
+                ammunition.Value = this.Model.Ammunition;
+                steel.Value = this.Model.Steel;
+                bauxite.Value = this.Model.Bauxite;
+                develop.Value = this.Model.DevelopmentMaterials;
+                repair.Value = this.Model.InstantRepairMaterials;
+                build.Value = this.Model.InstantBuildMaterials;
+                improvement.Value = this.Model.ImprovementMaterials;
+            };
 		}
 
 		public class MaterialViewModel : ViewModel
 		{
             public string Key;
+            private string _Display;
 
-            public string Display;
+            public string Display
+            {
+                get { return this._Display; }
+                set
+                {
+                    if (this._Display != value)
+                    {
+                        this._Display = value;
+                        this.RaisePropertyChanged();
+                    }
+                }
+            }
 
 			#region Value 変更通知プロパティ
 
