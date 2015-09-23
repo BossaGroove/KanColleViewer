@@ -61,6 +61,106 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 
 		#endregion
 
+
+        #region SelectedItem3 変更通知プロパティ
+
+        private MaterialViewModel _SelectedItem3;
+
+        public MaterialViewModel SelectedItem3
+        {
+            get { return this._SelectedItem3; }
+            set
+            {
+                if (this._SelectedItem3 != value)
+                {
+                    this._SelectedItem3 = value;
+                    this.RaisePropertyChanged();
+                    if (value != null)
+                    {
+                        KanColleViewer.Models.Settings.Current.DisplayMaterial3 = value.Key;
+                    }
+                }
+            }
+        }
+
+        #endregion
+
+
+
+        #region SelectedItem4 変更通知プロパティ
+
+        private MaterialViewModel _SelectedItem4;
+
+        public MaterialViewModel SelectedItem4
+        {
+            get { return this._SelectedItem4; }
+            set
+            {
+                if (this._SelectedItem4 != value)
+                {
+                    this._SelectedItem4 = value;
+                    this.RaisePropertyChanged();
+                    if (value != null)
+                    {
+                        KanColleViewer.Models.Settings.Current.DisplayMaterial4 = value.Key;
+                    }
+                }
+            }
+        }
+
+        #endregion
+
+
+
+        #region SelectedItem4 変更通知プロパティ
+
+        private MaterialViewModel _SelectedItem5;
+
+        public MaterialViewModel SelectedItem5
+        {
+            get { return this._SelectedItem5; }
+            set
+            {
+                if (this._SelectedItem5 != value)
+                {
+                    this._SelectedItem5 = value;
+                    this.RaisePropertyChanged();
+                    if (value != null)
+                    {
+                        KanColleViewer.Models.Settings.Current.DisplayMaterial5 = value.Key;
+                    }
+                }
+            }
+        }
+
+        #endregion
+
+
+
+        #region SelectedItem4 変更通知プロパティ
+
+        private MaterialViewModel _SelectedItem6;
+
+        public MaterialViewModel SelectedItem6
+        {
+            get { return this._SelectedItem6; }
+            set
+            {
+                if (this._SelectedItem6 != value)
+                {
+                    this._SelectedItem6 = value;
+                    this.RaisePropertyChanged();
+                    if (value != null)
+                    {
+                        KanColleViewer.Models.Settings.Current.DisplayMaterial6 = value.Key;
+                    }
+                }
+            }
+        }
+
+        #endregion
+
+
 		public MaterialsViewModel()
 		{
 			this.Model = KanColleClient.Current.Homeport.Materials;
@@ -86,8 +186,12 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 				improvement,
 			};
 
-            this._SelectedItem1 = this.Values.FirstOrDefault(x => x.Key == KanColleViewer.Models.Settings.Current.DisplayMaterial1) ?? repair;
-            this._SelectedItem2 = this.Values.FirstOrDefault(x => x.Key == KanColleViewer.Models.Settings.Current.DisplayMaterial2) ?? build;
+            this._SelectedItem1 = this.Values.FirstOrDefault(x => x.Key == KanColleViewer.Models.Settings.Current.DisplayMaterial1) ?? fuel;
+            this._SelectedItem2 = this.Values.FirstOrDefault(x => x.Key == KanColleViewer.Models.Settings.Current.DisplayMaterial2) ?? ammunition;
+            this._SelectedItem3 = this.Values.FirstOrDefault(x => x.Key == KanColleViewer.Models.Settings.Current.DisplayMaterial3) ?? steel;
+            this._SelectedItem4 = this.Values.FirstOrDefault(x => x.Key == KanColleViewer.Models.Settings.Current.DisplayMaterial4) ?? bauxite;
+            this._SelectedItem5 = this.Values.FirstOrDefault(x => x.Key == KanColleViewer.Models.Settings.Current.DisplayMaterial5) ?? develop;
+            this._SelectedItem6 = this.Values.FirstOrDefault(x => x.Key == KanColleViewer.Models.Settings.Current.DisplayMaterial6) ?? repair;
 
             this.Model.PropertyChanged += (sender, args) =>
             {

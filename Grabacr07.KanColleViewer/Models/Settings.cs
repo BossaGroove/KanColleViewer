@@ -23,7 +23,7 @@ namespace Grabacr07.KanColleViewer.Models
 			"KanColleViewer",
 			"Settings.xml");
 
-		private static readonly string CurrentSettingsVersion = "1.11";
+		private static readonly string CurrentSettingsVersion = "1.12";
 
 		public static Settings Current { get; set; }
 
@@ -1141,6 +1141,78 @@ namespace Grabacr07.KanColleViewer.Models
 				}
 			}
 		}
+        #endregion
+
+
+
+        #region DisplayMaterial3 変更通知プロパティ
+        private string _DisplayMaterial3;
+
+        public string DisplayMaterial3
+        {
+            get { return this._DisplayMaterial3; }
+            set
+            {
+                if (this._DisplayMaterial3 != value)
+                {
+                    this._DisplayMaterial3 = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+        #endregion
+
+        #region DisplayMaterial4 変更通知プロパティ
+        private string _DisplayMaterial4;
+
+        public string DisplayMaterial4
+        {
+            get { return this._DisplayMaterial4; }
+            set
+            {
+                if (this._DisplayMaterial4 != value)
+                {
+                    this._DisplayMaterial4 = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+        #endregion
+
+
+        #region DisplayMaterial5 変更通知プロパティ
+        private string _DisplayMaterial5;
+
+        public string DisplayMaterial5
+        {
+            get { return this._DisplayMaterial5; }
+            set
+            {
+                if (this._DisplayMaterial5 != value)
+                {
+                    this._DisplayMaterial5 = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+        #endregion
+
+
+        #region DisplayMaterial6 変更通知プロパティ
+        private string _DisplayMaterial6;
+
+        public string DisplayMaterial6
+        {
+            get { return this._DisplayMaterial6; }
+            set
+            {
+                if (this._DisplayMaterial6 != value)
+                {
+                    this._DisplayMaterial6 = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
         #endregion
 
        	public void Save()
