@@ -11,7 +11,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 	public class MaterialsViewModel : ViewModel
 	{
         public Materials Model { get; private set; }
-
+        
         public ICollection<MaterialViewModel> Values { get; private set; }
 
 		#region SelectedItem1 変更通知プロパティ
@@ -205,6 +205,19 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
                 build.Value = this.Model.InstantBuildMaterials;
                 improvement.Value = this.Model.ImprovementMaterials;
             };
+
+            KanColleClient.Current.Translations.PropertyChanged += (sender, args) =>
+            {
+                fuel.Display = KanColleViewer.Properties.Resources.Homeport_Fuel;
+                ammunition.Display = KanColleViewer.Properties.Resources.Homeport_Ammunition;
+                steel.Display = KanColleViewer.Properties.Resources.Homeport_Steel;
+                bauxite.Display = KanColleViewer.Properties.Resources.Homeport_Bauxite;
+                develop.Display = KanColleViewer.Properties.Resources.Homeport_DevelopmentMaterials;
+                repair.Display = KanColleViewer.Properties.Resources.Homeport_InstantRepair;
+                build.Display = KanColleViewer.Properties.Resources.Homeport_InstantBuild;
+                improvement.Display = KanColleViewer.Properties.Resources.Homeport_ImprovementMaterial;
+            };
+            
 		}
 
 		public class MaterialViewModel : ViewModel
