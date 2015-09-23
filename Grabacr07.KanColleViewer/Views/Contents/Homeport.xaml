@@ -139,11 +139,12 @@
             -->
             <UniformGrid Columns="1"
 						 MinWidth="150"
+                         MaxHeight="40"
                          Margin="0,0,5,0">
                 <Panel.Resources>
                     <DataTemplate DataType="{x:Type contentsVm:MaterialsViewModel+MaterialViewModel}">
                         <Grid MinWidth="125"
-                             Margin="0,0,4,0">
+                             Margin="0,0,8,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
@@ -152,7 +153,6 @@
                             <TextBlock Style="{DynamicResource DefaultTextStyleKey}"
 									   VerticalAlignment="Bottom">
 								<Run Text="{Binding Display, Mode=OneWay}" />
-								<Run Text=":" />
                             </TextBlock>
                             <TextBlock Grid.Column="1"
 									   Text="{Binding Value, Mode=OneWay}"
@@ -172,11 +172,12 @@
 
             <UniformGrid Columns="1"
 						 MinWidth="150"
+                         MaxHeight="40"
                          Margin="0,0,5,0">
                 <Panel.Resources>
                     <DataTemplate DataType="{x:Type contentsVm:MaterialsViewModel+MaterialViewModel}">
                         <Grid MinWidth="125"
-                            Margin="0,0,4,0">
+                            Margin="0,0,8,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
@@ -185,7 +186,6 @@
                             <TextBlock Style="{DynamicResource DefaultTextStyleKey}"
 									   VerticalAlignment="Bottom">
 								<Run Text="{Binding Display, Mode=OneWay}" />
-								<Run Text=":" />
                             </TextBlock>
                             <TextBlock Grid.Column="1"
 									   Text="{Binding Value, Mode=OneWay}"
@@ -205,11 +205,12 @@
 
             <UniformGrid Columns="1"
 						 MinWidth="150"
-                         Margin="0,0,5,0">
+                         MaxHeight="40"
+                         Margin="0,0,0,0">
                 <Panel.Resources>
                     <DataTemplate DataType="{x:Type contentsVm:MaterialsViewModel+MaterialViewModel}">
                         <Grid MinWidth="125"
-                         Margin="0,0,4,0">
+                         Margin="0,0,8,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
@@ -218,7 +219,6 @@
                             <TextBlock Style="{DynamicResource DefaultTextStyleKey}"
 									   VerticalAlignment="Bottom">
 								<Run Text="{Binding Display, Mode=OneWay}" />
-								<Run Text=":" />
                             </TextBlock>
                             <TextBlock Grid.Column="1"
 									   Text="{Binding Value, Mode=OneWay}"

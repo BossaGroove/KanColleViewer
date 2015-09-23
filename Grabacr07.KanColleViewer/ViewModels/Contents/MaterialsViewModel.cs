@@ -165,14 +165,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 		{
 			this.Model = KanColleClient.Current.Homeport.Materials;
             
-			var fuel = new MaterialViewModel("fuel", "燃料");
-			var ammunition = new MaterialViewModel("ammunition", "弾薬");
-            var steel = new MaterialViewModel("steel", "鋼鉄");
-			var bauxite = new MaterialViewModel("bauxite", "ボーキサイト");
-            var develop = new MaterialViewModel("develop", "開発資材");
-            var repair = new MaterialViewModel("repair", "高速修復材");
-            var build = new MaterialViewModel("build", "高速建造材");
-            var improvement = new MaterialViewModel("improvement", "改修資材");
+			var fuel = new MaterialViewModel("fuel", KanColleViewer.Properties.Resources.Homeport_Fuel);
+            var ammunition = new MaterialViewModel("ammunition", KanColleViewer.Properties.Resources.Homeport_Ammunition);
+            var steel = new MaterialViewModel("steel", KanColleViewer.Properties.Resources.Homeport_Steel);
+            var bauxite = new MaterialViewModel("bauxite", KanColleViewer.Properties.Resources.Homeport_Bauxite);
+            var develop = new MaterialViewModel("develop", KanColleViewer.Properties.Resources.Homeport_DevelopmentMaterials);
+            var repair = new MaterialViewModel("repair",  KanColleViewer.Properties.Resources.Homeport_InstantRepair);
+            var build = new MaterialViewModel("build", KanColleViewer.Properties.Resources.Homeport_InstantBuild);
+            var improvement = new MaterialViewModel("improvement",  KanColleViewer.Properties.Resources.Homeport_ImprovementMaterial);
 			
             this.Values = new List<MaterialViewModel>
 			{
