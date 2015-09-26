@@ -1,12 +1,7 @@
 # About this fork
 
-This version is forked from [yuyuvn/KanColleViewer](https://github.com/yuyuvn/KanColleViewer), with ~~only 1~~ change: Added resources stat in homeport (fuel, ammunition, steel, bauxite, instant repair, development material)
-
-Before:
-![from](https://cloud.githubusercontent.com/assets/614068/7683528/4f7959e2-fdb2-11e4-933a-8d84c5cd0848.png)
-
-After:
-![to](https://cloud.githubusercontent.com/assets/614068/7683532/50bf2c78-fdb2-11e4-9677-d3d8b171d5dc.png)
+This version is forked from [yuyuvn/KanColleViewer](https://github.com/yuyuvn/KanColleViewer)
+~~wit only 1 change: Added resources stat in homeport (fuel, ammunition, steel, bauxite, instant repair, development material)~~
 
 All credits go to it's original author [Grabacr07](https://github.com/Grabacr07) and branch maintainer [yuyuvn](https://github.com/yuyuvn).
 
@@ -15,6 +10,8 @@ All credits go to it's original author [Grabacr07](https://github.com/Grabacr07)
 ### Note about yuyuvn branch
 
 As announced by [yuyuvn](https://github.com/yuyuvn/KanColleViewer/releases), he will not maintain his own branch anymore, and this repo's feature and codes will be detached from and will NOT keep in sync with his branch.
+
+Please check the [Release Page](https://github.com/BossaGroove/KanColleViewer/releases) for latest releases.
 
 
 # KanColleViewer! (提督業も忙しい！)
