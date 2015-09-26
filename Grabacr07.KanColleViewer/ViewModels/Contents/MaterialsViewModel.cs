@@ -165,14 +165,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 		{
 			this.Model = KanColleClient.Current.Homeport.Materials;
             
-			var fuel = new MaterialViewModel("fuel", KanColleViewer.Properties.Resources.Homeport_Fuel);
-            var ammunition = new MaterialViewModel("ammunition", KanColleViewer.Properties.Resources.Homeport_Ammunition);
-            var steel = new MaterialViewModel("steel", KanColleViewer.Properties.Resources.Homeport_Steel);
-            var bauxite = new MaterialViewModel("bauxite", KanColleViewer.Properties.Resources.Homeport_Bauxite);
-            var develop = new MaterialViewModel("develop", KanColleViewer.Properties.Resources.Homeport_DevelopmentMaterials);
-            var repair = new MaterialViewModel("repair",  KanColleViewer.Properties.Resources.Homeport_InstantRepair);
-            var build = new MaterialViewModel("build", KanColleViewer.Properties.Resources.Homeport_InstantBuild);
-            var improvement = new MaterialViewModel("improvement",  KanColleViewer.Properties.Resources.Homeport_ImprovementMaterial);
+			var fuel = new MaterialViewModel("fuel", KanColleViewer.Properties.Resources.Homeport_Fuel_Short);
+            var ammunition = new MaterialViewModel("ammunition", KanColleViewer.Properties.Resources.Homeport_Ammunition_Short);
+            var steel = new MaterialViewModel("steel", KanColleViewer.Properties.Resources.Homeport_Steel_Short);
+            var bauxite = new MaterialViewModel("bauxite", KanColleViewer.Properties.Resources.Homeport_Bauxite_Short);
+            var develop = new MaterialViewModel("develop", KanColleViewer.Properties.Resources.Homeport_DevelopmentMaterials_Short);
+            var repair = new MaterialViewModel("repair", KanColleViewer.Properties.Resources.Homeport_InstantRepair_Short);
+            var build = new MaterialViewModel("build", KanColleViewer.Properties.Resources.Homeport_InstantBuild_Short);
+            var improvement = new MaterialViewModel("improvement", KanColleViewer.Properties.Resources.Homeport_ImprovementMaterial_Short);
 			
             this.Values = new List<MaterialViewModel>
 			{
@@ -208,14 +208,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 
             KanColleClient.Current.Translations.PropertyChanged += (sender, args) =>
             {
-                fuel.Display = KanColleViewer.Properties.Resources.Homeport_Fuel;
-                ammunition.Display = KanColleViewer.Properties.Resources.Homeport_Ammunition;
-                steel.Display = KanColleViewer.Properties.Resources.Homeport_Steel;
-                bauxite.Display = KanColleViewer.Properties.Resources.Homeport_Bauxite;
-                develop.Display = KanColleViewer.Properties.Resources.Homeport_DevelopmentMaterials;
-                repair.Display = KanColleViewer.Properties.Resources.Homeport_InstantRepair;
-                build.Display = KanColleViewer.Properties.Resources.Homeport_InstantBuild;
-                improvement.Display = KanColleViewer.Properties.Resources.Homeport_ImprovementMaterial;
+                fuel.Display = KanColleViewer.Properties.Resources.Homeport_Fuel_Short;
+                ammunition.Display = KanColleViewer.Properties.Resources.Homeport_Ammunition_Short;
+                steel.Display = KanColleViewer.Properties.Resources.Homeport_Steel_Short;
+                bauxite.Display = KanColleViewer.Properties.Resources.Homeport_Bauxite_Short;
+                develop.Display = KanColleViewer.Properties.Resources.Homeport_DevelopmentMaterials_Short;
+                repair.Display = KanColleViewer.Properties.Resources.Homeport_InstantRepair_Short;
+                build.Display = KanColleViewer.Properties.Resources.Homeport_InstantBuild_Short;
+                improvement.Display = KanColleViewer.Properties.Resources.Homeport_ImprovementMaterial_Short;
             };
             
 		}

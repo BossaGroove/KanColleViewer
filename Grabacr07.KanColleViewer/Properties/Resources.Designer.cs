@@ -581,42 +581,61 @@ namespace Grabacr07.KanColleViewer.Properties {
                 return ResourceManager.GetString("Fleets_ViewRange", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to 弾薬.
+        ///   Looks up a localized string similar to 弾薬:.
         /// </summary>
-        public static string Homeport_Ammunition
-        {
-            get
-            {
+        public static string Homeport_Ammunition {
+            get {
                 return ResourceManager.GetString("Homeport_Ammunition", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to ボーキサイト.
+        ///   Looks up a localized string similar to 弾薬:.
         /// </summary>
-        public static string Homeport_Bauxite
-        {
-            get
-            {
+        public static string Homeport_Ammunition_Short {
+            get {
+                return ResourceManager.GetString("Homeport_Ammunition_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ボーキサイト:.
+        /// </summary>
+        public static string Homeport_Bauxite {
+            get {
                 return ResourceManager.GetString("Homeport_Bauxite", resourceCulture);
             }
         }
-
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to 開発資材.
+        ///   Looks up a localized string similar to ボーキ:.
         /// </summary>
-        public static string Homeport_DevelopmentMaterials
-        {
-            get
-            {
+        public static string Homeport_Bauxite_Short {
+            get {
+                return ResourceManager.GetString("Homeport_Bauxite_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 開発資材:.
+        /// </summary>
+        public static string Homeport_DevelopmentMaterials {
+            get {
                 return ResourceManager.GetString("Homeport_DevelopmentMaterials", resourceCulture);
             }
         }
-
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 開発:.
+        /// </summary>
+        public static string Homeport_DevelopmentMaterials_Short {
+            get {
+                return ResourceManager.GetString("Homeport_DevelopmentMaterials_Short", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to 司令部.
         /// </summary>
@@ -625,24 +644,40 @@ namespace Grabacr07.KanColleViewer.Properties {
                 return ResourceManager.GetString("Homeport_FleetHQ", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to 燃料.
+        ///   Looks up a localized string similar to 燃料:.
         /// </summary>
-        public static string Homeport_Fuel
-        {
-            get
-            {
+        public static string Homeport_Fuel {
+            get {
                 return ResourceManager.GetString("Homeport_Fuel", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 燃料:.
+        /// </summary>
+        public static string Homeport_Fuel_Short {
+            get {
+                return ResourceManager.GetString("Homeport_Fuel_Short", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to 改修資材:.
         /// </summary>
         public static string Homeport_ImprovementMaterial {
             get {
                 return ResourceManager.GetString("Homeport_ImprovementMaterial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 改修:.
+        /// </summary>
+        public static string Homeport_ImprovementMaterial_Short {
+            get {
+                return ResourceManager.GetString("Homeport_ImprovementMaterial_Short", resourceCulture);
             }
         }
         
@@ -656,11 +691,29 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 建造:.
+        /// </summary>
+        public static string Homeport_InstantBuild_Short {
+            get {
+                return ResourceManager.GetString("Homeport_InstantBuild_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 高速修復材:.
         /// </summary>
         public static string Homeport_InstantRepair {
             get {
                 return ResourceManager.GetString("Homeport_InstantRepair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 修復:.
+        /// </summary>
+        public static string Homeport_InstantRepair_Short {
+            get {
+                return ResourceManager.GetString("Homeport_InstantRepair_Short", resourceCulture);
             }
         }
         
@@ -681,18 +734,25 @@ namespace Grabacr07.KanColleViewer.Properties {
                 return ResourceManager.GetString("Homeport_NoOfShips", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to 鋼材.
+        ///   Looks up a localized string similar to 鋼材:.
         /// </summary>
-        public static string Homeport_Steel
-        {
-            get
-            {
+        public static string Homeport_Steel {
+            get {
                 return ResourceManager.GetString("Homeport_Steel", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 鋼材:.
+        /// </summary>
+        public static string Homeport_Steel_Short {
+            get {
+                return ResourceManager.GetString("Homeport_Steel_Short", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to 情報.
         /// </summary>

@@ -1259,4 +1259,28 @@ Low: 重視效能表現多於質量。質素最低的選項</value>
   <data name="Homeport_Steel" xml:space="preserve">
     <value>Steel:</value>
   </data>
+  <data name="Homeport_Ammunition_Short" xml:space="preserve">
+    <value>Ammo:</value>
+  </data>
+  <data name="Homeport_Bauxite_Short" xml:space="preserve">
+    <value>Bauxite:</value>
+  </data>
+  <data name="Homeport_DevelopmentMaterials_Short" xml:space="preserve">
+    <value>Dev. Mat.:</value>
+  </data>
+  <data name="Homeport_Fuel_Short" xml:space="preserve">
+    <value>Fuel:</value>
+  </data>
+  <data name="Homeport_ImprovementMaterial_Short" xml:space="preserve">
+    <value>Screws:</value>
+  </data>
+  <data name="Homeport_InstantBuild_Short" xml:space="preserve">
+    <value>Inst. Build:</value>
+  </data>
+  <data name="Homeport_InstantRepair_Short" xml:space="preserve">
+    <value>Inst. Repair:</value>
+  </data>
+  <data name="Homeport_Steel_Short" xml:space="preserve">
+    <value>Steel:</value>
+  </data>
 </root>
