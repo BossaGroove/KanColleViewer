@@ -24,7 +24,7 @@
 				   mc:Ignorable="d"
 				   d:DataContext="{d:DesignInstance viewModels:ShipCatalogWindowViewModel}"
 				   Title="{Binding Title}"
-				   Width="950"
+				   Width="1050"
 				   Height="800"
 				   FontSize="12"
 				   Background="{DynamicResource ThemeBrushKey}"
@@ -930,13 +930,14 @@
 								</GridViewColumn.CellTemplate>
 							</GridViewColumn>-->
 
-							<GridViewColumn Width="110">
+							<GridViewColumn Width="148">
                                 <GridViewColumn.Header>
                                     <TextBlock Text="{Binding Resources.ShipCatalog_Equips, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
                                 </GridViewColumn.Header>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate DataType="{x:Type contentsVm:ShipViewModel}">
-										<ItemsControl ItemsSource="{Binding Ship.EquippedSlots}">
+                                        <!--
+                                        <ItemsControl ItemsSource="{Binding Ship.EquippedSlots}">
                                             <ItemsControl.Template>
                                                 <ControlTemplate TargetType="{x:Type ItemsControl}">
                                                     <StackPanel IsItemsHost="True"
@@ -954,14 +955,14 @@
                                                                 <TextBlock>
 																	<Run Text="{Binding Item.Info.Name, Mode=OneWay}" />
 																	<TextBlock Margin="5,0">
-																			<TextBlock.Style>
-																				<Style TargetType="{x:Type TextBlock}">
-																					<Setter Property="Text"
+                                                                        <TextBlock.Style>
+                                                                            <Style TargetType="{x:Type TextBlock}">
+                                                                                <Setter Property="Text"
 																						Value="{Binding Item.LevelText, Mode=OneWay}" />
-																					<Setter Property="Foreground"
+                                                                                <Setter Property="Foreground"
 																						Value="#FF45A9A5" />
-																				</Style>
-																			</TextBlock.Style>
+                                                                            </Style>
+                                                                        </TextBlock.Style>
 																	</TextBlock>
 																	<TextBlock Visibility="{Binding Item.Info.IsNumerable, Converter={StaticResource BooleanToVisibilityConverter}}">
 																		<Run Text="[" />
@@ -971,7 +972,7 @@
 																		<Run Text="]" />
 																	</TextBlock>
 																</TextBlock>
-																<TextBlock Text="{Binding Item.Info.AllStats, Mode=OneWay}" />
+                                                                <TextBlock Text="{Binding Item.Info.AllStats, Mode=OneWay}" />
                                                             </StackPanel>
                                                         </Border.ToolTip>
                                                         <Viewbox>
@@ -982,6 +983,74 @@
                                                 </DataTemplate>
                                             </ItemsControl.ItemTemplate>
                                         </ItemsControl>
+                                        -->
+                                        
+                                        <DockPanel>
+                                            <ItemsControl ItemsSource="{Binding Ship.Slots}">
+                                                <ItemsControl.Template>
+                                                    <ControlTemplate TargetType="{x:Type ItemsControl}">
+                                                        <StackPanel IsItemsHost="True"
+                                                                    Orientation="Horizontal" />
+                                                    </ControlTemplate>
+                                                </ItemsControl.Template>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border x:Name="Elements"
+                                                                Background="Transparent"
+                                                                Height="20"
+                                                                Padding="0,1">
+                                                            <Border.ToolTip>
+                                                                <controls:SlotItemTooltip EqName="{Binding Item.Info.Name}"
+																						  LevelText="{Binding Item.LevelText}"
+																						  AdeptText="{Binding Item.AdeptText}"
+																						  IsNumerable="{Binding Item.Info.IsNumerable}"
+																						  Current="{Binding Current}"
+																						  Maximum="{Binding Maximum}"
+																						  UntranslatedName="{Binding Item.Info.UntranslatedName}"
+																						  AllStats="{Binding Item.Info.AllStats}"
+																						  ShowHeader="True" />
+                                                            </Border.ToolTip>
+                                                            <Viewbox>
+                                                                <controls:SlotItemIcon Type="{Binding Item.Info.IconType}"
+                                                                                       Margin="0,0,4,0" />
+                                                            </Viewbox>
+                                                        </Border>
+                                                        <DataTemplate.Triggers>
+                                                            <DataTrigger Binding="{Binding Equipped}"
+                                                                             Value="False">
+                                                                <Setter TargetName="Elements"
+                                                                            Property="Visibility"
+                                                                            Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </DataTemplate.Triggers>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                            <DockPanel Visibility="{Binding Ship.ExSlot.Equipped, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                                       Height="20">
+                                                <Rectangle Width="1"
+                                                           Style="{DynamicResource SeparatorRectangleStyleKey}"
+                                                           Margin="8,1,0,1" />
+                                                <Border Background="Transparent">
+                                                    <Border.ToolTip>
+                                                        <controls:SlotItemTooltip EqName="{Binding Ship.ExSlot.Item.Info.Name}"
+																						  LevelText="{Binding Ship.ExSlot.Item.LevelText}"
+																						  AdeptText="{Binding Ship.ExSlot.Item.AdeptText}"
+																						  IsNumerable="{Binding Ship.ExSlot.Item.Info.IsNumerable}"
+																						  Current="{Binding Ship.ExSlot.Current}"
+																						  Maximum="{Binding Ship.ExSlot.Maximum}"
+																						  UntranslatedName="{Binding Ship.ExSlot.Item.Info.UntranslatedName}"
+																						  AllStats="{Binding Ship.ExSlot.Item.Info.AllStats}"
+																						  ShowHeader="True" />
+                                                    </Border.ToolTip>
+                                                    <Viewbox>
+                                                        <controls:SlotItemIcon Type="{Binding Ship.ExSlot.Item.Info.IconType}"
+                                                                           Margin="4,1" />
+                                                    </Viewbox>
+                                                </Border>
+                                            </DockPanel>
+                                        </DockPanel>
+                                        
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>

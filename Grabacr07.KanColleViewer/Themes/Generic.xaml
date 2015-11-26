@@ -10,7 +10,8 @@
 		<ResourceDictionary Source="/KanColleViewer;component/Themes/Generic.ConditionIcon.xaml" />
 		<ResourceDictionary Source="/KanColleViewer;component/Themes/Generic.Modernizable.xaml" />
 		<ResourceDictionary Source="/KanColleViewer;component/Themes/Generic.Quest.xaml" />
-		<ResourceDictionary Source="/KanColleViewer;component/Themes/Generic.SlotItemIcon.xaml" />
-	</ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/KanColleViewer;component/Themes/Generic.SlotItemIcon.xaml" />
+        <ResourceDictionary Source="/KanColleViewer;component/Themes/Generic.SlotItemTooltip.xaml" />
+    </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

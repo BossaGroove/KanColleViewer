@@ -287,6 +287,7 @@
     <Compile Include="Views\Controls\BuildingDock.cs" />
     <Compile Include="Views\Controls\Quest.cs" />
     <Compile Include="Views\Controls\SlotItemIcon.cs" />
+    <Compile Include="Views\Controls\SlotItemTooltip.cs" />
     <Compile Include="Views\Contents\Shipyard.xaml.cs">
       <DependentUpon>Shipyard.xaml</DependentUpon>
     </Compile>
@@ -430,6 +431,11 @@
       <DependentUpon>Generic.xaml</DependentUpon>
     </Page>
     <Page Include="Themes\Generic.SlotItemIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Generic.xaml</DependentUpon>
+    </Page>
+    <Page Include="Themes\Generic.SlotItemTooltip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <DependentUpon>Generic.xaml</DependentUpon>

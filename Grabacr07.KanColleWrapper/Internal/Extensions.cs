@@ -25,7 +25,15 @@ namespace Grabacr07.KanColleWrapper.Internal
 		/// </summary>
 		public static int? Get(this int[] array, int index)
 		{
-			return array.Length > index ? (int?)array[index] : null;
+            if (array != null)
+            {
+                return array.Length > index ? (int?)array[index] : null;
+            }
+            else
+            {
+                return null;
+            }
+			
 		}
 
 		public static string Join(this IEnumerable<string> values, string separator)

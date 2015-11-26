@@ -13,6 +13,8 @@ namespace Grabacr07.KanColleWrapper
 {
 	public class Itemyard : NotificationObject
 	{
+        private readonly Homeport homeport;
+
 		/// <summary>
 		/// 出撃中にドロップで入手した装備の数。
 		/// 帰投して slot_item を取得するまでは新しい装備の ID が判らないので、数だけ控えておき、SlotItemsCount で使用する。
@@ -74,8 +76,10 @@ namespace Grabacr07.KanColleWrapper
 		#endregion
 
 
-		internal Itemyard(KanColleProxy proxy)
-		{
+        internal Itemyard(Homeport parent, KanColleProxy proxy)
+        {
+            this.homeport = parent;
+
 			this.SlotItems = new MemberTable<SlotItem>();
 			this.UseItems = new MemberTable<UseItem>();
 
@@ -98,6 +102,7 @@ namespace Grabacr07.KanColleWrapper
 		{
 			this.droppedItemsCount = 0;
 			this.SlotItems = new MemberTable<SlotItem>(source.Select(x => new SlotItem(x)));
+            //foreach (var ship in this.homeport.Organization.Ships.Values) ship.UpdateSlots();
 		}
 
 		internal void Update(kcsapi_useitem[] source)
@@ -107,6 +112,8 @@ namespace Grabacr07.KanColleWrapper
 
 		internal void AddFromDock(kcsapi_kdock_getship source)
 		{
+            //if (source.api_slotitem == null) return;
+
 			foreach (var x in source.api_slotitem.Select(x => new SlotItem(x)))
 			{
 				this.SlotItems.Add(x);

@@ -465,21 +465,7 @@ namespace Grabacr07.KanColleWrapper.Models
 				this.Luck = new ModernizableStatus(this.Info.RawData.api_luck, this.RawData.api_kyouka[4]);
 			}
 
-			this.Slots = this.RawData.api_slot
-				.Select(id => this.homeport.Itemyard.SlotItems[id])
-				.Select((t, i) => new ShipSlot(t, this.Info.RawData.api_maxeq.Get(i) ?? 0, this.RawData.api_onslot.Get(i) ?? 0))
-				.ToArray();
-			//this.ExSlot = new ShipSlot(this.homeport.Itemyard.SlotItems[this.RawData.api_slot_ex], 0, 0);
-			this.EquippedSlots = this.Slots.Where(x => x.Equipped).ToArray();
-
-			if (this.EquippedSlots.Any(x => x.Item.Info.Type == SlotItemType.応急修理要員))
-			{
-				this.Situation |= ShipSituation.DamageControlled;
-			}
-			else
-			{
-				this.Situation &= ~ShipSituation.DamageControlled;
-			}
+            this.UpdateSlots();
 
 			// Minimum removes equipped values.
 			int eqAntiSub = 0, eqEvasion = 0, eqLineOfSight = 0;
@@ -506,7 +492,7 @@ namespace Grabacr07.KanColleWrapper.Models
                 .Select((t, i) => new ShipSlot(t, this.Info.RawData.api_maxeq.Get(i) ?? 0, this.RawData.api_onslot.Get(i) ?? 0))
                 .ToArray();
 
-            //this.ExSlot = new ShipSlot(this.homeport.Itemyard.SlotItems[this.RawData.api_slot_ex], 0, 0);
+            this.ExSlot = new ShipSlot(this.homeport.Itemyard.SlotItems[this.RawData.api_slot_ex], 0, 0);
             this.EquippedSlots = this.Slots.Where(x => x.Equipped).ToArray();
 
             if (this.EquippedSlots.Any(x => x.Item.Info.Type == SlotItemType.応急修理要員))
