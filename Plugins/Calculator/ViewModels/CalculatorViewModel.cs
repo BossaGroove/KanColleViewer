@@ -16,17 +16,21 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 {
     public class CalculatorViewModel : ViewModel
 	{
+        public const int MAX_LEVEL = 155;
+
 		/// <summary>
 		/// Completely experience table from 1 to 150. Each line = 20 levels
 		/// </summary>
-		public static int[] ExpTable = new int[] { 0, 0, 100, 300, 600, 1000, 1500, 2100, 2800, 3600, 4500, 5500, 6600, 7800, 9100, 10500, 12000, 13600, 15300, 17100, 19000, 
+		public static int[] ExpTable = new int[] {
+            0, 0, 100, 300, 600, 1000, 1500, 2100, 2800, 3600, 4500, 5500, 6600, 7800, 9100, 10500, 12000, 13600, 15300, 17100, 19000, 
 			21000, 23100, 25300, 27600, 30000, 32500, 35100, 37800, 40600, 43500, 46500, 49600, 52800, 56100, 59500, 63000, 66600, 70300, 74100, 78000, 
 			82000, 86100, 90300, 94600, 99000, 103500, 108100, 112800, 117600, 122500, 127500, 132700, 138100, 143700, 149500, 155500, 161700, 168100, 174700, 181500, 
 			188500, 195800, 203400, 211300, 219500, 228000, 236800, 245900, 255300, 265000, 275000, 285400, 296200, 307400, 319000, 331000, 343400, 356200, 369400, 383000, 
 			397000, 411500, 426500, 442000, 458000, 474500, 491500, 509000, 527000, 545500, 564500, 584500, 606500, 631500, 661500, 701500, 761500, 851500, 1000000, 1000000, 
 			1010000, 1011000, 1013000, 1016000, 1020000, 1025000, 1031000, 1038000, 1046000, 1055000, 1065000, 1077000, 1091000, 1107000, 1125000, 1145000, 1168000, 1194000, 1223000, 1255000, 
 			1290000, 1329000, 1372000, 1419000, 1470000, 1525000, 1584000, 1647000, 1714000, 1785000, 1860000, 1940000, 2025000, 2115000, 2210000, 2310000, 2415000, 2525000, 2640000, 2760000, 
-			2887000, 3021000, 3162000, 3310000, 3465000, 3628000, 3799000, 3978000, 4165000, 4360000 };
+			2887000, 3021000, 3162000, 3310000, 3465000, 3628000, 3799000, 3978000, 4165000, 4360000, 4564000, 4777000, 4999000, 5230000, 5470000
+        };
 
 		/// <summary>
 		/// Sea exp table. Cannot be used properly in xaml without dumb workarounds.
@@ -34,13 +38,13 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 		public IEnumerable<string> SeaList { get; private set; }
 		public static Dictionary<string, int> SeaExpTable = new Dictionary<string, int> 
 		{
-			{"1-1", 30}, {"1-2", 50}, {"1-3", 80}, {"1-4", 100}, {"1-5", 150},
-			{"2-1", 120}, {"2-2", 150}, {"2-3", 200},{"2-4", 300}, {"2-5", 250},
+			{"1-1", 30}, {"1-2", 50}, {"1-3", 80}, {"1-4", 100}, {"1-5", 150}, {"1-6", 220},
+            {"2-1", 120}, {"2-2", 150}, {"2-3", 200},{"2-4", 300}, {"2-5", 250},
 			{"3-1", 310}, {"3-2", 320}, {"3-3", 330}, {"3-4", 350}, {"3-5", 400},
-			{"4-1", 310}, {"4-2", 320}, {"4-3", 330}, {"4-4", 340},
-			{"5-1", 360}, {"5-2", 380}, {"5-3", 400}, {"5-4", 420}, {"5-5", 450},
-			{"6-1", 400}, {"6-2", 420},
-		};
+			{"4-1", 310}, {"4-2", 320}, {"4-3", 330}, {"4-4", 340}, {"4-5", 440},
+            {"5-1", 360}, {"5-2", 380}, {"5-3", 400}, {"5-4", 420}, {"5-5", 450},
+			{"6-1", 400}, {"6-2", 420}, {"6-3", 400}
+        };
 
 		public IEnumerable<string> ResultList { get; private set; }
 		public string[] Results =  { "S", "A", "B", "C", "D", "E" };
@@ -84,7 +88,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 					if (value != null)
 					{
 						this.CurrentLevel = this.CurrentShip.Level;
-						this.TargetLevel = Math.Min(this.CurrentShip.Level + 1, 150);
+						this.TargetLevel = Math.Min(this.CurrentShip.Level + 1, MAX_LEVEL);
 						this.CurrentExp = this.CurrentShip.Exp;
 						this.UpdateExpCalculator();
 						this.RaisePropertyChanged();
@@ -104,11 +108,11 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 			get { return this._CurrentLevel; }
 			set
 			{
-				if (this._CurrentLevel != value && value >= 1 && value <= 150)
+				if (this._CurrentLevel != value && value >= 1 && value <= MAX_LEVEL)
 				{
 					this._CurrentLevel = value;
 					this.CurrentExp = ExpTable[value];
-					this.TargetLevel = Math.Max(this.TargetLevel, Math.Min(value + 1, 150));
+					this.TargetLevel = Math.Max(this.TargetLevel, Math.Min(value + 1, MAX_LEVEL));
 					this.RaisePropertyChanged();
 					this.UpdateExpCalculator();
 				}
@@ -126,7 +130,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 			get { return this._TargetLevel; }
 			set
 			{
-				if (this._TargetLevel != value && value >= 1 && value <= 150)
+				if (this._TargetLevel != value && value >= 1 && value <= MAX_LEVEL)
 				{
 					this._TargetLevel = value;
 					this.TargetExp = ExpTable[value];
