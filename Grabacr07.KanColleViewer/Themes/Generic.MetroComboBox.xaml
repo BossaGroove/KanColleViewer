@@ -173,6 +173,12 @@
 									Value="false" />
                         </Trigger>
                         <Trigger Property="IsMouseOver"
+								 Value="False">
+                            <Setter Property="Visibility"
+									TargetName="toggleButton"
+									Value="Hidden" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver"
 								 Value="True">
                             <Setter Property="Foreground"
 									TargetName="toggleButton"

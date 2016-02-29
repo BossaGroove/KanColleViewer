@@ -173,7 +173,8 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
             var repair = new MaterialViewModel("repair", KanColleViewer.Properties.Resources.Homeport_InstantRepair_Short);
             var build = new MaterialViewModel("build", KanColleViewer.Properties.Resources.Homeport_InstantBuild_Short);
             var improvement = new MaterialViewModel("improvement", KanColleViewer.Properties.Resources.Homeport_ImprovementMaterial_Short);
-			
+            var blank = new MaterialViewModel("blank", "");
+
             this.Values = new List<MaterialViewModel>
 			{
 				fuel,
@@ -184,6 +185,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 				repair,
 				build,
 				improvement,
+                blank
 			};
 
             this._SelectedItem1 = this.Values.FirstOrDefault(x => x.Key == KanColleViewer.Models.Settings.Current.DisplayMaterial1) ?? fuel;
@@ -196,14 +198,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
             this.Model.PropertyChanged += (sender, args) =>
             {
                 //args.PropertyName <--- Fuel, Ammunition, etc
-                fuel.Value = this.Model.Fuel;
-                ammunition.Value = this.Model.Ammunition;
-                steel.Value = this.Model.Steel;
-                bauxite.Value = this.Model.Bauxite;
-                develop.Value = this.Model.DevelopmentMaterials;
-                repair.Value = this.Model.InstantRepairMaterials;
-                build.Value = this.Model.InstantBuildMaterials;
-                improvement.Value = this.Model.ImprovementMaterials;
+                fuel.Value = this.Model.Fuel.ToString();
+                ammunition.Value = this.Model.Ammunition.ToString();
+                steel.Value = this.Model.Steel.ToString();
+                bauxite.Value = this.Model.Bauxite.ToString();
+                develop.Value = this.Model.DevelopmentMaterials.ToString();
+                repair.Value = this.Model.InstantRepairMaterials.ToString();
+                build.Value = this.Model.InstantBuildMaterials.ToString();
+                improvement.Value = this.Model.ImprovementMaterials.ToString();
             };
 
             KanColleClient.Current.Translations.PropertyChanged += (sender, args) =>
@@ -240,9 +242,9 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 
 			#region Value 変更通知プロパティ
 
-			private int _Value;
+            private string _Value;
 
-			public int Value
+            public string Value
 			{
 				get { return this._Value; }
 				set
@@ -261,6 +263,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 			{
 				this.Key = key;
 				this.Display = display;
+                this.Value = "";
 			}
 		}
 	}

@@ -20,8 +20,8 @@
 			 d:DataContext="{d:DesignInstance viewModels:MainContentViewModel}">
 	<Grid>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*" />
-			<ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
 		</Grid.ColumnDefinitions>
 		<Grid.Resources>
 			<Style TargetType="{x:Type TextBlock}"
@@ -61,84 +61,10 @@
 		</StackPanel>
 
 		<StackPanel Grid.Column="1"
-					Orientation="Horizontal">
-
-            <!--<Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-
-                <TextBlock Grid.Column="1">
-                    <Run Text="{Binding Resources.Homeport_Fuel, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-                    <Run Text="{Binding Materials.Model.Fuel, Mode=OneWay}"
-                         Style="{DynamicResource EmphaticTextElementStyleKey}" />
-                    <LineBreak />
-                    <Run Text="{Binding Resources.Homeport_Ammunition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-                    <Run Text="{Binding Materials.Model.Ammunition, Mode=OneWay}"
-                         Style="{DynamicResource EmphaticTextElementStyleKey}" />
-                </TextBlock>
-            </Grid>
-
-
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-
-                <TextBlock Grid.Column="1">
-                    <Run Text="{Binding Resources.Homeport_Steel, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-                    <Run Text="{Binding Materials.Model.Steel, Mode=OneWay}"
-                         Style="{DynamicResource EmphaticTextElementStyleKey}" />
-                    <LineBreak />
-                    <Run Text="{Binding Resources.Homeport_Bauxite, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-                    <Run Text="{Binding Materials.Model.Bauxite, Mode=OneWay}"
-                         Style="{DynamicResource EmphaticTextElementStyleKey}" />
-                </TextBlock>
-            </Grid>
-
-
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-
-                <TextBlock Grid.Column="1">
-                    <Run Text="{Binding Resources.Homeport_DevelopmentMaterials, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-                    <Run Text="{Binding Materials.Model.DevelopmentMaterials, Mode=OneWay}"
-                         Style="{DynamicResource EmphaticTextElementStyleKey}" />
-                    <LineBreak />
-                    <Run Text="{Binding Resources.Homeport_InstantRepair, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-                    <Run Text="{Binding Materials.Model.InstantRepairMaterials, Mode=OneWay}"
-                         Style="{DynamicResource EmphaticTextElementStyleKey}" />
-
-
-                </TextBlock>
-            </Grid>
-
-
-
-            <Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*" />
-					<ColumnDefinition Width="Auto" />
-				</Grid.ColumnDefinitions>
-
-				<TextBlock Grid.Column="1">
-					<Run Text="{Binding Resources.Homeport_ImprovementMaterial, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-					<Run Text="{Binding Materials.Model.ImprovementMaterials, Mode=OneWay}"
-						 Style="{DynamicResource EmphaticTextElementStyleKey}" />
-					<LineBreak />
-					<Run Text="{Binding Resources.Homeport_InstantBuild, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-					<Run Text="{Binding Materials.Model.InstantBuildMaterials, Mode=OneWay}"
-						 Style="{DynamicResource EmphaticTextElementStyleKey}" />
-				</TextBlock>
-			</Grid>
-            -->
+					Orientation="Horizontal"
+                    HorizontalAlignment="Right">
             <UniformGrid Columns="1"
-						 MinWidth="110"
+						 MinWidth="100"
                          MaxHeight="40"
                          Margin="0,0,5,0">
                 <Panel.Resources>
@@ -171,7 +97,7 @@
             </UniformGrid>
 
             <UniformGrid Columns="1"
-						 MinWidth="110"
+						 MinWidth="100"
                          MaxHeight="40"
                          Margin="0,0,5,0">
                 <Panel.Resources>
@@ -204,7 +130,7 @@
             </UniformGrid>
 
             <UniformGrid Columns="1"
-						 MinWidth="110"
+						 MinWidth="100"
                          MaxHeight="40"
                          Margin="0,0,0,0">
                 <Panel.Resources>
