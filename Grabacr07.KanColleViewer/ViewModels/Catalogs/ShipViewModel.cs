@@ -32,7 +32,17 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		}
 
 		#endregion
-		
+        
+        public string TimeToRepair
+        {
+            get {
+                if (this.Ship.TimeToRepair != TimeSpan.Zero) {
+                    return (int)this.Ship.TimeToRepair.TotalHours + ":" + this.Ship.TimeToRepair.ToString(@"mm\:ss");
+                } else {
+                    return "";
+                }
+            }
+        }
 
 		public ShipViewModel(int index, Ship ship)
 		{

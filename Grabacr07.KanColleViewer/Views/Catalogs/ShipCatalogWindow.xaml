@@ -24,7 +24,7 @@
 				   mc:Ignorable="d"
 				   d:DataContext="{d:DesignInstance viewModels:ShipCatalogWindowViewModel}"
 				   Title="{Binding Title}"
-				   Width="1050"
+				   Width="1130"
 				   Height="800"
 				   FontSize="12"
 				   Background="{DynamicResource ThemeBrushKey}"
@@ -391,6 +391,31 @@
                                     </WrapPanel>
                                 </Grid>
                             </StackPanel>
+                            
+                            <StackPanel>
+								<Grid DataContext="{Binding ShipDamagedFilter}">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto"
+														  SharedSizeGroup="FilterName" />
+										<ColumnDefinition Width="10" />
+										<ColumnDefinition Width="*" />
+									</Grid.ColumnDefinitions>
+									<TextBlock Margin="0,2"
+											   HorizontalAlignment="Right">
+										<Run Text="損傷艦" />
+										<Run Text=":" />
+									</TextBlock>
+									<WrapPanel Grid.Column="2">
+										<RadioButton Content="すべて"
+													 IsChecked="{Binding Both, Mode=TwoWay}" />
+										<RadioButton Content="損傷あり"
+													 IsChecked="{Binding Damaged, Mode=TwoWay}" />
+										<RadioButton Content="損傷なし"
+													 IsChecked="{Binding Undamaged, Mode=TwoWay}" />
+									</WrapPanel>
+								</Grid>
+							</StackPanel>
+                            
                         </WrapPanel>
                     </Border>
 
@@ -899,8 +924,8 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-
-							<!-- Event only -->
+                            
+                            <!-- Event only -->
 							<!--<GridViewColumn Width="65">
 								<GridViewColumn.Header>
 									<TextBlock Text="{Binding Resources.ShipCatalog_SortieWaters, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
@@ -1054,6 +1079,25 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
+
+
+                            <GridViewColumn Width="64">
+                                <GridViewColumn.Header>
+                                    <metro2:SortButton MethodName="Sort"
+													   MethodParameter="{x:Static viewModels:ShipCatalogSortWorker.TimeToRepairColumn}">
+                                        <TextBlock Text="修復時間"
+												   ToolTip="入渠にかかる時間です" />
+                                    </metro2:SortButton>
+                                </GridViewColumn.Header>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding TimeToRepair, Mode=OneWay}"
+												   Foreground="{DynamicResource ActiveForegroundBrushKey}"
+												   Margin="0,3" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            
                         </GridView>
                     </ListView.View>
                 </ListView>

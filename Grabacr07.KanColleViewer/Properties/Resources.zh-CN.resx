@@ -1284,4 +1284,7 @@ Low: 最好性能(画质惨不忍睹)</value>
   <data name="Homeport_Steel_Short" xml:space="preserve">
     <value>Steel:</value>
   </data>
+  <data name="ShipCatalog_RepairTime" xml:space="preserve">
+    <value>Repair Time</value>
+  </data>
 </root>

@@ -31,6 +31,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
         public static readonly SortableColumn ViewRangeColumn = new SortableColumn { Name = Resources.ShipCatalog_LoS, KeySelector = x => x.ViewRange, DefaultIsDescending = true, };
         public static readonly SortableColumn EvasionColumn = new SortableColumn { Name = Resources.ShipCatalog_Evasion, KeySelector = x => x.Evasion.Current, DefaultIsDescending = true, };
         public static readonly SortableColumn AntiSubColumn = new SortableColumn { Name = Resources.ShipCatalog_AntiSub, KeySelector = x => x.AntiSub.Current, DefaultIsDescending = true, };
+        public static readonly SortableColumn TimeToRepairColumn = new SortableColumn { Name = Resources.ShipCatalog_RepairTime, KeySelector = x => x.TimeToRepair.Ticks, DefaultIsDescending = true, };
 
         public static SortableColumn[] Columns { get; set; }
 
@@ -53,7 +54,8 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 				ViewRangeColumn,
                 EvasionColumn,
                 AntiSubColumn,
-				SortIdColumn
+				SortIdColumn,
+                TimeToRepairColumn
 			};
         }
 

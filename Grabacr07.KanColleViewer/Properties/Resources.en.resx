@@ -1283,4 +1283,7 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Homeport_Steel_Short" xml:space="preserve">
     <value>Steel:</value>
   </data>
+  <data name="ShipCatalog_RepairTime" xml:space="preserve">
+    <value>Repair Time</value>
+  </data>
 </root>
