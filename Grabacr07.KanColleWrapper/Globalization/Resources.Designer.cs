@@ -278,5 +278,37 @@ namespace Grabacr07.KanColleWrapper.Globalization {
                 return ResourceManager.GetString("ViewRange_Type3_Name", resourceCulture);
             }
         }
+
+        internal static string ViewRange_Type4_Description
+        {
+            get
+            {
+                return ResourceManager.GetString("ViewRange_Type4_Description", resourceCulture);
+            }
+        }
+
+        internal static string ViewRange_Type4_Name_BothFleets
+        {
+            get
+            {
+                return ResourceManager.GetString("ViewRange_Type4_Name_BothFleets", resourceCulture);
+            }
+        }
+
+        internal static string ViewRange_Type4_Name_FirstFleetOnly
+        {
+            get
+            {
+                return ResourceManager.GetString("ViewRange_Type4_Name_FirstFleetOnly", resourceCulture);
+            }
+        }
+
+        internal static string ViewRange_Type4_Name_SecondFleetOnly
+        {
+            get
+            {
+                return ResourceManager.GetString("ViewRange_Type4_Name_SecondFleetOnly", resourceCulture);
+            }
+        }
     }
 }

@@ -192,4 +192,18 @@
   <data name="ViewRange_Type3_Name" xml:space="preserve">
     <value>2-5 式 (秋)</value>
   </data>
+  <data name="ViewRange_Type4_Description" xml:space="preserve">
+    <value>((各スロットの装備の索敵値 + 改修効果) × 装備タイプ係数)の和 + (√各艦の素索敵値)の和
+- (司令部レベル × 0.4)の小数点以下切り上げ + 艦隊の空き数 × 2
+※艦隊の空き数は退避した艦を除いて算出</value>
+  </data>
+  <data name="ViewRange_Type4_Name_BothFleets" xml:space="preserve">
+    <value>33式 (連合艦隊時の計算対象: 両艦隊)</value>
+  </data>
+  <data name="ViewRange_Type4_Name_FirstFleetOnly" xml:space="preserve">
+    <value>33式 (連合艦隊時の計算対象: 第1艦隊のみ)</value>
+  </data>
+  <data name="ViewRange_Type4_Name_SecondFleetOnly" xml:space="preserve">
+    <value>33式 (連合艦隊時の計算対象: 第2艦隊のみ)</value>
+  </data>
 </root>

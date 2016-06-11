@@ -19,7 +19,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		string Description { get; }
 
-		double Calc(Ship[] ships);
+        double Calc(Fleet[] fleets);
 	}
 
 
@@ -45,13 +45,16 @@ namespace Grabacr07.KanColleWrapper.Models
 			new ViewRangeType1();
 			new ViewRangeType2();
 			new ViewRangeType3();
+            new ViewRangeType4FirstFleetOnly();
+            new ViewRangeType4SecondFleetOnly();
+            new ViewRangeType4BothFleets();
 			// ReSharper restore ObjectCreationAsStatement
 		}
 
 		public abstract string Id { get; }
 		public abstract string Name { get; }
 		public abstract string Description { get; }
-		public abstract double Calc(Ship[] ships);
+        public abstract double Calc(Fleet[] fleets);
 
 		protected ViewRangeCalcLogic()
 		{
@@ -79,11 +82,11 @@ namespace Grabacr07.KanColleWrapper.Models
 			get { return Resources.ViewRange_Type1_Description; }
 		}
 
-		public override double Calc(Ship[] ships)
+        public override double Calc(Fleet[] fleets)
 		{
-			if (ships == null || ships.Length == 0) return 0;
+            if (fleets == null || fleets.Length == 0) return 0;
 
-			return ships.Sum(x => x.ViewRange);
+            return fleets.SelectMany(x => x.Ships).Sum(x => x.ViewRange);
 		}
 	}
 
@@ -105,9 +108,10 @@ namespace Grabacr07.KanColleWrapper.Models
 			get { return Resources.ViewRange_Type2_Description; }
 		}
 
-		public override double Calc(Ship[] ships)
+        public override double Calc(Fleet[] fleets)
 		{
-			if (ships == null || ships.Length == 0) return 0;
+            if (fleets == null || fleets.Length == 0) return 0;
+            var ships = fleets.SelectMany(x => x.Ships).ToArray();
 
 			// http://wikiwiki.jp/kancolle/?%C6%EE%C0%BE%BD%F4%C5%E7%B3%A4%B0%E8#area5
 			// [索敵装備と装備例] によって示されている計算式
@@ -151,9 +155,10 @@ namespace Grabacr07.KanColleWrapper.Models
 			}
 		}
 
-		public override double Calc(Ship[] ships)
+        public override double Calc(Fleet[] fleets)
 		{
-			if (ships == null || ships.Length == 0) return 0;
+            if (fleets == null || fleets.Length == 0) return 0;
+            var ships = fleets.SelectMany(x => x.Ships).ToArray();
 
 			// http://wikiwiki.jp/kancolle/?%C6%EE%C0%BE%BD%F4%C5%E7%B3%A4%B0%E8#search-calc
 			// > 2-5式では説明出来ない事象を解決するため膨大な検証報告数より導き出した新式。2014年11月に改良され精度があがった。
@@ -216,5 +221,154 @@ namespace Grabacr07.KanColleWrapper.Models
 
 			return .0;
 		}
+	}
+
+
+    public abstract class AbstractViewRangeType4 : ViewRangeCalcLogic
+	{
+       	public override string Name
+		{
+			get { return ""; }
+		}
+
+		public override string Description
+		{
+			get
+			{
+                return Resources.ViewRange_Type4_Description;
+			}
+		}
+
+		public override double Calc(Fleet[] fleets)
+		{
+			if (fleets == null || fleets.Length == 0) return 0;
+
+			var ships = this.GetTargetShips(fleets)
+						.Where(x => !x.Situation.HasFlag(ShipSituation.Evacuation))
+						.Where(x => !x.Situation.HasFlag(ShipSituation.Tow))
+						.ToArray();
+
+			var itemScore = ships
+				.SelectMany(x => x.EquippedSlots)
+				.Select(x => x.Item)
+				.Sum(x => (x.Info.SightRange + GetAdeptCoefficient(x)) * GetTypeCoefficient(x.Info.Type));
+
+			var shipScore = ships
+				.Select(x => x.ViewRange - x.EquippedSlots.Sum(s => s.Item.Info.RawData.api_saku))
+				.Sum(x => Math.Sqrt(x));
+
+			var admiralScore = Math.Ceiling(KanColleClient.Current.Homeport.Admiral.Level * 0.4);
+
+			var vacancyScore = (6 - ships.Length) * 2;
+
+			return itemScore + shipScore - admiralScore + vacancyScore;
+		}
+
+		protected abstract Ship[] GetTargetShips(Fleet[] fleets);
+
+		private static double GetAdeptCoefficient(SlotItem item)
+		{
+			switch (item.Info.Type)
+			{
+				case SlotItemType.水上偵察機:
+					return Math.Sqrt(item.Adept) * 1.2;
+
+				case SlotItemType.小型電探:
+				case SlotItemType.大型電探:
+				case SlotItemType.大型電探_II:
+					return Math.Sqrt(item.Adept) * 1.25;
+
+				default:
+					return 0;
+			}
+		}
+
+		private static double GetTypeCoefficient(SlotItemType type)
+		{
+			switch (type)
+			{
+				case SlotItemType.艦上戦闘機:
+				case SlotItemType.艦上爆撃機:
+				case SlotItemType.小型電探:
+				case SlotItemType.大型電探:
+				case SlotItemType.対潜哨戒機:
+				case SlotItemType.探照灯:
+				case SlotItemType.司令部施設:
+				case SlotItemType.航空要員:
+				case SlotItemType.水上艦要員:
+				case SlotItemType.大型ソナー:
+				case SlotItemType.大型飛行艇:
+				case SlotItemType.大型探照灯:
+				case SlotItemType.水上戦闘機:
+					return 0.6;
+
+				case SlotItemType.艦上攻撃機:
+					return 0.8;
+
+				case SlotItemType.艦上偵察機:
+				case SlotItemType.艦上偵察機_II:
+					return 1.0;
+
+				case SlotItemType.水上爆撃機:
+					return 1.1;
+
+				case SlotItemType.水上偵察機:
+					return 1.2;
+
+				default:
+					return .0;
+			}
+		}
+	}
+
+	public class ViewRangeType4FirstFleetOnly : AbstractViewRangeType4
+	{
+        public override sealed string Id
+		{
+			get { return "KanColleViewer.Type4-FirstFleetOnly"; }
+		}
+		
+        public override string Name
+		{
+            get { return Resources.ViewRange_Type4_Name_FirstFleetOnly; }
+		}
+
+		protected override Ship[] GetTargetShips(Fleet[] fleets) {
+            return fleets.First().Ships;
+        }
+	}
+
+	public class ViewRangeType4SecondFleetOnly : AbstractViewRangeType4
+	{
+        public override sealed string Id
+		{
+			get { return "KanColleViewer.Type4-SecondFleetOnly"; }
+		}
+		
+        public override string Name
+		{
+            get { return Resources.ViewRange_Type4_Name_SecondFleetOnly; }
+		}
+
+		protected override Ship[] GetTargetShips(Fleet[] fleets) {
+            return fleets.Last().Ships;
+        }	
+	}
+
+	public class ViewRangeType4BothFleets : AbstractViewRangeType4
+	{
+        public override sealed string Id
+		{
+			get { return "KanColleViewer.Type4-BothFleets"; }
+		}
+
+        public override string Name
+		{
+            get { return Resources.ViewRange_Type4_Name_BothFleets; }
+		}
+        
+		protected override Ship[] GetTargetShips(Fleet[] fleets) {
+            return fleets.SelectMany(x => x.Ships).ToArray();
+        }
 	}
 }
