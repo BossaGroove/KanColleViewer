@@ -1286,4 +1286,7 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="ShipCatalog_RepairTime" xml:space="preserve">
     <value>修復時間</value>
   </data>
+  <data name="Settings_Operation_LoS_33_Combined_Fleet" xml:space="preserve">
+    <value>連合艦隊時、以下の艦隊を索敵値計算の対象として使用する</value>
+  </data>
 </root>

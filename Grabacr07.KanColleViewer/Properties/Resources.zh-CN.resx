@@ -1287,4 +1287,7 @@ Low: 最好性能(画质惨不忍睹)</value>
   <data name="ShipCatalog_RepairTime" xml:space="preserve">
     <value>Repair Time</value>
   </data>
+  <data name="Settings_Operation_LoS_33_Combined_Fleet" xml:space="preserve">
+    <value>連合艦隊時、以下の艦隊を索敵値計算の対象として使用する</value>
+  </data>
 </root>

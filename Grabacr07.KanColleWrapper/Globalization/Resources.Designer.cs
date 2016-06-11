@@ -310,5 +310,12 @@ namespace Grabacr07.KanColleWrapper.Globalization {
                 return ResourceManager.GetString("ViewRange_Type4_Name_SecondFleetOnly", resourceCulture);
             }
         }
+        internal static string ViewRange_Type4_Name
+        {
+            get
+            {
+                return ResourceManager.GetString("ViewRange_Type4_Name", resourceCulture);
+            }
+        }
     }
 }

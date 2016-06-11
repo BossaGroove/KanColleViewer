@@ -1733,6 +1733,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 連合艦隊時、以下の艦隊を索敵値計算の対象として使用する.
+        /// </summary>
+        public static string Settings_Operation_LoS_33_Combined_Fleet {
+            get {
+                return ResourceManager.GetString("Settings_Operation_LoS_33_Combined_Fleet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 艦上偵察機.
         /// </summary>
         public static string Settings_Operation_LoS_CarrierBasedRecon {

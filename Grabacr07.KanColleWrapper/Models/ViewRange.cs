@@ -45,9 +45,7 @@ namespace Grabacr07.KanColleWrapper.Models
 			new ViewRangeType1();
 			new ViewRangeType2();
 			new ViewRangeType3();
-            new ViewRangeType4FirstFleetOnly();
-            new ViewRangeType4SecondFleetOnly();
-            new ViewRangeType4BothFleets();
+            new ViewRangeType4();
 			// ReSharper restore ObjectCreationAsStatement
 		}
 
@@ -55,6 +53,10 @@ namespace Grabacr07.KanColleWrapper.Models
 		public abstract string Name { get; }
 		public abstract string Description { get; }
         public abstract double Calc(Fleet[] fleets);
+        public virtual bool HasCombinedSettings { get {
+                return false;
+            }
+        }
 
 		protected ViewRangeCalcLogic()
 		{
@@ -224,11 +226,16 @@ namespace Grabacr07.KanColleWrapper.Models
 	}
 
 
-    public abstract class AbstractViewRangeType4 : ViewRangeCalcLogic
+    public class ViewRangeType4 : ViewRangeCalcLogic
 	{
+        public override sealed string Id
+        {
+            get { return "KanColleViewer.Type4"; }
+        }
+
        	public override string Name
 		{
-			get { return ""; }
+            get { return Resources.ViewRange_Type4_Name; }
 		}
 
 		public override string Description
@@ -238,6 +245,11 @@ namespace Grabacr07.KanColleWrapper.Models
                 return Resources.ViewRange_Type4_Description;
 			}
 		}
+        public override bool HasCombinedSettings {
+            get {
+                return true;
+            }
+        }
 
 		public override double Calc(Fleet[] fleets)
 		{
@@ -247,6 +259,8 @@ namespace Grabacr07.KanColleWrapper.Models
 						.Where(x => !x.Situation.HasFlag(ShipSituation.Evacuation))
 						.Where(x => !x.Situation.HasFlag(ShipSituation.Tow))
 						.ToArray();
+
+            if (!ships.Any()) return 0;
 
 			var itemScore = ships
 				.SelectMany(x => x.EquippedSlots)
@@ -259,12 +273,32 @@ namespace Grabacr07.KanColleWrapper.Models
 
 			var admiralScore = Math.Ceiling(KanColleClient.Current.Homeport.Admiral.Level * 0.4);
 
-			var vacancyScore = (6 - ships.Length) * 2;
+			var isCombined = 1 < fleets.Count()
+                 && KanColleClient.Current.Settings.IsViewRangeCalcIncludeFirstFleet
+                 && KanColleClient.Current.Settings.IsViewRangeCalcIncludeSecondFleet;
+            
+            var vacancyScore = ((isCombined ? 12 : 6) - ships.Length) * 2;
 
 			return itemScore + shipScore - admiralScore + vacancyScore;
 		}
 
-		protected abstract Ship[] GetTargetShips(Fleet[] fleets);
+		private Ship[] GetTargetShips(Fleet[] fleets)
+ 		{
+ 			if (fleets.Count() == 1)
+ 				return fleets.Single().Ships;
+ 
+ 			if(KanColleClient.Current.Settings.IsViewRangeCalcIncludeFirstFleet
+ 			&& KanColleClient.Current.Settings.IsViewRangeCalcIncludeSecondFleet)
+ 				return fleets.SelectMany(x => x.Ships).ToArray();
+ 
+ 			if (KanColleClient.Current.Settings.IsViewRangeCalcIncludeFirstFleet)
+ 				return fleets.First().Ships;
+ 
+ 			if (KanColleClient.Current.Settings.IsViewRangeCalcIncludeSecondFleet)
+ 				return fleets.Last().Ships;
+ 
+ 			return new Ship[0];
+ 		}
 
 		private static double GetAdeptCoefficient(SlotItem item)
 		{
@@ -319,56 +353,5 @@ namespace Grabacr07.KanColleWrapper.Models
 					return .0;
 			}
 		}
-	}
-
-	public class ViewRangeType4FirstFleetOnly : AbstractViewRangeType4
-	{
-        public override sealed string Id
-		{
-			get { return "KanColleViewer.Type4-FirstFleetOnly"; }
-		}
-		
-        public override string Name
-		{
-            get { return Resources.ViewRange_Type4_Name_FirstFleetOnly; }
-		}
-
-		protected override Ship[] GetTargetShips(Fleet[] fleets) {
-            return fleets.First().Ships;
-        }
-	}
-
-	public class ViewRangeType4SecondFleetOnly : AbstractViewRangeType4
-	{
-        public override sealed string Id
-		{
-			get { return "KanColleViewer.Type4-SecondFleetOnly"; }
-		}
-		
-        public override string Name
-		{
-            get { return Resources.ViewRange_Type4_Name_SecondFleetOnly; }
-		}
-
-		protected override Ship[] GetTargetShips(Fleet[] fleets) {
-            return fleets.Last().Ships;
-        }	
-	}
-
-	public class ViewRangeType4BothFleets : AbstractViewRangeType4
-	{
-        public override sealed string Id
-		{
-			get { return "KanColleViewer.Type4-BothFleets"; }
-		}
-
-        public override string Name
-		{
-            get { return Resources.ViewRange_Type4_Name_BothFleets; }
-		}
-        
-		protected override Ship[] GetTargetShips(Fleet[] fleets) {
-            return fleets.SelectMany(x => x.Ships).ToArray();
-        }
 	}
 }

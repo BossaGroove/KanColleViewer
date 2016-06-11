@@ -92,5 +92,43 @@ namespace Grabacr07.KanColleWrapper
 		}
 
 		#endregion
+
+        #region IsViewRangeCalcIncludeFirstFleet 変更通知プロパティ
+
+        private bool _IsViewRangeCalcIncludeFirstFleet;
+
+        public bool IsViewRangeCalcIncludeFirstFleet
+        {
+            get { return this._IsViewRangeCalcIncludeFirstFleet; }
+            set
+            {
+                if (this._IsViewRangeCalcIncludeFirstFleet != value)
+                {
+                    this._IsViewRangeCalcIncludeFirstFleet = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        #endregion
+
+        #region IsViewRangeCalcIncludeSecondFleet 変更通知プロパティ
+
+        private bool _IsViewRangeCalcIncludeSecondFleet;
+
+        public bool IsViewRangeCalcIncludeSecondFleet
+        {
+            get { return this._IsViewRangeCalcIncludeSecondFleet; }
+            set
+            {
+                if (this._IsViewRangeCalcIncludeSecondFleet != value)
+                {
+                    this._IsViewRangeCalcIncludeSecondFleet = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        #endregion
 	}
 }
