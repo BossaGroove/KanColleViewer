@@ -5,4 +5,4 @@ As announced by [yuyuvn](https://github.com/yuyuvn/KanColleViewer/releases), he 
 
 Please check the [Release Page](https://github.com/BossaGroove/KanColleViewer/releases) for latest releases.
 
-For readme, please visit [yuyuvn/KanColleViewer](https://github.com/yuyuvn/KanColleViewer) or original version [Grabacr07/KanColleViewer]https://github.com/Grabacr07/KanColleViewer
+For readme, please visit [yuyuvn/KanColleViewer](https://github.com/yuyuvn/KanColleViewer) or original version [Grabacr07/KanColleViewer](https://github.com/Grabacr07/KanColleViewer)
