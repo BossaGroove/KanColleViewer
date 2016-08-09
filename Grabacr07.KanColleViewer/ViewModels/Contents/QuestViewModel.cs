@@ -147,14 +147,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 		{
 			get
 			{
-				switch (this.Type)
-				{
-					case QuestType.Special1:
-					case QuestType.Special2:
-						return QuestType.Daily;
-					default:
-						return this.Type;
-				}
+				return this.Type;
 			}
 		}
 
