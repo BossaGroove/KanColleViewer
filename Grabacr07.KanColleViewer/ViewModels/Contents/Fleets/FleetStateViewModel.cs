@@ -23,11 +23,6 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 			get { return this.Source.TotalLevel.ToString("###0"); }
 		}
 
-		public string AirSuperiorityPotential
-		{
-			get { return this.Source.AirSuperiorityPotential.ToString("##0"); }
-		}
-
 		public string ViewRange
 		{
 			get { return this.Source.ViewRange.ToString("##0.##"); }

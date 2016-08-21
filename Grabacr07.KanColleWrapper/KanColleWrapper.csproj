@@ -103,6 +103,7 @@
     <Compile Include="Globalization\Resources.Designer.cs" />
     <Compile Include="Globalization\ResourceService.cs" />
     <Compile Include="Models\BattleState.cs" />
+    <Compile Include="Models\AirSuperiorityPotential.cs" />
     <Compile Include="Models\Raw\kcsapi_midnight_battle.cs" />
     <Compile Include="Models\DroppedShip.cs" />
     <Compile Include="Models\CombinedFleet.cs" />

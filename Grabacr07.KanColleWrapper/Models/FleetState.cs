@@ -62,28 +62,6 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		#endregion
 
-		#region AirSuperiorityPotential 変更通知プロパティ
-
-		private int _AirSuperiorityPotential;
-
-		/// <summary>
-		/// 艦隊の制空能力を取得します。
-		/// </summary>
-		public int AirSuperiorityPotential
-		{
-			get { return this._AirSuperiorityPotential; }
-			private set
-			{
-				if (this._AirSuperiorityPotential != value)
-				{
-					this._AirSuperiorityPotential = value;
-					this.RaisePropertyChanged();
-				}
-			}
-		}
-
-		#endregion
-
 		#region MinAirSuperiorityPotential 変更通知プロパティ
 
 		private int _MinAirSuperiorityPotential;
@@ -261,9 +239,9 @@ namespace Grabacr07.KanColleWrapper.Models
 
 			this.TotalLevel = ships.HasItems() ? ships.Sum(x => x.Level) : 0;
 			this.AverageLevel = ships.HasItems() ? (double)this.TotalLevel / ships.Length : 0.0;
-			this.AirSuperiorityPotential = ships.Sum(s => s.CalcAirSuperiorityPotential());
-			this.MinAirSuperiorityPotential = ships.Sum(s => s.CalcMinAirSuperiorityPotential());
-			this.MaxAirSuperiorityPotential = ships.Sum(s => s.CalcMaxAirSuperiorityPotential());
+
+            this.MinAirSuperiorityPotential = ships.Sum(s => s.GetAirSuperiorityPotential(AirSuperiorityCalculationOptions.Minimum));
+            this.MaxAirSuperiorityPotential = ships.Sum(s => s.GetAirSuperiorityPotential(AirSuperiorityCalculationOptions.Maximum));
 			this.Speed = ships.All(x => x.Info.Speed == ShipSpeed.Fast)
 				? FleetSpeed.Fast
 				: ships.All(x => x.Info.Speed == ShipSpeed.Low)

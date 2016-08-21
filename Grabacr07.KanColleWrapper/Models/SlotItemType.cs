@@ -59,4 +59,29 @@ namespace Grabacr07.KanColleWrapper.Models
  		大型電探_II = 93,
  		艦上偵察機_II = 94,
 	}
+
+    public static class SlotItemTypeExtensions
+    {
+        public static bool IsNumerable(this SlotItemType type)
+        {
+            switch (type)
+            {
+                case SlotItemType.艦上偵察機:
+                case SlotItemType.艦上偵察機_II:
+                case SlotItemType.艦上戦闘機:
+                case SlotItemType.艦上攻撃機:
+                case SlotItemType.艦上爆撃機:
+                case SlotItemType.水上偵察機:
+                case SlotItemType.水上爆撃機:
+                case SlotItemType.水上戦闘機:
+                case SlotItemType.オートジャイロ:
+                case SlotItemType.対潜哨戒機:
+                case SlotItemType.大型飛行艇:
+                    return true;
+
+                default:
+                    return false;
+            }
+        }
+    }
 }
